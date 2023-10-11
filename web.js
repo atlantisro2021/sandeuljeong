@@ -17,7 +17,7 @@ const fileUploader = require('./public/js/fileUploader.js')
 require('dotenv').config()
 
 const connection = mysql.createConnection({
-    host     : '175.119.224.59',
+    host     : '127.0.0.1',
     user     : 'root',
     password : 'nice2021!',
     database : 'test'
