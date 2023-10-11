@@ -1,0 +1,84 @@
+<%- include('../../manage/include/header.ejs') %>
+<%-include('../../manage/include/summernoteHead.ejs')%>
+
+<section class="gallery_section_mainpage">
+    <fieldset>
+        <div class="notice_list_top">
+            <p1>뉴스</p1>
+            <p2>Home > 공지사항 > 뉴스</p2>
+        </div>
+        <form action="/editnews" method="post">
+            <input type="hidden" name="idx" value="<%= item.idx %>"/>
+            <table class="edit-table">
+                <tr>
+                    <td class="edit-front-td">제목 :</td>
+                    <td>
+                        <input type="text" name="title" value="<%= item.title %>" alt="제목" class="edit-title"/> &nbsp; ※ 최 상단의 이미지는 썸네일 입니다. 1대1비율의 이미지를 사용해주세요
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="edit-front-td">내용 :&nbsp;</td>
+                    <td>
+                        <textarea name="memo" id="summernote"><%- item.memo %></textarea>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="edit-button-div">
+                <button class="edit-button" type="submit">
+                    등록
+                </button>
+                &nbsp;
+            </div>
+
+        </form>
+    </fieldset>
+</section>
+
+<script>
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            placeholder: '내용을 작성해주세요',
+            tabsize: 10,
+            height: 400,
+            callbacks:{
+                onImageUpload: function (files, editor, welEditable) {
+                    //file size check
+                    for(var i = files.length-1; i>=0; i--){
+                        if(files[i].size > 1024*1024*30){
+                            alert('5MB 미만의 파일을 사용해주세요');
+                            return;
+                        }
+                    }
+                    //file sending
+                    for(var i = files.length - 1; i>=0; i--){
+                        console.log('통과')
+                        sendImg(files[i], this, `/upload`);
+                    }
+
+                }
+            }
+        });
+    });
+
+    function sendImg(file, el, uploadURL) {
+        var form_data = new FormData();
+        form_data.append("file", file);
+        console.log(file);
+        $.ajax({
+            data: form_data,
+            type: "POST",
+            url: uploadURL,
+            // cache: false,
+            contentType: false,
+            processData: false,
+            success: function (res) {
+                $(el).summernote('editor.insertImage', "./public/documents/images/" + res.data.filename);
+            }
+        });
+    }
+
+</script>
+
+<%- include('../../manage/include/footer.ejs') %>

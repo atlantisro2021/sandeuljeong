@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>관리자 페이지</title>
+    <link rel='stylesheet' href='/public/css/manager_style.css'>
+    <script src="/public/js/header.js"></script>
+    <script src="/public/js/prev_next.js"></script>
+
+    <section class="gallery_section_h" style="padding-left: 20px;">
+        <a href="/m-notice">
+        <h3>관리자시스템</h3>
+        </a>
+        <a href="/logout" class="logout"><img src="/public/img/power_off.png" alt="" width="20" height="20" class=""></a>
+    </section>
+
+    <section class="gallery_section_sidebar">
+        <a id="side_1" onclick="admin_side()">
+            <div style="display: flow-root; text-align: center; font-size: 14px; margin-top: 20px; padding: 13px;">
+                <img src="/public/img/management.png" alt="" width="25" height="25">
+                <br>
+                <p>관리설정</p>
+            </div>
+        </a>
+        <a id="side_2" onclick="review_side()">
+            <div class="sidebar">
+                <img src="/public/img/content.png" alt="" width="25" height="25">
+                <br>
+                <p>고객리뷰</p>
+            </div>
+        </a>
+        <a id="side_3" onclick="notice_side()">
+            <div class="sidebar">
+                <img src="/public/img/notice.png" alt="" width="25" height="25">
+                <br>
+                <p>공지사항</p>
+            </div>
+        </a>
+        <a id="side_4" onclick="closed_menu()">
+            <div class="sidebar">
+                <img src="/public/img/cansle.png" alt="" width="25" height="25">
+                <br>
+                <p>메뉴닫기</p>
+            </div>
+        </a>
+    </section>
+
+    <section id="admin_side" class="gallery_section_side_menu">
+        <a href="/admin_manage" class="top">
+            <div class="side_div">
+                <p>관리자 설정</p>
+            </div>
+        </a>
+        <a href="/popupManage" class="top">
+            <div class="side_div">
+                <p>팝업 설정</p>
+            </div>
+        </a>
+    </section>
+
+    <section id="review_side" class="gallery_section_side_menu">
+        <a href="/m-review" class="top">
+            <div class="side_div">
+                <p>고객리뷰</p>
+            </div>
+        </a>
+    </section>
+
+    <section id="notice_side" class="gallery_section_side_menu">
+        <a href="/m_news" class="top">
+            <div class="side_div">
+                <p>뉴스</p>
+            </div>
+        </a>
+        <a href="/m-notice" class="top">
+            <div class="side_div">
+                <p>공지사항</p>
+            </div>
+        </a>
+    </section>
+    <% if(user_id){ %>
+
+    <% } else { %>
+        <script> alert ('로그인이 필요한 서비스입니다.'); location.href='/master'; </script>
+    <% } %>
+</head>
+<body>

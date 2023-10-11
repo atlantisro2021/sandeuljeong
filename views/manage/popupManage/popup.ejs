@@ -1,0 +1,71 @@
+<%- include('../../manage/include/header.ejs') %>
+
+
+
+<section class="gallery_section_mainpage">
+    <fieldset>
+        <div class="notice_list_top">
+            <p1>팝업 관리</p1>
+            <p2>Home &gt; 관리 설정 &gt; 팝업 관리</p2>
+        </div>
+
+        <form name="searchform" method="post" action="list.asp" class="search-form">
+
+            <input type="hidden" name="bm_id" value="1">
+            <input type="hidden" name="menu" value="2">
+
+            <div class="search-button-group">
+                <button src="" type="button" class="search-form-button">
+                    <a href="/admin_edit">
+                        <p>등록</p>
+                    </a>
+                </button>
+                <button src="" type="button" class="search-form-button">
+                    <a href="#delete">
+                        <p>삭제</p>
+                    </a>
+                </button>
+            </div>
+        </form>
+
+        <form name="checkform" method="post" action="/uploadPopup" enctype="multipart/form-data">
+            <table class="checkform-table">
+                <tbody>
+                <tr class="checkform-table-header">
+                    <td class="checkform-table-smalltd">팝업</td>
+                    <td>현재 이미지</td>
+                    <td>신규 이미지 등록 <span style="color: red;">※ 1대1 사진을 사용해주세요 </span></td>
+                    <td class="checkform-table-writer-and-date">작동 설정</td>
+                    <td>저장</td>
+                </tr>
+                <tr class="checkform-table-body">
+                    <td>팝업</td>
+                    <td>
+                        <img src="./public/documents/popup/<%= popupData.img %>" alt="Popup Image">
+                    </td>
+                    <td>
+                        <input type="file" name="popupImage" accept="image/*">
+                    </td>
+                    <td>
+                        <select name="status">
+                            <option value="on" <%= popupData.status ? 'selected' : '' %>>ON</option>
+                            <option value="off" <%= !popupData.status ? 'selected' : '' %>>OFF</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button type="submit">저장</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+
+    </fieldset>
+</section>
+
+
+<%- include('../../manage/include/footer.ejs') %>
+
+
+
+

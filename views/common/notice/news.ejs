@@ -1,0 +1,86 @@
+<%- include('../../common/include/header.ejs') %>
+<body id="news">
+<link rel="stylesheet" href="/public/css/common_css/news.css">
+<link rel="stylesheet" href="/public/css/common_css/main.css">
+<div class="container">
+    <section class="section_01">
+        <img class="mobile_back" id="targetImage" src="/public/img/mobile/notice/mobile_notice_sec01.png" style="width: 100%;"/>
+        <script>
+            window.onload = function() {
+                changeImageSrcBasedOnWidth();
+            }
+
+            window.addEventListener('resize', changeImageSrcBasedOnWidth);
+
+            function changeImageSrcBasedOnWidth() {
+                const imgElement = document.getElementById('targetImage');
+                if (window.innerWidth <= 500 && imgElement.src !== '/public/img/mobile/notice/mobile_notice_sec01.png') {
+                    imgElement.src = '/public/img/mobile/notice/mobile_notice_sec01.png';  // 원하는 새로운 이미지 경로로 변경하세요.
+                } else if (window.innerWidth > 500 && imgElement.src !== '/public/img/mobile_notice_800.png') {
+                    imgElement.src = '/public/img/mobile_notice_800.png';
+                }
+            }
+        </script>
+    </section>
+    <!--섹션1-->
+
+    <section class="section_main_btm review_1">
+        <span class="gallery_top_span">RECENT NEWS</span>
+
+        <div class="main_card_notice">
+            <% for(let i = 0; i < Math.min(3, lists.length); i++) { %>
+                <div class="card_notice cn_<%= i+1 %>" data-link="/detail?table=news&idx=<%= lists[i].idx %>">
+                    <div class="card_notice_top">
+                        <span><%= lists[i].title %></span>
+                    </div>
+                    <img src="<%= lists[i].thumbnail %>"/>
+                </div>
+            <% } %>
+        </div>
+
+        <% if(lists.length > 3) { %>
+            <div class="main_card_notice">
+                <% for(let i = 3; i < Math.min(6, lists.length); i++) { %>
+                    <div class="card_notice cn_<%= i+1 %>" data-link="/detail?table=news&idx=<%= lists[i].idx %>">
+                        <div class="card_notice_top">
+                            <span><%= lists[i].title %></span>
+                        </div>
+                        <img src="<%= lists[i].thumbnail %>"/>
+                    </div>
+                <% } %>
+            </div>
+        <% } %>
+
+        <% if(lists.length > 6) { %>
+            <div class="main_card_notice">
+                <% for(let i = 6; i < Math.min(9, lists.length); i++) { %>
+                    <div class="card_notice cn_<%= i+1 %>" data-link="/detail?table=news&idx=<%= lists[i].idx %>">
+                        <div class="card_notice_top">
+                            <span><%= lists[i].title %></span>
+                        </div>
+                        <img src="<%= lists[i].thumbnail %>"/>
+                    </div>
+                <% } %>
+            </div>
+        <% } %>
+    </section>
+
+</div>
+</body>
+
+    <script>
+        window.onload = function (){
+            setTimeout(() => document.getElementById('main_span').style.top = '0' , 500);
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('[data-link]').forEach(item => {
+                item.addEventListener('click', function() {
+                    window.location.href = this.dataset.link;
+                });
+            });
+        });
+    </script>
+
+<%- include('../../common/include/footer.ejs') %>

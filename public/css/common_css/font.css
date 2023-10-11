@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'MICE';
+    src: url('/public/font/MICEMyungjo.ttf') format('truetype');
+}
+
+body {
+    font-family: 'MICE', sans-serif;
+}

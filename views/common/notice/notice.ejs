@@ -1,0 +1,114 @@
+<%- include('../../common/include/header.ejs') %>
+<link rel="stylesheet" href="/public/css/common_css/main.css">
+<% function formatDate(str) {
+    const date = new Date(str);
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+} %>
+
+<body id="notice">
+<div class="container">
+    <section class="section_01">
+        <img class="mobile_back" id="targetImage" src="/public/img/mobile/notice/mobile_notice_sec01.png" style="width: 100%;"/>
+        <script>
+            window.onload = function() {
+                changeImageSrcBasedOnWidth();
+            }
+
+            window.addEventListener('resize', changeImageSrcBasedOnWidth);
+
+            function changeImageSrcBasedOnWidth() {
+                const imgElement = document.getElementById('targetImage');
+                if (window.innerWidth <= 500 && imgElement.src !== '/public/img/mobile/notice/mobile_notice_sec01.png') {
+                    imgElement.src = '/public/img/mobile/notice/mobile_notice_sec01.png';  // 원하는 새로운 이미지 경로로 변경하세요.
+                } else if (window.innerWidth > 500 && imgElement.src !== '/public/img/mobile_notice_800.png') {
+                    imgElement.src = '/public/img/mobile_notice_800.png';
+                }
+            }
+        </script>
+    </section>
+    <!--섹션1-->
+
+    <section class="section_main_btm review_1">
+        <span class="gallery_top_span">RECENT ANNOUNCE</span>
+        <table class="checkform-table">
+            <tbody>
+            <tr class="checkform-table-header">
+                <td class="checkform-table-smalltd border-right">No.</td>
+                <td>제목</td>
+                <td class="checkform-table-writer-and-date border-left">작성날짜</td>
+            </tr>
+
+            <% let totalCount = lists.length; %>
+            <% if (lists.length === 0) { %>
+                <tr class="checkform-table-body">
+                    <td colspan="3">게시글이 없습니다.</td>
+                </tr>
+            <% } else { %>
+                <% lists.forEach(function(item){ %>
+                    <tr class="checkform-table-body">
+                        <td class="border-right num"> <%= totalCount-- %> </td>
+                        <td>
+                            <a data-link="/detail?table=notice&idx=<%= item.idx %>">
+                                <%- item.title %>
+                            </a>
+                        </td>
+                        <td class="border-left regdate"> <%= formatDate(item.regdate) %></td>
+                    </tr>
+                <% }) %>
+            <% } %>
+            </tbody>
+        </table>
+    </section>
+
+
+
+</div>
+</body>
+  <script>
+    window.onload = function (){
+      setTimeout(() => document.getElementById('main_span').style.top = '0' , 500);
+    }
+    // 제목을 잘라내는 함수
+    function truncateTitles() {
+        let titles = document.querySelectorAll('.title');
+        let width = window.innerWidth;
+
+        titles.forEach((titleElement) => {
+            let fullTitle = titleElement.getAttribute('data-title');
+            let truncatedTitle;
+
+            if (width <= 500) {
+                truncatedTitle = fullTitle.substring(0, 5) + '...';
+            } else if (width <= 800) {
+                truncatedTitle = fullTitle.substring(0, 7) + '...';
+            } else if (width <= 1200) {
+                truncatedTitle = fullTitle.substring(0, 10) + '...';
+            } else {
+                truncatedTitle = fullTitle.substring(0, 15) + '...';
+            }
+
+            if (fullTitle.length > truncatedTitle.length) {
+                titleElement.textContent = truncatedTitle;
+            } else {
+                titleElement.textContent = fullTitle;
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('[data-link]').forEach(item => {
+            item.addEventListener('click', function() {
+                window.location.href = this.dataset.link;
+            });
+        });
+    });
+
+    // 페이지가 로드되거나 창 크기가 변경될 때 함수를 호출
+    window.addEventListener('resize', truncateTitles);
+    window.addEventListener('load', truncateTitles);
+
+  </script>
+<%- include('../../common/include/footer.ejs') %>

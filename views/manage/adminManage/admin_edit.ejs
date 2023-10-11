@@ -1,0 +1,125 @@
+<%- include('../../manage/include/header.ejs') %>
+
+<section class="gallery_section_mainpage" id="admin_edit">
+    <fieldset>
+        <div class="notice_list_top">
+            <p1>계정 등록</p1>
+            <p2>Home &gt; 관리설정 &gt; 계정등록 </p2>
+        </div>
+        <form>
+            <table class="edit-table">
+                <tr>
+                    <td class="edit-front-td">아이디 : </td>
+                    <td>
+                        <input type="text" id="userId"> <button class="edit-button id_check" onclick="checkDuplicateId(event)">중복 체크</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="edit-front-td">비밀번호 : </td>
+                    <td>
+                        <input type="password" id="password" required></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="edit-front-td">비밀번호 확인 : </td>
+                    <td>
+                        <input type="password"  id="passwordConfirm" required></div>
+                    </td>
+                </tr>
+            </table>
+            <div class="edit_button_div" style="display: flex; justify-content: center;"> <button class="edit-button" onclick="registerUser(event)">등록</button> <button class="edit-button">리스트</button> </div>
+        </form>
+    </fieldset>
+</section>
+
+<script>
+    let isDuplicateChecked = false; // 중복 체크가 이루어졌는지 판별하는 변수
+    function checkDuplicateId(event) {
+        event.preventDefault(); // 폼 제출 막기
+
+        const userId = document.getElementById('userId').value;
+        console.log("User ID:", userId); // userId 값 확인
+
+        // 특수문자 및 공백 확인
+        const specialCharRegex = /[\s~`!@#$%^&*()+={}\[\]:;<>,.?~]/;
+        if (specialCharRegex.test(userId)) {
+            alert('특수 문자와 공백란은 사용하실 수 없습니다');
+            document.getElementById('userId').value = ''; // 아이디 input 초기화
+            return;
+        }
+
+        // 중복 체크 요청
+        fetch('/checkId', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ userId }),
+        })
+            .then(response => {
+                if (!response.ok) return response.json().then(error => Promise.reject(error));
+                return response.json();
+            })
+            .then(data => {
+                if (data.isDuplicate) {
+                    alert('중복된 아이디입니다');
+                    document.getElementById('userId').value = ''; // 아이디 input 초기화
+                } else {
+                    alert('생성 가능한 아이디입니다.');
+                    isDuplicateChecked = true;
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+
+    function registerUser(event) {
+        event.preventDefault(); // 폼 제출 막기
+
+        if (!isDuplicateChecked) { // 중복 체크 확인
+            alert('아이디 중복 체크를 해주세요');
+            return;
+        }
+
+        const password = document.getElementById('password').value;
+        const passwordConfirm = document.getElementById('passwordConfirm').value;
+
+        // 비밀번호나 비밀번호 확인 란이 공백인지 확인
+        if (!password || !passwordConfirm) {
+            alert('비밀번호 란이 공백입니다');
+            return;
+        }
+
+        if (password !== passwordConfirm) { // 비밀번호 일치 확인
+            alert('입력한 비밀번호를 다시 한번 확인해주세요');
+            return;
+        }
+
+        // DB에 저장
+        const userId = document.getElementById('userId').value;
+        const timestamp = new Date().toISOString();
+        fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ userId, password, timestamp }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('등록이 완료 되었습니다');
+                    window.location.href = '/admin_manage'; // 페이지 이동
+                } else {
+                    alert('등록에 실패하였습니다');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    // 중복 체크 함수에서도 중복 체크가 이루어졌음을 표시해야 합니다.
+</script>
+
+<%- include('../../manage/include/footer.ejs') %>

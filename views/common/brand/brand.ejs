@@ -1,0 +1,289 @@
+<%- include('../../common/include/header.ejs') %>
+<link rel="stylesheet" href="/public/css/common_css/brand.css">
+<body id="brand" style="overflow-x: hidden;">
+
+<div class="container">
+  <section class="section_01">
+      <img class="mobile_back" id="targetImage" src="/public/img/mobile/brand/mobile_brand01.png"/>
+      <div class="video_text_wrap">
+          <div class="word_content">
+              <div class="content">
+                  <div class="here_content">
+                      <h1 class="animate_video_txt">
+                            <span id="main_span" style="transition: 0.5s ease-in-out; position: relative; top: 230px;">
+                            <span class="animate_wrapper">
+                            <span style="font-family: 'MICE', sans-serif; font-weight: normal;" class="word01" >천년전통의 우리맛, 우리멋</span>
+                            <span></span>
+                            </span><br>
+                            <span class="animate_wrapper">
+                            <span style="font-family: 'MICE', sans-serif; font-weight: normal;" class="word02">"안동한우불고기"</span>
+                            <span></span>
+                            </span>
+                            </span>
+                      </h1>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <script>
+          window.onload = function() {
+              changeImageSrcBasedOnWidth();
+          }
+
+          window.addEventListener('resize', changeImageSrcBasedOnWidth);
+
+          function changeImageSrcBasedOnWidth() {
+              const imgElement = document.getElementById('targetImage');
+              if (window.innerWidth <= 500 && imgElement.src !== '/public/img/mobile/brand/mobile_brand01.png') {
+                  imgElement.src = '/public/img/mobile/brand/mobile_brand01.png';  // 원하는 새로운 이미지 경로로 변경하세요.
+              } else if (window.innerWidth > 500 && imgElement.src !== '/public/img/mobile_brand_800.png') {
+                  imgElement.src = '/public/img/mobile_brand_800.png';
+              }
+          }
+      </script>
+  </section>
+  <!--섹션1-->
+
+  <section class="section_02">
+      <img class="mobile_back" src="/public/img/mobile/brand/mobile_brand02.png"/>
+      <div class="sec_add_div sec2_add_div">
+          <span class="sec_add_span">엄마의 정성과 마음으로 완성한,</span>
+          <span class="sec_add_title">한불 HanBul</span>
+          <span class="sec_add_span mgbt_sec_add">한불은 안동과 주변지역에서 생산되는 한우1++과</span>
+          <span class="sec_add_span mgbt_sec_add">안동(청송)사과, 양파, 마늘, 고추 등 100% 지역농산물,</span>
+          <span class="sec_add_span mgbt_sec_add">국산 양조간장으로 한국 고유의 불고기 양념제조와 조리법으로</span>
+          <span class="sec_add_span mgbt40">완성한 한우 1++ 불고기입니다.</span>
+
+          <span class="sec_add_span mgbt_sec_add">한불은 대한민국을 대표하는 국가대표 불고기로</span>
+          <span class="sec_add_span mgbt_sec_add">달지않고 담백하며, 육향과 마블링으로 고객님의</span>
+          <span class="sec_add_span mgbt_sec_add">입맛을 사로잡을 것으로 확신합니다.</span>
+      </div>
+
+      <div class="brand_sec_02_name">
+          <span class="owner">창업주</span>
+          <span class="owner_name">이원교, 권상배</span>
+      </div>
+  </section>
+  <!--섹션2-->
+
+  <section class="section_03">
+      <img class="mobile_back" src="/public/img/mobile/brand/mobile_brand03.png"/>
+      <span class="main_big_span mgn_Btm">HanBul Story</span>
+      <div class="brand_box_section04">
+          <div class="main_brand_intro_section04">
+              <img id="brandImage" src="/public/img/web/brand/brand_story01.png" width="100%">
+          </div>
+          <div class="brand_compet">
+              <button id="01" type="button" style="font-family: 'MICE', sans-serif; font-weight: normal;" class="collapsible" onclick="changeImage(this); collapse(this);" data-img="/public/img/web/brand/brand_story01.png">최고등급 1++ 안동한우</button>
+              <div class="explan">
+                  <p>1++ 한우는 마블링(지방)이 최고등급의 한우상품이죠.</p>
+                  <p>한불은 최고등급의 한우를 제공하여 사랑하는 가족들과의 건강한 식탁을 약속합니다.</p>
+              </div>
+              <button id="02" type="button" style="font-family: 'MICE', sans-serif; font-weight: normal;" class="collapsible" onclick="changeImage(this); collapse(this);" data-img="/public/img/web/brand/brand_story02.png">씹는 맛, 고소한맛, 남다른 육향</button>
+              <div class="explan">
+                  <p>한불에서 제공하는 국산 소고기 등급의 1등급 중 가장 최상등급인 1++등급</p>
+                  <p>기타 다른 저품질의 육류와는 비교도 안되는 고급스러운 맛을 경험하세요.</p>
+              </div>
+              <button id="03" type="button" style="font-family: 'MICE', sans-serif; font-weight: normal;" class="collapsible" onclick="changeImage(this); collapse(this);" data-img="/public/img/web/brand/brand_story03.png">100% 경북안동 농산물</button>
+              <div class="explan">
+                  <p>한불은 안동(경북)한우 1++과 안동(경북)사과, 양파, 마늘,고추 등</p>
+                  <p>100% 국산 농산물로 완성한 프리미엄 불고기브랜드로 높은 만족도를 제공합니다.</p>
+              </div>
+              <button id="04" type="button" style="font-family: 'MICE', sans-serif; font-weight: normal;" class="collapsible" onclick="changeImage(this); collapse(this);" data-img="/public/img/web/brand/brand_story04.png">엄마의 고민 해결</button>
+              <div class="explan_04">
+                  <p>빠르고 간편한 조리, 육수까지 생각해서 만든 가족을 위한 한불</p>
+                  <p>국내산 최고급 재료를 사용한 안동불고기와 달지 않고 담백한 양념소스 제공를 제공합니다.</p>
+              </div>
+          </div>
+          <script>
+              function changeImage(button) {
+                  var imgSrc = button.getAttribute('data-img');
+                  document.getElementById('brandImage').src = imgSrc;
+              }
+          </script>
+          <script src="/public/js/atlantis/main.js"></script>
+          <script src="/public/js/atlantis/collapse.js"></script>
+      </div>
+  </section>
+  <!--섹션3-->
+  <section class="brand_sec_paper">
+      <span class="main_big_span">Certification</span>
+      <div class="sec_add_div paper_lmargin mobile_1" style="padding-top: 140px;">
+          <span class="sec_add_title">알레르기 유발물질 불검출</span>
+          <span class="sec_add_span mgbt_sec_add">안동 한불은 소비자를 생각한 브랜드인 만큼, 모든 소비자들이</span>
+          <span class="sec_add_span mgbt40">안동 한불을 즐길 수 있도록 노력하고 있습니다.</span>
+
+          <span class="sec_add_span mgbt_sec_add">안동 한불은 알레르기 유발물질 불검출 시험에서 단 한개의 유발물질도</span>
+          <span class="sec_add_span mgbt40">검출되지 않았으며, 이로서 안전한 먹거리로 거듭났습니다.</span>
+
+          <span class="sec_add_span mgbt_sec_add">사랑하는 아이들과 남편, 가족, 친구들에게 건강한 음식을 선물하세요!</span>
+      </div>
+
+      <div class="sec_add_div paper_rmargin" style="margin-top: 370px;">
+          <span class="sec_add_title">인공 감미료, 식품보존제 불검출</span>
+          <span class="sec_add_span mgbt40">안동 한불은 인공 감미료, 식품보존제를 전혀 사용하지 않습니다.</span>
+
+          <span class="sec_add_span mgbt_sec_add">맛을 내기위해 인공적인 조미료를 쓰지 않으면서 깊고 담백한 풍미를</span>
+          <span class="sec_add_span mgbt40">느낄 수 있는 것은 안동 한불 만의 장점입니다.</span>
+
+          <span class="sec_add_span mgbt_sec_add">안동한불은 식품보존제를 전혀 쓰지 않음으로 맛있으면서도 건강한</span>
+          <span class="sec_add_span mgbt_sec_add">음식을 고객들에게 선물하는 것을 최우선으로 합니다.</span>
+      </div>
+      <div class="sec_add_div paper_lmargin" style="margin-top: 370px;">
+          <span class="sec_add_title">안동(경북) 한우 1++ 인증서</span>
+          <span class="sec_add_span mgbt40">안동 한불은 안동(경북) 지역의 1++ 한우만을 고집합니다.</span>
+
+          <span class="sec_add_span mgbt_sec_add">그냥 먹어도 맛있는 한우 1++ 등급을 안동한불만의 특별 소스와 국내산</span>
+          <span class="sec_add_span mgbt40">재료들로 이루어진 패키지와 함께 맛볼 수 있습니다.</span>
+
+          <span class="sec_add_span mgbt_sec_add">저품질 육류는 일절! 사용하지 않습니다.</span>
+          <span class="sec_add_span mgbt_sec_add">믿고 맛있게 먹을 수 있는 안동 한불을 경험해보세요!</span>
+      </div>
+
+
+
+      <div class="mobile_brand_paper">
+          <img src="/public/img/mobile/brand/paper01.png">
+          <div>
+              <span class="mobile_paper_title">알레르기 유발물질 불검출</span>
+              <span class="mobile_paper_span">안동 한불은 소비자를 생각한 브랜드인 만큼, 모든 소비자들이</span>
+              <span class="mobile_paper_span m_mgn_btm">안동 한불을 즐길 수 있도록 노력하고 있습니다.</span>
+
+              <span class="mobile_paper_span">안동 한불은 알레르기 유발물질 불검출 시험에서 단 한개의</span>
+              <span class="mobile_paper_span m_mgn_btm">유발물질도 검출되지 않았으며, 안전한 먹거리로 거듭났습니다.</span>
+
+              <span class="mobile_paper_span">사랑하는 아이들과 남편, 가족, 친구들에게</span>
+              <span class="mobile_paper_span">건강한 음식을 선물하세요!</span>
+          </div>
+          <img src="/public/img/mobile/brand/paper02.png">
+          <div>
+              <span class="mobile_paper_title">인공 감미료, 식품보존제 불검출</span>
+              <span class="mobile_paper_span m_mgn_btm">안동 한불은 인공 감미료, 식품보존제를 전혀 사용하지 않습니다.</span>
+
+              <span class="mobile_paper_span">맛을 내기위해 인공적인 조미료를 쓰지 않으면서 깊고 담백한</span>
+              <span class="mobile_paper_span m_mgn_btm"> 풍미를 느낄 수 있는 것은 안동 한불 만의 장점입니다.</span>
+
+              <span class="mobile_paper_span">안동한불은 식품보존제를 전혀 쓰지 않음으로 맛있으면서도</span>
+              <span class="mobile_paper_span"> 건강한 음식을 고객들에게 선물하는 것을 최우선으로 합니다.</span>
+          </div>
+          <img src="/public/img/mobile/brand/paper03.png">
+          <div>
+              <span class="mobile_paper_title">안동(경북) 한우 1++ 인증서</span>
+              <span class="mobile_paper_span m_mgn_btm">안동 한불은 안동(경북) 지역의 1++ 한우만을 고집합니다.</span>
+
+              <span class="mobile_paper_span">그냥 먹어도 맛있는 한우 1++ 등급을 안동한불만의 특별 소스와</span>
+              <span class="mobile_paper_span m_mgn_btm"> 국내산 재료들로 이루어진 패키지와 함께 맛볼 수 있습니다.</span>
+
+              <span class="mobile_paper_span">저품질 육류는 일절! 사용하지 않습니다.</span>
+              <span class="mobile_paper_span">믿고 맛있게 먹을 수 있는 안동 한불을 경험해보세요!</span>
+          </div>
+      </div>
+  </section>
+
+  <section class="section_04">
+      <img class="mobile_back" src="/public/img/mobile/brand/mobile_brand05.png"/>
+        <span class="sec4_logo">LOGO</span>
+        <div class="brand_box_section04">
+            <div class="logo_color">
+                <div class="brand_color_01">
+                    <div class="color_01">
+                    </div>
+                    <span class="color_num_01">#231915</span>
+                </div>
+                <div class="brand_color_02">
+                    <div class="color_02">
+                    </div>
+                    <span class="color_num_02">#c9171e</span>
+                </div>
+                <div class="brand_color_03">
+                    <div class="color_03">
+                    </div>
+                    <span class="color_num_03">#ffffff</span>
+                </div>
+            </div>
+            <div class="logo_story">
+		<span class="logo_story_txt">천년전통의 우리맛, 우리멋 : "안동한우불고기"<br>
+            1++한우와 100% 국산 농산물로 완성한 프리미엄 불고기 브랜드</span>
+            </div>
+        </div>
+        <div class="brand_logo_resource">
+            <div class="logo_wrap_flex">
+                    <div class="left_wrap_section04">
+                        <div class="logo_box primary_logo">
+                            <div class="logo_img_box">
+                                <img src="/public/img/logo/primary_logo.png" alt="primary_logo" class="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right_wrap_section04">
+                        <div class="dwn_btn_box">
+                            <div class="dwn_btn_cont n01">
+                                <span class="dwn_btn_tit">LOGO (AI)</span>
+                                <a href="/public/img/download/hanbul_logo.ai" download="" class="dwn_btn_link">
+                                    <button type="button" class="dwn_btn">
+                                        <img src="/public/img/icon/logo_dwn_btn.png" alt="logo_download_button" class="view-pc">
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="dwn_btn_cont n02">
+                                <span class="dwn_btn_tit">LOGO (PNG)</span>
+                                <a href="/public/img/download/hanbul_logo.zip" download="" class="dwn_btn_link">
+                                    <button type="button" class="dwn_btn">
+                                        <img src="/public/img/icon/logo_dwn_btn.png" alt="logo_download_button" class="view-pc">
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+  <!--섹션4-->
+
+  <section class="section_05">
+      <img class="mobile_back" src="/public/img/mobile/brand/mobile_brand06.png"/>
+        <div class="brand_box_section05">
+            <div class="history_box">
+                <div class="text">
+                    <ul class="history">
+                        <li><p class="year">2022</p> </li>
+                        <li><span>12</span> <p>한우불고기 양념소스 레시피 100% 국산농산물로 전환</p></li>
+                        <li><span>12</span> <p>한우1++과 안동(경북)지역 농산물 선별작업</p></li>
+                        <li><span>12</span> <p>국가대표 불고기 완성을 위한 기초작업</p></li>
+                        <li><span>12</span> <p>한불 브랜딩(엄마의 마음을 담은 우리맛, 우리멋)</p></li>
+                        <li><span>12</span> <p>농업회사법인 안동한우불고기㈜ 법인설립 및 불고기 제조생산(OEM)</p></li>
+
+                    </ul>
+                </div>
+                <div class="text">
+                    <ul class="history">
+                        <li><p class="year">2023</p> </li>
+                        <li><span>02</span> <p>사회적기업가 육성사업 선정</p></li>
+                        <li><span>03</span> <p>안동대학교 산학협력관 입주</p></li>
+                        <li><span>04</span> <p>경북 상반기 해외바이어 초청 수출상담회 참가</p></li>
+                        <li><span>06</span> <p>성남공장 계약</p></li>
+                        <li><span>07</span> <p>안동시 일자리재단 지원사업선정</p></li>
+                        <li><span>07</span> <p>메가쇼(팔도밥상)전시회 참가</p></li>
+                        <li><span>08</span> <p>성남공장 가동</p></li>
+                        <li><span>09</span> <p>성남시 농아인협회 일자리 창출(MOU협약)</p></li>
+                        <li><span>09</span> <p> 2023 대한민국 소싱위크 참가(중소기업부)</p></li>
+                        <li><span>10</span> <p> 한불땡초소갈비, 한불소갈비 신제품 출시</p></li>
+                        <li><span>10</span> <p> HACCP인증(식육포장처리업,식육가공업,식품제조업)</p></li>
+                        <li><span>10</span> <p> 장애인사업장 인증</p></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+  <!--섹션5-->
+
+</div>
+</body>
+  <script>
+    window.onload = function (){
+      setTimeout(() => document.getElementById('main_span').style.top = '0' , 500);
+    }
+  </script>
+<%- include('../../common/include/footer.ejs') %>

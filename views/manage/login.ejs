@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 로그인</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel='stylesheet' href='/public/css/manager_style.css'>
+
+</head>
+<body>
+
+<section class="manager_section_1">
+    <div class="header-content">
+        <h2 id="head_logo"><strong>관리자시스템</strong></h2>
+    </div>
+</section>
+
+<section class="manager_section_2">
+    <form action="/loginProc" method="post">
+        <fieldset>
+            <img src="/public/img/logo/logo_clear.png">
+            <input name="user_id" id="user_id" type="text" placeholder="아이디를 입력해주세요." autocomplete="off" required>
+            <input name="pw" id="pw" type="password" placeholder="비밀번호를 입력해주세요." autocomplete="off" required>
+            <button class="submit-bin" id="manager_login_button"><span id="button-font">관리자 로그인</span></button>
+        </fieldset>
+    </form>
+</section>
+
+<section class="manager_footer_sec">
+    <div>
+        <p>© 2023 HANBUL. All rights reserved.</p>
+    </div>
+</section>
+
+</body>
+</html>

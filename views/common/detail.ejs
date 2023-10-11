@@ -1,0 +1,36 @@
+<%- include('include/header.ejs') %>
+<body id="detail">
+
+<link async="" rel="stylesheet" href="/public/css/common_css/review.css">
+<link rel="stylesheet" href="/public/css/common_css/main.css">
+<div class="container">
+    <section class="section_01" style="background-image: url('<%= webBack %>');">
+        <img class="mobile_back" src="<%= mobileBack %>"/>
+    </section>
+    <!--섹션1-->
+
+    <section class="section_main_btm review_1">
+        <span class="detail_gallery_type"><%= boardType %></span>
+        <div class="top_detail">
+            <span class="gallery_top_span">
+                <div id="left"></div>
+                <%= data.title %>  <!-- 동적으로 Title을 생성 -->
+                <span class="detail_regdate"><%= data.regdate %> </span>  <!-- 동적으로 Regdate를 생성 -->
+            </span>
+        </div>
+
+        <div class="detail_memo"> <%- data.memo %> </div>  <!-- 동적으로 Memo를 생성 -->
+    </section>
+
+    <script>
+        window.onload = function (){
+            setTimeout(() => document.getElementById('main_span').style.top = '0' , 500);
+        }
+        $(document).ready(function() {
+            var regdateWidth = $(".detail_regdate").width();
+            $("#left").css("width", regdateWidth + "px");
+        });
+    </script>
+</div>
+</body>
+<%- include('include/footer.ejs') %>

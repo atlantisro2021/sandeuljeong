@@ -1,0 +1,126 @@
+<%- include('../../common/include/header.ejs') %>
+
+<link rel="stylesheet" href="/public/css/common_css/contact.css">
+<link rel="stylesheet" href="/public/css/common_css/main.css">
+<body id="contact" >
+<div class="container">
+    <section class="section_01">
+        <img class="mobile_back" id="targetImage" src="/public/img/mobile/brand/mobile_brand01.png" style="width: 100%;"/>
+        <div class="bg_video_text">
+            <div class="video_text_wrap">
+                <div class="word_content">
+                    <div class="content">
+                        <div class="here_content">
+                            <h1 class="animate_video_txt">
+                            <span id="main_span" style="transition: 0.5s ease-in-out; position: relative; top: 230px;">
+                            <span class="animate_wrapper">
+                            <span style="font-family: 'MICE', sans-serif; font-weight: normal;" class="word01">오시는 길</span>
+                            <span></span>
+                            </span>
+                            </span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.onload = function() {
+                changeImageSrcBasedOnWidth();
+            }
+
+            window.addEventListener('resize', changeImageSrcBasedOnWidth);
+
+            function changeImageSrcBasedOnWidth() {
+                const imgElement = document.getElementById('targetImage');
+                if (window.innerWidth <= 500 && imgElement.src !== '/public/img/mobile/brand/mobile_brand01.png') {
+                    imgElement.src = '/public/img/mobile/brand/mobile_brand01.png';  // 원하는 새로운 이미지 경로로 변경하세요.
+                } else if (window.innerWidth > 500 && imgElement.src !== '/public/img/mobile_brand_800.png') {
+                    imgElement.src = '/public/img/mobile_brand_800.png';
+                }
+            }
+        </script>
+    </section>
+  <!--섹션1-->
+
+  <section class="section_02 brand_2">
+      <div class="brand_box_section02">
+          <div class="brand_contact_01">
+              <span class="brand_map_txt">본점</span>
+              <img class="brand_map_img" src="/public/img/contact/contact.jpg">
+          </div>
+          <div class="brand_contact_02">
+              <span class="brand_map_txt">공장</span>
+              <img class="brand_map_img" src="/public/img/contact/hanbul_fac.png">
+          </div>
+      </div>
+  </section>
+  <!--섹션2-->
+
+  <section class="section_03 brand_3">
+      <div class="brand_box_section03">
+          <div class="brand_contact_03">
+              <div class="brand_contact_03_line">
+                <span class="brand_map_txt_01">ADDRESS</span>
+              </div>
+              <div class="brand_inform_box_01">
+                  <span class="address">경상북도 안동시 옥동1길 70</span><br>
+                  <span class="phone">0507-1316-0471</span><br>
+                  <span class="email">loovegot@naver.com</span>
+              </div>
+          </div>
+          <div class="brand_contact_04">
+              <div class="brand_contact_03_line">
+                  <span class="brand_map_txt_01">ADDRESS</span>
+              </div>
+              <div class="brand_inform_box_01">
+                  <span class="address">경기 성남시 수정구 성남대로 1270</span><br>
+                  <span class="phone">0507-1316-0471</span><br>
+                  <span class="email">loovegot@naver.com</span>
+              </div>
+          </div>
+      </div>
+  </section>
+
+    <div class="mobile_contact">
+        <div class="brand_contact_01">
+            <span class="brand_map_txt">본점</span>
+            <img class="brand_map_img" src="/public/img/contact/contact.jpg">
+        </div>
+
+        <div class="brand_contact_03">
+            <div class="brand_contact_03_line">
+                <span class="brand_map_txt_01">ADDRESS</span>
+            </div>
+            <div class="brand_inform_box_01">
+                <span class="address">경상북도 안동시 옥동1길 70</span><br>
+                <span class="phone">0507-1316-0471</span><br>
+                <span class="email">loovegot@naver.com</span>
+            </div>
+        </div>
+
+        <div class="brand_contact_02">
+            <span class="brand_map_txt">공장</span>
+            <img class="brand_map_img" src="/public/img/contact/hanbul_fac.png">
+        </div>
+
+        <div class="brand_contact_04">
+            <div class="brand_contact_03_line">
+                <span class="brand_map_txt_01">ADDRESS</span>
+            </div>
+            <div class="brand_inform_box_01">
+                <span class="address">경기 성남시 수정구 성남대로 1270</span><br>
+                <span class="phone">0507-1316-0471</span><br>
+                <span class="email">loovegot@naver.com</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+  <script>
+    window.onload = function (){
+      setTimeout(() => document.getElementById('main_span').style.top = '0' , 500);
+    }
+  </script>
+<%- include('../../common/include/footer.ejs') %>
