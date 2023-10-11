@@ -15,19 +15,13 @@ var bodyParser = require('body-parser')
 var session = require('express-session')
 const fileUploader = require('./public/js/fileUploader.js')
 require('dotenv').config()
-const connection = mysql.createConnection({
-    host     : '10.0.0.1',
-    user     : 'andonghanbul2',
-    password : 'nice2021!',
-    database : 'andonghanbul2'
-});
 
-// const connection = mysql.createConnection({
-//     host     : 'localhost',
-//     user     : 'root',
-//     password : '1658',
-//     database : 'test'
-// });
+const connection = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'root',
+    password : 'nice2021!',
+    database : 'test'
+});
 
 const sslOptions = {
     key: fs.readFileSync(__dirname + "/public/ssl/private.pem"),
@@ -866,6 +860,6 @@ app.get('/detail', (req, res) => {
         res.render('./common/detail', { data: result[0], boardType: boardType, webBack: webBack, mobileBack: mobileBack });
     });
 });
-https.createServer(sslOptions, app).listen(8001, () => {
+https.createServer(sslOptions, app).listen(443, () => {
     console.log(`HTTPS server running on https://localhost:8001`);
 });
