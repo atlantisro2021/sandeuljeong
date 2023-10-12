@@ -19,7 +19,7 @@ require('dotenv').config()
 const connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : 'nice2021!',
+    password : '1658',
     database : 'test'
 });
 
@@ -62,6 +62,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
 // 이미지 업로드 및 DB 저장 라우터
 app.get('/popupManage', (req, res) => {
     let currentPage = req.query.page || 1; // 현재 페이지 번호
