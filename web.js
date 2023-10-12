@@ -62,27 +62,6 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-
-// redirect HTTP to HTTPS
-app.all('*', (req, res, next) =>
-{
-    let protocol = req.headers['x-forwarded-proto'] || req.protocol;
-
-    if (protocol === 'https')
-    {
-        next();
-    }
-    else
-    {
-        let from = `${protocol}://${req.hostname}${req.url}`;
-        let to = `https://${req.hostname}${req.url}`;
-
-        // log and redirect
-        console.log(`[${req.method}]: ${from} -> ${to}`);
-        res.redirect(to);
-    }
-});
-
 // 이미지 업로드 및 DB 저장 라우터
 app.get('/popupManage', (req, res) => {
     let currentPage = req.query.page || 1; // 현재 페이지 번호
@@ -883,20 +862,4 @@ app.get('/detail', (req, res) => {
 });
 https.createServer(sslOptions, app).listen(443, () => {
     console.log(`HTTPS server running on https://localhost:8001`);
-});
-const httpApp = express();
-
-// 모든 요청을 HTTPS로 리다이렉트
-httpApp.all('*', (req, res) => {
-    let from = `http://${req.hostname}${req.url}`;
-    let to = `https://${req.hostname}${req.url}`;
-
-    // log and redirect
-    console.log(`[${req.method}]: ${from} -> ${to}`);
-    res.redirect(301, to);
-});
-
-// HTTP 서버 생성
-http.createServer(httpApp).listen(8080, () => {
-    console.log('HTTP Server is running on: http://localhost:8080');
 });
