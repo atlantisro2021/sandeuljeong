@@ -62,6 +62,27 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
+// redirect HTTP to HTTPS
+app.all('*', (req, res, next) =>
+{
+    let protocol = req.headers['x-forwarded-proto'] || req.protocol;
+
+    if (protocol === 'https')
+    {
+        next();
+    }
+    else
+    {
+        let from = `${protocol}://${req.hostname}${req.url}`;
+        let to = `https://${req.hostname}${req.url}`;
+
+        // log and redirect
+        console.log(`[${req.method}]: ${from} -> ${to}`);
+        res.redirect(to);
+    }
+});
+
 // 이미지 업로드 및 DB 저장 라우터
 app.get('/popupManage', (req, res) => {
     let currentPage = req.query.page || 1; // 현재 페이지 번호
