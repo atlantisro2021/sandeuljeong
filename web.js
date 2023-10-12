@@ -884,3 +884,19 @@ app.get('/detail', (req, res) => {
 https.createServer(sslOptions, app).listen(443, () => {
     console.log(`HTTPS server running on https://localhost:8001`);
 });
+const httpApp = express();
+
+// 모든 요청을 HTTPS로 리다이렉트
+httpApp.all('*', (req, res) => {
+    let from = `http://${req.hostname}${req.url}`;
+    let to = `https://${req.hostname}${req.url}`;
+
+    // log and redirect
+    console.log(`[${req.method}]: ${from} -> ${to}`);
+    res.redirect(301, to);
+});
+
+// HTTP 서버 생성
+http.createServer(httpApp).listen(8080, () => {
+    console.log('HTTP Server is running on: http://localhost:8080');
+});
