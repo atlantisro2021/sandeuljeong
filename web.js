@@ -10,6 +10,7 @@ const fs = require('fs');
 const multer = require('multer');
 const path = require('path');
 const html = require('html');
+const http = require('http'); // 이 부분 추가
 const https = require('https');
 var bodyParser = require('body-parser')
 var session = require('express-session')
@@ -863,4 +864,12 @@ app.get('/detail', (req, res) => {
 });
 https.createServer(sslOptions, app).listen(443, () => {
     console.log(`HTTPS server running on https://localhost:8001`);
+});
+
+// HTTP 서버 생성
+http.createServer((req, res) => {
+    res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
+    res.end();
+}).listen(80, () => {
+    console.log('HTTP server listening on port 80');
 });
