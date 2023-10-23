@@ -495,6 +495,12 @@
     min-height: 500px;
 }
 
+@media screen and (max-width: 1865px){
+    .real_btm_stroy_top {height: 960px;}
+}
+@media screen and (max-width: 1790px){
+    .real_btm_story_top {height: 920px;}
+}
 @media screen and (max-width: 600px){
     body .container .section_04 .main_big_span {font-size: 2rem;}
 }
@@ -508,7 +514,7 @@
     .section_04 .main_big_span {text-align: center; padding: 0;}
 }
 @media  screen and (max-width: 1140px) {
-    .section_04 .brand_box_section04 {flex-direction: column; align-items: center;}
+    .section_04 .brand_box_section04 {flex-direction: column; align-items: center;}`/
     .brand_box_section04 .main_brand_intro_section04 {width: 100%;}
     .brand_box_section04 .brand_compet {width: 100%; margin-top: 20px;}
 }
@@ -863,10 +869,10 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     .main_card_brand span {padding: 0 10px;}
     .section_01 {background-image: none!important;}
     .container .sec_add_01 {background-image: none;}
-    .section_02 {background-image: none!important; margin-top: 9rem;}
+    .section_02 {background-image: none!important; margin-top: 22rem;}
     .section_04 {background-image: none; margin-top: 3rem;}
     .section_main_btm {background-image:none; margin-top: -4rem; padding-bottom: 0;}
-    .main_real_btm {background-image: none; height: 835px;}
+    .main_real_btm {height: 835px;}
     .real_btm_story_top {height: 78%;}
     .sec_add_div {padding: 40px 15px; padding-top: 150px;}
     body .container .sec_add_div .sec_add_title {margin: 20px 0; font-size: 5rem; text-align: center;}
@@ -944,6 +950,9 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     .top_detail .gallery_top_span {flex-direction: column; display: flex; justify-content: center; align-items: center; padding: 0 0 20px 0;}
     .detail_regdate {width: 100%; text-align: center; margin-top: 10px;}
     .reaction_img div span {font-size: 3rem;}
+}
+@media screen and (max-width: 1250px){
+    .section_02 {margin-top: 15rem;}
 }
 @media screen and (max-width: 800px){
     .main_brand_box, .main_brand_slide, .reaction_slide, .main_review_box, .main_big_span, .brand_box_section04, .main_card_news, .main_card_notice, .main_real_btm, .real_btm_storybtn {
@@ -1038,6 +1047,7 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     .top_detail .gallery_top_span {flex-direction: column; display: flex; justify-content: center; align-items: center; padding: 0 0 20px 0;}
     .detail_regdate {width: 100%; text-align: center; margin-top: 10px;}
     .reaction_img div span {font-size: 3rem;}
+    .real_btm_mobile_back {display: flex; position: absolute; width: 100%; height: auto; z-index: 1; margin-bottom: 58rem;}
 }
 @media screen and (max-width: 790px){
     .main_real_btm {height: 810px;}
