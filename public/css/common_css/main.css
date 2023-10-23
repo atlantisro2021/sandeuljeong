@@ -4,6 +4,7 @@
     overflow: hidden;
     background-size: cover;
 }
+.main_real_btm .real_btm_mobile_back {display: none; position: absolute; width: 100%; height: auto; z-index: 1; margin-bottom: 58rem;}
 #main .section_02 {
     background-image: url("/public/img/web/main/main_sec03.png");
     background-repeat: no-repeat;
@@ -1047,7 +1048,7 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     .top_detail .gallery_top_span {flex-direction: column; display: flex; justify-content: center; align-items: center; padding: 0 0 20px 0;}
     .detail_regdate {width: 100%; text-align: center; margin-top: 10px;}
     .reaction_img div span {font-size: 3rem;}
-    .main_real_btm .real_btm_mobile_back {display: flex; position: absolute; width: 100%; height: auto; z-index: 1; margin-bottom: 58rem;}
+    .main_real_btm .real_btm_mobile_back {display: flex;}
 }
 @media screen and (max-width: 790px){
     .main_real_btm {height: 810px;}
