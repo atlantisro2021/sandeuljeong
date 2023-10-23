@@ -870,7 +870,7 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     .real_btm_story_top {height: 78%;}
     .sec_add_div {padding: 40px 15px; padding-top: 150px;}
     body .container .sec_add_div .sec_add_title {margin: 20px 0; font-size: 5rem;}
-    body .container .sec_add_div .sec_add_span {font-size: 1.5rem; letter-spacing: -2px;}
+    body .container .sec_add_div .sec_add_span {font-size: 1.5rem; letter-spacing: -2px; text-align: center;}
     .mgbt_sec_add {margin-bottom: 10px;}
     .mgbt40 {margin-bottom: 40px;}
     .main_review_slide {margin: 0; position: inherit;}
@@ -963,7 +963,7 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     .main_real_btm {background-image: none; height: 835px;}
     .real_btm_story_top {height: 78%;}
     .sec_add_div {padding: 40px 15px; padding-top: 150px;}
-    body .container .sec_add_div .sec_add_title {margin: 20px 0; font-size: 5rem;}
+    body .container .sec_add_div .sec_add_title {margin: 20px 0; font-size: 5rem; text-align: center;}
     body .container .sec_add_div .sec_add_span {font-size: 1.5rem; letter-spacing: -2px;}
     .mgbt_sec_add {margin-bottom: 10px;}
     .mgbt40 {margin-bottom: 40px;}
