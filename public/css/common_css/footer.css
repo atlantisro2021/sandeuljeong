@@ -177,7 +177,7 @@ h2{
 .mobile_footer .sns img {width: 20px; height: 20px;}
 .mobile_footer .footer_bottom p {font-size: 0.7rem; margin: 10px 0;}
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     .footer {display: none;}
     .mobile_footer {display: flex;}
 }
