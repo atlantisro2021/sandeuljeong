@@ -2,10 +2,12 @@
     background-image: url("/public/img/web/main/main_sec01.png");
     background-repeat: no-repeat;
     overflow: hidden;
+    background-size: cover;
 }
 #main .section_02 {
     background-image: url("/public/img/web/main/main_sec03.png");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 #brand .section_01 {
     background-image: url("/public/img/web/brand/brand_sec01.png");
