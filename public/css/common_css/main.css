@@ -970,7 +970,7 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     .real_btm_storybtn span {font-size: 0.9rem;}
 }
 @media screen and (max-width: 1200px) {
-    .main_real_btm {height: 1075px;}
+    .main_real_btm {height: 1075px; margin-bottom: 30px;}
 }
 @media screen and (max-width: 1175px) {
     .main_real_btm {height: 1050px;}
