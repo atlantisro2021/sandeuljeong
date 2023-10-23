@@ -619,7 +619,9 @@
     color: white;
     font-family: 'MICE', sans-serif;
 }
-
+@media screen and (max-width: 1800px){
+    .real_btm_story_top {height: 960px;}
+}
 @media screen and (max-width: 1330px){
     .brand_compet .explan p {font-size: 1.2rem;}
 }
@@ -865,7 +867,6 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     }
     .mobile_back {display: flex;}
     .mobile_owner_div {display: flex;}
-    .section_04 .main_big_span {font-size: 1.5rem!important;}
     .section_02 .main_big_span {font-size: 1.5rem!important;}
     .main_card_brand span {font-size: 1rem;}
     .main_card_brand span {padding: 0 10px;}
