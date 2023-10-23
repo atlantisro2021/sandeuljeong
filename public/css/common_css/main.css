@@ -277,7 +277,7 @@
 @media screen and (max-width: 1565px) {
     .main_brand_slide {margin-left: 40px;}
 }
-@media screen and (max-width: 1560px) {
+@media screen and (max-width: 1580px) {
     .main_brand_slide {display: none;}
     .main_brand_box .main_brand_intro {width: 75%; height: auto; margin:0;}
 }
