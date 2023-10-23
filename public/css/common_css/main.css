@@ -851,7 +851,100 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
 .detail_gallery_type {width: 70%; color: white; font-size: 2rem; font-weight: bold; text-align: left; padding-top: 100px; padding-bottom: 50px;}
 .detail_memo {color: white; font-size: 1rem; width: 72%; margin-bottom: 100px; padding: 0 20px;}
 
+@media screen and (max-width: 1580px){
+    .main_brand_box, .main_brand_slide, .reaction_slide, .main_review_box, .main_big_span, .brand_box_section04, .main_card_news, .main_card_notice, .main_real_btm, .real_btm_storybtn {
+        z-index: 9999;
+    }
+    .mobile_back {display: flex;}
+    .mobile_owner_div {display: flex;}
+    .section_04 .main_big_span {font-size: 1.5rem!important;}
+    .section_02 .main_big_span {font-size: 1.5rem!important;}
+    .main_card_brand span {font-size: 1rem;}
+    .main_card_brand span {padding: 0 10px;}
+    .section_01 {background-image: none!important;}
+    .container .sec_add_01 {background-image: none;}
+    .section_02 {background-image: none!important; margin-top: 9rem;}
+    .section_04 {background-image: none; margin-top: 3rem;}
+    .section_main_btm {background-image:none; margin-top: -4rem; padding-bottom: 0;}
+    .main_real_btm {background-image: none; height: 835px;}
+    .real_btm_story_top {height: 78%;}
+    .sec_add_div {padding: 40px 15px; padding-top: 150px;}
+    body .container .sec_add_div .sec_add_title {margin: 20px 0; font-size: 5rem;}
+    body .container .sec_add_div .sec_add_span {font-size: 1.5rem; letter-spacing: -2px;}
+    .mgbt_sec_add {margin-bottom: 10px;}
+    .mgbt40 {margin-bottom: 40px;}
+    .main_review_slide {margin: 0; position: inherit;}
+    .main_brand_box {height: auto; margin-top: 10px; margin-right: 20px;}
+    /*.real_btm_storybtn {display: none;}*/
+    .main_review_box {margin-top: -20px;}
+    .section_04 .main_big_span {margin-bottom: 0!important; margin-top: 100px;}
+    .section_main_btm .main_big_span {font-size: 2.5rem;}
+    .real_btm_storybtn {
+        width: 150px;
+        height: 30px;
+        margin-left: 20px;
+        z-index: 99999;
+        position: absolute;
+    }
+    .real_btm_storybtn span {font-size: 0.9rem;}
 
+    .main_news_title div {width: 100%;}
+
+    #main .section_01 img {display: flex; position: absolute; width: 100%; z-index: 1;}
+    #main .mobile_back {display: flex; position: absolute; width: 100%; height: auto; z-index: 1; margin-bottom: 58rem;}
+    #main .sec_add_01 div {z-index: 9999;}
+
+    .owner_span_div {
+        width: 100%;
+    }
+    .reaction_slide {
+        margin: 20px;
+    }
+    .review_headline {
+        height: 1.3rem;
+        padding: 0px 8px;
+    }
+    .review_content {
+        height: 1.6rem;
+        padding: 0 8px;
+        margin-left: 0rem;
+        font-size: 1.1rem;
+    }
+    .date {
+        margin-right: 0;
+    }
+    .brand_box_section04 {
+        padding: 5px;
+    }
+    .collapsible {
+        font-size: 1.1rem;
+    }
+    .brand_compet .explan p {font-size: 0.9rem; line-height: 1.5}
+    .brand_compet .explan_04 p {font-size: 0.9rem; line-height: 1.5}
+    .main_news_title span {
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+    }
+    .card_notice_top span {
+        font-size: 1.2rem;
+        padding: 25px 20px 50px 10px;
+    }
+    .main_card_news, .main_card_notice {
+        width: 95%;
+    }
+    .explan {
+        padding-left: 18px;
+        padding-right: 10px;
+    }
+    #review .card_notice, #news .card_notice {margin: 0;}
+    #notice .gallery_top_span {padding-bottom: 0;}
+    .detail_gallery_type {text-align: left;}
+    .top_detail {padding:0;}
+    .top_detail .gallery_top_span {flex-direction: column; display: flex; justify-content: center; align-items: center; padding: 0 0 20px 0;}
+    .detail_regdate {width: 100%; text-align: center; margin-top: 10px;}
+    .reaction_img div span {font-size: 3rem;}
+}
 @media screen and (max-width: 800px){
     .main_brand_box, .main_brand_slide, .reaction_slide, .main_review_box, .main_big_span, .brand_box_section04, .main_card_news, .main_card_notice, .main_real_btm, .real_btm_storybtn {
         z-index: 9999;
