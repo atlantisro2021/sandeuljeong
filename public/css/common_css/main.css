@@ -514,7 +514,7 @@
     .section_04 .main_big_span {text-align: center; padding: 0;}
 }
 @media  screen and (max-width: 1140px) {
-    .section_04 .brand_box_section04 {flex-direction: column; align-items: center;}`/
+    .section_04 .brand_box_section04 {flex-direction: column; align-items: center;}
     .brand_box_section04 .main_brand_intro_section04 {width: 100%;}
     .brand_box_section04 .brand_compet {width: 100%; margin-top: 20px;}
 }
