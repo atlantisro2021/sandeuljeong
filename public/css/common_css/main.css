@@ -12,49 +12,60 @@
 #brand .section_01 {
     background-image: url("/public/img/web/brand/brand_sec01.png");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 #contact .section_01 {
     background-image: url("/public/img/web/review/review_sec01.png");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 #contact .section_main_btm {
     background-image: url("/public/img/contact/contact_sec02.png");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 #review .section_01{
     background-image: url("/public/img/web/review/review_sec01.png");
     background-repeat: no-repeat;
     overflow: hidden;
+    background-size: cover;
 }
 #review .section_main_btm {
     background-image: url("/public/img/web/review/review_sec02.png");
     background-repeat: no-repeat;
     margin-bottom: 5rem;
+    background-size: cover;
 }
 #news .section_01 {
     background-image: url("/public/img/web/notice/notice_sec01.png");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 #news .section_main_btm {
     background-image: url("/public/img/web/review/review_sec02.png");
     background-repeat: no-repeat;
     margin-bottom: 5rem;
+    background-size: cover;
 }
 #notice .section_01, #news .section_01 {
     background-image: url("/public/img/web/notice/notice_sec01.png");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 #notice .container .section_main_btm {
     background-image: url("/public/img/web/review/review_sec02.png");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 #contact .section_01 {
     background-image: url("/public/img/web/brand/brand_sec01.png");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 #contact .section_02 {
     background-image: url("/public/img/web/review/review_sec02.png");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /*section_01*/
@@ -158,6 +169,7 @@
     flex-direction: column;
     align-items: center;
     background-image: url("/public/img/web/main/main_sec02.png");
+    background-size: cover;
 }
 .section_02 {
     width: 100%;
@@ -414,6 +426,7 @@
     justify-content: center;
     align-items: center;
     background-image: url("/public/img/web/main/main_sec04.png");
+    background-size: cover;
 }
 .brand_text_section04 {
     max-width: 1350px;
@@ -677,11 +690,11 @@
 .swiper-slide .main_slide_img {width: 400px; height: 400px;}
 .mgbt_sec_add {margin-bottom: 20px;}
 
-.main_real_btm {background-image: url("/public/img/web/main/main_sec06.png"); width: 100%; height: 1170px;}
+.main_real_btm {background-image: url("/public/img/web/main/main_sec06.png"); width: 100%; height: 1170px; background-size: cover;}
 /*카드뉴스 1번째 줄*/
 .main_btm_top_span {width: 85%; text-align: center; font-size: 2.7rem; font-weight: bold; color: black; margin-bottom: 50px;}
 .section_main_btm {display: flex; flex-direction: column; width: 100%; height: auto; align-items: center;
-                    background-image: url("/public/img/web/main/main_sec05.png"); padding-bottom: 2.5rem;background-repeat: no-repeat;}
+                    background-image: url("/public/img/web/main/main_sec05.png"); padding-bottom: 2.5rem;background-repeat: no-repeat; background-size: cover;}
 .main_card_news {display: flex; flex-direction: column; width: 80%; margin-top: 160px;}
 .main_news_title {width: 100%; display: flex; flex-direction: column;}
 .main_news_title span {font-size: 3rem; color: white; font-weight: bold; font-family: 'MICE', sans-serif;}
@@ -817,7 +830,7 @@
 .real_btm_story_top {width: 100%; height: 1000px; margin-top: 3rem;}
 
 
-body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01.png");}
+body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01.png"); background-size: cover;}
 .mobile_owner_div {display: none;}
 .owner_span_div {display: flex; flex-direction: column; width: 50%; margin-bottom: 50px;}
 .owner_span_div div {width: 100%; justify-content: flex-end; display: flex; align-items: flex-end;}

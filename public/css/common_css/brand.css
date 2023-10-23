@@ -5,6 +5,7 @@
     position: relative;
     overflow: hidden;
     background-image: url("/public/img/web/brand/brand_sec01.png");
+    background-size: cover;
 }
 .bg_img {
     position: absolute;
@@ -80,6 +81,7 @@
     flex-direction: column;
     justify-content: center;
     background-image: url("/public/img/web/brand/brand_sec02.png");
+    background-size: cover;
 }
 .brand_box_section02 {
     width: 100%;
@@ -134,6 +136,7 @@
     justify-content: center;
     align-items: center;
     background-image: url("/public/img/web/brand/brand_sec03.png");
+    background-size: cover;
 }
 .brand_text_section03 {
     max-width: 1350px;
@@ -272,6 +275,7 @@
     justify-content: center;
     align-items: center;
     background-image: url("/public/img/web/brand/brand_sec05.png");
+    background-size: cover;
 }
 .brand_text_section04 {
     max-width: 1350px;
@@ -482,6 +486,7 @@
     flex-direction: column;
     justify-content: center;
     background-image: url(/public/img/web/brand/brand_sec06.png);
+    background-size: cover;
 }
 .brand_text_section05 {
     width: 100%;
@@ -919,7 +924,7 @@
 }
 
 .brand_sec_paper {background-image: url("/public/img/web/brand/brand_sec04.png"); width: 100%; height: 3100px;
-                  display: flex; flex-direction: column; align-items: center; margin-top: 4rem}
+                  display: flex; flex-direction: column; align-items: center; margin-top: 4rem; background-size: cover;}
 .brand_sec_paper .sec_add_title {
     color: #d1af99;
     font-size: 3rem;
