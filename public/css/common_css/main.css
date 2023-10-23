@@ -521,7 +521,7 @@
 @media screen and (max-width: 700px){
     .container .section_02 .main_big_span {font-size: 2.5rem;}
 }
-@media screen and (max-width: 800px){
+@media screen and (max-width: 1580px){
     .section_02 .main_big_span {font-size: 3rem; margin-bottom: 0;}
     .main_brand_box {flex-direction: column;}
     .reaction_slide {display: flex!important;}
