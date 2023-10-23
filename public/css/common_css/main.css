@@ -1000,31 +1000,6 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
 @media screen and (max-width: 1000px) {
     .main_real_btm {height: 880px;}
 }
-@media screen and (max-width:  960px) {
-    .main_real_btm {height: 870px;}
-}
-@media screen and (max-width: 940px) {
-    .main_real_btm {height: 860px;}
-}
-@media screen and (max-width: 920px) {
-    .main_real_btm {height: 850px;}
-}
-@media screen and (max-width: 900px) {
-    .main_real_btm {height: 840px;}
-}
-@media screen and (max-width: 880px) {
-    .main_real_btm {height: 830px;}
-}
-@media screen and (max-width: 860px) {
-    .main_real_btm {height: 820px;}
-}
-@media screen and (max-width: 840px) {
-    .main_real_btm {height: 810px;}
-}
-@media screen and (max-width: 820px) {
-    .main_real_btm {height: 800px;}
-}
-
 
 @media screen and (max-width: 800px){
     .main_brand_box, .main_brand_slide, .reaction_slide, .main_review_box, .main_big_span, .brand_box_section04, .main_card_news, .main_card_notice, .main_real_btm, .real_btm_storybtn {
