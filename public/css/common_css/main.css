@@ -960,7 +960,7 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
 @media screen and (max-width: 1250px){
     .section_02 {margin-top: 15rem;}
     .main_real_btm {background-image: none; height: 1100px;}
-    .m1250px {display: flex;}
+    .main_real_btm .m1250px {display: flex;}
     .real_btm_story_top {height: 92%;}
     .real_btm_storybtn {
         width: 150px;
@@ -1033,6 +1033,8 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
         z-index: 9999;
     }
     .m800px {display: flex;}
+    .main_real_btm .m800px {display: flex;}
+    .main_real_btm .m1250px {display: none;}
     .m1560px {display: none;}
     .mobile_owner_div {display: flex;}
     .section_04 .main_big_span {font-size: 1.5rem!important;}
@@ -1172,6 +1174,8 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     }
     .m800px {display: none;}
     .m500px {display: flex;}
+    .main_real_btm .m500px {display: flex;}
+    .main_real_btm .m800px {display: none;}
     .mobile_owner_div {display: flex;}
     .section_04 .main_big_span {font-size: 1.5rem!important;}
     .section_02 .main_big_span {font-size: 1.5rem!important;}
