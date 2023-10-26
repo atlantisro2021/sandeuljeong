@@ -953,6 +953,10 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
 @media screen and (max-width: 1390px) {
     .main_real_btm {height: 888px;}
 }
+@media screen and (max-width: 1300px) {
+    .m1300px {display: flex;}
+    .m1560px {display: none;}
+}
 @media screen and (max-width: 1250px){
     .section_02 {margin-top: 15rem;}
     .main_real_btm {background-image: none; height: 1100px;}
