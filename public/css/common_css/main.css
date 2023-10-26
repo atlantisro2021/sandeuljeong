@@ -898,7 +898,6 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
 
     .main_news_title div {width: 100%;}
 
-    #main .section_01 img {display: flex; position: absolute; width: 100%; z-index: 1;}
     #main .mobile_back {position: absolute; width: 100%; height: auto; z-index: 1; margin-bottom: 58rem;}
     #main .sec_add_01 div {z-index: 9999;}
 
