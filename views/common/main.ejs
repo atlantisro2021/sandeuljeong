@@ -46,16 +46,16 @@
                   setTimeout(() => document.getElementById('main_span').style.top = '0' , 500);
               }
 
-              window.addEventListener('resize', changeImageSrcBasedOnWidth);
-
-              function changeImageSrcBasedOnWidth() {
-                  const imgElement = document.getElementById('targetImage');
-                  if (window.innerWidth <= 500 && imgElement.src !== '/public/img/mobile/main/mobile_main01.png') {
-                      imgElement.src = '/public/img/mobile/main/mobile_main01.png';  // 원하는 새로운 이미지 경로로 변경하세요.
-                  } else if (window.innerWidth > 500 && imgElement.src !== '/public/img/mobile_main_800.png') {
-                      imgElement.src = '/public/img/mobile_main_800.png';
-                  }
-              }
+              // window.addEventListener('resize', changeImageSrcBasedOnWidth);
+              //
+              // function changeImageSrcBasedOnWidth() {
+              //     const imgElement = document.getElementById('targetImage');
+              //     if (window.innerWidth <= 500 && imgElement.src !== '/public/img/mobile/main/mobile_main01.png') {
+              //         imgElement.src = '/public/img/mobile/main/mobile_main01.png';  // 원하는 새로운 이미지 경로로 변경하세요.
+              //     } else if (window.innerWidth > 500 && imgElement.src !== '/public/img/mobile_main_800.png') {
+              //         imgElement.src = '/public/img/mobile_main_800.png';
+              //     }
+              // }
           </script>
       </section>
       <!--섹션1-->

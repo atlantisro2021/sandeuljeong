@@ -949,7 +949,6 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     .top_detail .gallery_top_span {flex-direction: column; display: flex; justify-content: center; align-items: center; padding: 0 0 20px 0;}
     .detail_regdate {width: 100%; text-align: center; margin-top: 10px;}
     .reaction_img div span {font-size: 3rem;}
-    .m1560px {display: flex;}
 }
 @media screen and (max-width: 1390px) {
     .main_real_btm {height: 888px;}
