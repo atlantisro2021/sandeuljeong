@@ -813,7 +813,7 @@
     display: flex;
 }
 #brand .brand_sec_paper .main_big_span {margin-top: 110px; font-family: 'MICE', sans-serif; font-weight: normal;}
-.brand_sec_paper {background-image: url("/public/img/web/brand/brand_sec04.png"); width: 100%; height: 3100px;
+.brand_sec_paper {background-image: url("/public/img/web/brand/brand_sec04.png"); width: 100%;
                   display: flex; flex-direction: column; align-items: center; margin-top: 4rem; background-size: cover;}
 .brand_sec_paper .sec_add_title {
     color: #d1af99;
@@ -838,6 +838,7 @@
 #brand .mobile_brand_paper img {width: 100%; margin: 50px 0; padding: 30px;}
 #brand .mobile_paper_title {color: rgb(193, 159, 139); font-size: 2.5rem; text-align: center; font-weight: bold; margin-bottom: 30px;}
 #brand .mobile_paper_span {color: #9f7f68; font-size: 1.2rem; font-weight: 600; margin-top: 5px; text-align: center;}
+#brnad .mobile_brand {display: flex;}
 #brand .m_mgn_btm {margin-bottom: 20px;}
 @media screen and (max-width: 1850px) {
     .brand_box_section02 {justify-content: center; align-items: center; flex-direction: column;}
