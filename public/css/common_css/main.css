@@ -1030,7 +1030,7 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     .main_brand_box, .main_brand_slide, .reaction_slide, .main_review_box, .main_big_span, .brand_box_section04, .main_card_news, .main_card_notice, .main_real_btm, .real_btm_storybtn {
         z-index: 9999;
     }
-    .mobile_back {display: flex;}
+    .m800px {display: flex;}
     .mobile_owner_div {display: flex;}
     .section_04 .main_big_span {font-size: 1.5rem!important;}
     .section_02 .main_big_span {font-size: 1.5rem!important;}
@@ -1067,7 +1067,7 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     .main_news_title div {width: 100%;}
 
     #main .section_01 img {display: flex; position: absolute; width: 100%; z-index: 1;}
-    #main .mobile_back {display: flex; position: absolute; width: 100%; height: auto; z-index: 1; margin-bottom: 58rem;}
+    #main .mobile_back {position: absolute; width: 100%; height: auto; z-index: 1; margin-bottom: 58rem;}
     #main .sec_add_01 div {z-index: 9999;}
 
     .owner_span_div {
@@ -1169,7 +1169,7 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     .main_brand_box, .main_brand_slide, .reaction_slide, .main_review_box, .main_big_span, .brand_box_section04, .main_card_news, .main_card_notice, .main_real_btm, .real_btm_storybtn {
         z-index: 9999;
     }
-    .mobile_back {display: flex;}
+    .m500px {display: flex;}
     .mobile_owner_div {display: flex;}
     .section_04 .main_big_span {font-size: 1.5rem!important;}
     .section_02 .main_big_span {font-size: 1.5rem!important;}
