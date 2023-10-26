@@ -838,6 +838,7 @@
 #brand .mobile_paper_title {color: rgb(193, 159, 139); font-size: 2.5rem; text-align: center; font-weight: bold; margin-bottom: 30px;}
 #brand .mobile_paper_span {color: #9f7f68; font-size: 1.2rem; font-weight: 600; margin-top: 5px; text-align: center;}
 #brand .mobile_brand {display: flex;}
+#brand .reserve {flex-direction: row-reverse;}
 #brand .m_mgn_btm {margin-bottom: 20px;}
 @media screen and (max-width: 1850px) {
     .brand_box_section02 {justify-content: center; align-items: center; flex-direction: column;}
