@@ -945,7 +945,6 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
         padding-left: 18px;
         padding-right: 10px;
     }
-    #review .card_notice, #news .card_notice {margin: 0;}
     #notice .gallery_top_span {padding-bottom: 0;}
     .detail_gallery_type {text-align: left;}
     .top_detail {padding:0;}
@@ -1114,7 +1113,6 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
         padding-left: 18px;
         padding-right: 10px;
     }
-    #review .card_notice, #news .card_notice {margin: 0;}
     #notice .gallery_top_span {padding-bottom: 0;}
     .detail_gallery_type {text-align: left;}
     .top_detail {padding:0;}
@@ -1257,7 +1255,6 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
         padding-left: 10px;
         padding-right: 10px;
     }
-    #review .card_notice, #news .card_notice {margin: 0;}
     #notice .gallery_top_span {padding-bottom: 0;}
     .top_detail {padding:0;}
     .top_detail .gallery_top_span {flex-direction: column; display: flex; justify-content: center; align-items: center; font-size: 1.5rem}

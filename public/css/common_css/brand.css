@@ -874,8 +874,8 @@
     .section_02 .sec_add_div {padding: 40px 15px; padding-top: 150px;}
     .brand_sec_paper .sec_add_div {display: none;}
     body .container .brand_sec_paper .sec_add_div .sec_add_title {color: rgb(193, 159, 139); font-size: 1.2rem; text-align: center; font-weight: bold;}
-    body .container .sec_add_div .sec_add_span {font-size: 1.7rem; letter-spacing: -2px; margin-top: 0rem; }
-    .section_02 .sec_add_div .sec_add_title {text-align: left; font-size: 4rem;}
+    body .container .sec_add_div .sec_add_span {font-size: 1.7rem; letter-spacing: -2px; margin-top: 0rem; text-align: center; }
+    .section_02 .sec_add_div .sec_add_title {text-align: left; font-size: 4rem; text-align: center;}
     .mgbt_sec_add {margin-bottom: 10px;}
     .mgbt40 {margin-bottom: 40px;}
     .brand_sec_paper .main_big_span {font-size: 1.6rem!important;}
