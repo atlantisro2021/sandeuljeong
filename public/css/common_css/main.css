@@ -961,11 +961,11 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     .section_02 {margin-top: 15rem;}
     .main_real_btm {background-image: none; height: 1100px;}
     .main_real_btm .m1250px {display: flex;}
-    .real_btm_story_top {height: 92%;}
+    .real_btm_story_top {height: 57%;}
     .real_btm_storybtn {
         width: 150px;
         height: 30px;
-        margin-left: 30px;
+        margin-left: 125px;
         z-index: 99999;
         position: absolute;
     }
