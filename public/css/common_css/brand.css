@@ -834,9 +834,8 @@
 
 .mobile_back {position: absolute; width: 100%; height: auto; z-index: 1; margin-bottom: 58rem; display: none;}
 
-#brand .mobile_brand_paper {display: none; justify-content: center; flex-direction: column; width: 100%;}
+#brand .mobile_brand_paper {display: flex; justify-content: center; flex-direction: column; width: 100%;}
 #brand .mobile_brand_paper img {width: 100%; margin: 50px 0; padding: 30px;}
-#brand .mobile_brand_paper div {display: flex; flex-direction: column;}
 #brand .mobile_paper_title {color: rgb(193, 159, 139); font-size: 2.5rem; text-align: center; font-weight: bold; margin-bottom: 30px;}
 #brand .mobile_paper_span {color: #9f7f68; font-size: 1.2rem; font-weight: 600; margin-top: 5px; text-align: center;}
 #brand .m_mgn_btm {margin-bottom: 20px;}
