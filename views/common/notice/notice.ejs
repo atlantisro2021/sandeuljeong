@@ -11,7 +11,8 @@
 <body id="notice">
 <div class="container">
     <section class="section_01">
-        <img class="mobile_back" id="targetImage" src="/public/img/mobile/notice/mobile_notice_sec01.png" style="width: 100%;"/>
+        <img class="mobile_back m1560px" src="/public/img/mobile/notice/mobile_notice_sec01.png" style="width: 100%;"/>
+        <img class="mobile_back m800px" id="targetImage" src="/public/img/mobile/notice/mobile_notice_sec01.png" style="width: 100%;"/>
         <script>
             window.onload = function() {
                 changeImageSrcBasedOnWidth();
@@ -21,9 +22,9 @@
 
             function changeImageSrcBasedOnWidth() {
                 const imgElement = document.getElementById('targetImage');
-                if (window.innerWidth <= 500 && imgElement.src !== '/public/img/mobile/notice/mobile_notice_sec01.png') {
+                if (window.innerWidth <= 800 && imgElement.src !== '/public/img/mobile/notice/mobile_notice_sec01.png') {
                     imgElement.src = '/public/img/mobile/notice/mobile_notice_sec01.png';  // 원하는 새로운 이미지 경로로 변경하세요.
-                } else if (window.innerWidth > 500 && imgElement.src !== '/public/img/mobile_notice_800.png') {
+                } else if (window.innerWidth > 800 && imgElement.src !== '/public/img/mobile_notice_800.png') {
                     imgElement.src = '/public/img/mobile_notice_800.png';
                 }
             }
