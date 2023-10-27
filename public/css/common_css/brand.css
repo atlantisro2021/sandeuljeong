@@ -996,13 +996,7 @@
     .brand_text_wrap .word_content .content_02 .here_content_middle .animate_brand_txt .brand_hanbul_en {font-size: 2rem;}
     .brand_box_section02 .brand_story {font-size: 1.5rem;}
 }
-@media screen and (max-width: 850px) {
-    .here_content .animate_video_txt {font-size: 3rem;}
-}
-@media screen and (max-width: 840px) {
-    .right_wrap_section04 {float: left;}
-}
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     #brand .mobile_brand_paper {display: flex;}
     #brand .brand_sec_paper .main_big_span {margin-top: 40px;}
     .mobile_back {display: flex;}
@@ -1099,6 +1093,13 @@
     .main_big_span {font-size: 3rem; margin-bottom: 0;}
     /*.right_wrap_section04 {float: none;}*/
 }
+@media screen and (max-width: 850px) {
+    .here_content .animate_video_txt {font-size: 3rem;}
+}
+@media screen and (max-width: 840px) {
+    .right_wrap_section04 {float: left;}
+}
+
 @media screen and (max-width: 735px) {
     body .container .sec_add_div .sec_add_span {font-size: 1.5rem;}
     .section_02 .sec_add_div .sec_add_title {font-size: 3rem;}
