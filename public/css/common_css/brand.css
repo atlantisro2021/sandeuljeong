@@ -813,7 +813,7 @@
     display: flex;
 }
 #brand .brand_sec_paper .main_big_span {margin-top: 110px; font-family: 'MICE', sans-serif; font-weight: normal;}
-.brand_sec_paper {width: 100%; display: flex; flex-direction: column; align-items: center; margin-top: 4rem; background-size: cover; background-color: #9f7f68;}
+.brand_sec_paper {width: 100%; display: flex; flex-direction: column; align-items: center; margin-top: 4rem; background-size: cover; background-color: rgba(159,127,104,0.2);}
 .brand_sec_paper .sec_add_title {
     color: #d1af99;
     font-size: 3rem;
