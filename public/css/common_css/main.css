@@ -1032,6 +1032,7 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     .main_brand_box, .main_brand_slide, .reaction_slide, .main_review_box, .main_big_span, .brand_box_section04, .main_card_news, .main_card_notice, .main_real_btm, .real_btm_storybtn {
         z-index: 9999;
     }
+    .m1300px {display: none;}
     .m800px {display: flex;}
     .main_real_btm .m800px {display: flex;}
     .main_real_btm .m1250px {display: none;}
