@@ -869,13 +869,12 @@
 
     #brand .mobile_brand_paper {display: flex;}
     #brand .brand_sec_paper .main_big_span {margin-top: 40px;}
-    .mobile_back {display: flex;}
     .sec_add_div, .brand_sec_02_name, .main_big_span, .brand_box_section04, .main_big_span, .sec4_logo, .brand_box_section04, .mobile_back_04, .brand_logo_resource, .brand_box_section05 {z-index: 9999;}
     #brand {overflow-x: hidden;}
     #brand .sec_add_div, #brand .brand_sec_02_name, #brand .main_big_span, #brand .brand_box_section04 {z-index: 9999;}
     .brand_sec_02_name {display: none;}
     .section_02, .section_03, .section_04, .section_05, .brand_sec_paper {height: auto; background-image: none;}
-    .section_01 {height: 100vh; background-image: none;}
+    .section_01 {height: 100vh; background-image: url("/public/img/web/brand/brand_sec01_1350.png");}
     .section_05 {padding: 0; margin-top: 4rem;}
     .section_03 {
         margin-top: 2rem;
