@@ -839,7 +839,7 @@
 #brand .mobile_brand {display: flex;}
 #brand .reserve {flex-direction: row-reverse;}
 #brand .resume_img {width: 50%; margin: 50px 0; padding: 30px;}
-#brand .resume_txt {width: 50%;}
+#brand .resume_txt {width: 50%; margin-bottom: auto; margin-top: auto; display: flex; flex-direction: column;}
 
 #brand .m_mgn_btm {margin-bottom: 20px;}
 @media screen and (max-width: 1850px) {
