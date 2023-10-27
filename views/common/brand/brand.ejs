@@ -30,17 +30,17 @@
           window.onload = function() {
               changeImageSrcBasedOnWidth();
           }
-          //
-          // window.addEventListener('resize', changeImageSrcBasedOnWidth);
-          //
-          // function changeImageSrcBasedOnWidth() {
-          //     const imgElement = document.getElementById('targetImage');
-          //     if (window.innerWidth <= 500 && imgElement.src !== '/public/img/mobile/brand/mobile_brand01.png') {
-          //         imgElement.src = '/public/img/mobile/brand/mobile_brand01.png';  // 원하는 새로운 이미지 경로로 변경하세요.
-          //     } else if (window.innerWidth > 500 && imgElement.src !== '/public/img/mobile_brand_800.png') {
-          //         imgElement.src = '/public/img/mobile_brand_800.png';
-          //     }
-          // }
+
+          window.addEventListener('resize', changeImageSrcBasedOnWidth);
+
+          function changeImageSrcBasedOnWidth() {
+              const imgElement = document.getElementById('targetImage');
+              if (window.innerWidth <= 800 && imgElement.src !== '/public/img/mobile/brand/mobile_brand01.png') {
+                  imgElement.src = '/public/img/mobile/brand/mobile_brand01.png';  // 원하는 새로운 이미지 경로로 변경하세요.
+              } else if (window.innerWidth > 800 && imgElement.src !== '/public/img/mobile_brand_800.png') {
+                  imgElement.src = '/public/img/mobile_brand_800.png';
+              }
+          }
       </script>
   </section>
   <!--섹션1-->
