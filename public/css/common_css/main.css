@@ -957,13 +957,13 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     .reaction_img div span {font-size: 3rem;}
 }
 @media screen and (max-width: 1460px) {
-    #news .section_01, #notice .section_01 {height: 90vh;}
+    #news .section_01, #notice .section_01, #review .section_01 {height: 90vh;}
 }
 @media screen and (max-width: 1390px) {
     .main_real_btm {height: 888px;}
 }
 @media screen and (max-width: 1350px) {
-    #news .section_01, #notice .section_01 {height: 80vh;}
+    #news .section_01, #notice .section_01, #review .section_01 {height: 80vh;}
 }
 @media screen and (max-width: 1300px) {
     .m1300px {display: flex;}
@@ -990,7 +990,7 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     .main_real_btm {height: 1050px;}
 }
 @media screen and (max-width: 1150px) {
-    #news .section_01, #notice .section_01 {height: 70vh;}
+    #news .section_01, #notice .section_01, #review .section_01 {height: 70vh;}
 }
 @media screen and (max-width: 1145px) {
     .main_real_btm {height: 1020px;}
@@ -1013,7 +1013,7 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
 }
 @media screen and (max-width: 1020px) {
     .main_real_btm {height: 900px;}
-    #news .section_01, #notice .section_01 {height: 60vh;}
+    #news .section_01, #notice .section_01, #review .section_01 {height: 60vh;}
 }
 @media screen and (max-width: 1000px) {
     .main_real_btm {height: 880px;}
@@ -1048,7 +1048,7 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
     .main_brand_box, .main_brand_slide, .reaction_slide, .main_review_box, .main_big_span, .brand_box_section04, .main_card_news, .main_card_notice, .main_real_btm, .real_btm_storybtn {
         z-index: 9999;
     }
-    #news .section_01, #notice .section_01 {height: 100vh;}
+    #news .section_01, #notice .section_01, #review .section_01 {height: 100vh;}
     .m1300px {display: none;}
     .m800px {display: flex;}
     .main_real_btm .m800px {display: flex;}
