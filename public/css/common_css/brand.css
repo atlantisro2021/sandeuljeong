@@ -841,6 +841,13 @@
 #brand .resume_img {width: 50%; margin: 50px 0; padding: 30px;}
 #brand .resume_txt {width: 50%; margin-bottom: auto; margin-top: auto; display: flex; flex-direction: column;}
 
+@media screen and (max-width: 1235px){
+    #brand .reserve {flex-direction: column;}
+    #brand .mobile_brand {flex-direction: column;}
+    #brand .resume_img {width: 100%;}
+    #brand .resume_txt {width: 100%;}
+}
+
 #brand .m_mgn_btm {margin-bottom: 20px;}
 @media screen and (max-width: 1850px) {
     .brand_box_section02 {justify-content: center; align-items: center; flex-direction: column;}
