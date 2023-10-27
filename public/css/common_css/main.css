@@ -861,6 +861,9 @@ body .container .brand_1 {background-image: url("/public/img/web/main/main_sec01
 .detail_gallery_type {width: 70%; color: white; font-size: 2rem; font-weight: bold; text-align: left; padding-top: 100px; padding-bottom: 50px;}
 .detail_memo {color: white; font-size: 1rem; width: 72%; margin-bottom: 100px; padding: 0 20px;}
 
+@media screen and (max-width: 1880px) {
+    #review .section_01 {background-image: url("/public/img/web/review/review_sec_1600.png");}
+}
 @media screen and (max-width: 1580px){
     .main_brand_box, .main_brand_slide, .reaction_slide, .main_review_box, .main_big_span, .brand_box_section04, .main_card_news, .main_card_notice, .main_real_btm, .real_btm_storybtn {
         z-index: 9999;
