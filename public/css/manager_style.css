@@ -532,6 +532,7 @@ a.top:active p {
 }
 .edit-title {
     width: 522px;
+    border: 1px solid rgba(0,0,0,0.3);
 }
 .edit-img-files {
     width: 250px;

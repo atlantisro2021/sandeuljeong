@@ -11,35 +11,20 @@
 <body id="notice">
 <div class="container">
     <section class="section_01">
-        <img class="mobile_back m1560px" src="/public/img/web/notice/notice_sec_1580.png" style="width: 100%;"/>
-        <img class="mobile_back m1300px" src="/public/img/web/notice/notice_sec_1300.png" style="width: 100%;"/>
-        <img class="mobile_back m800px" id="targetImage" src="/public/img/mobile/notice/mobile_notice_sec01.png" style="width: 100%;"/>
-        <img class="mobile_back m500px" id="targetImage" src="/public/img/mobile/notice/mobile_notice_sec01.png" style="width: 100%;"/>
-        <script>
-            window.onload = function() {
-                changeImageSrcBasedOnWidth();
-            }
-
-            window.addEventListener('resize', changeImageSrcBasedOnWidth);
-
-            function changeImageSrcBasedOnWidth() {
-                const imgElement = document.getElementById('targetImage');
-                if (window.innerWidth <= 800 && imgElement.src !== '/public/img/mobile/notice/mobile_notice_sec01.png') {
-                    imgElement.src = '/public/img/mobile/notice/mobile_notice_sec01.png';  // 원하는 새로운 이미지 경로로 변경하세요.
-                } else if (window.innerWidth > 800 && imgElement.src !== '/public/img/mobile_notice_800.png') {
-                    imgElement.src = '/public/img/mobile_notice_800.png';
-                }
-            }
-        </script>
+        <img src="/public/img/san/san_notice_top.png">
+        <img style="display: none;" src="/public/img/nac_main_1.png">
     </section>
     <!--섹션1-->
 
-    <section class="section_main_btm review_1">
-        <span class="gallery_top_span">RECENT ANNOUNCE</span>
+    <section class="section_main_btm review_1 notice">
+        <span class="notice_top_span1 notice_span">INFORMATION</span>
+        <img class="notice_ring" src="/public/img/san/border_ring.png" />
+        <span class="notice_top_span2 notice_span">알려드립니다!</span>
+        <span class="notice_top_span3 notice_span">산들정의 새로운 소식들과 유용한 정보들을 한 곳에서 확인하세요.</span>
         <table class="checkform-table">
             <tbody>
             <tr class="checkform-table-header">
-                <td class="checkform-table-smalltd border-right">No.</td>
+                <td class="checkform-table-smalltd border-right">번호</td>
                 <td>제목</td>
                 <td class="checkform-table-writer-and-date border-left">작성날짜</td>
             </tr>
@@ -54,7 +39,7 @@
                     <tr class="checkform-table-body">
                         <td class="border-right num"> <%= totalCount-- %> </td>
                         <td>
-                            <a data-link="/detail?table=notice&idx=<%= item.idx %>">
+                            <a class="notice_link" data-link="/detail?table=notice&idx=<%= item.idx %>">
                                 <%- item.title %>
                             </a>
                         </td>
@@ -64,6 +49,13 @@
             <% } %>
             </tbody>
         </table>
+            <div class="pagination">
+                <% for(let i = 1; i <= Math.ceil(total / limit); i++) { %>
+                    <div class="page-item <%= i === currentPage ? 'active' : '' %>">
+                        <a class="page-link" href="/notice?page=<%= i %>"><%= i %></a>
+                    </div>
+                <% } %>
+            </div>
     </section>
 
 

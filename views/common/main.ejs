@@ -1,405 +1,115 @@
 <%- include('include/header.ejs') %>
-<link rel="stylesheet" href="/public/css/common_css/main.css">
-<!--DB에서 html태그 제거&text만 출력-->
-<% function stripHtmlTags(str) {
-    if (str === null || str === '') return '';
-    else str = str.toString();
-    return str.replace(/<[^>]*>/g, '');
-} %>
-<!--날짜 년,월,일만 출력-->
-<% function formatDate(str) {
-    const date = new Date(str);
-    const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const day = date.getDate().toString().padStart(2, '0');
-    return `${year}-${month}-${day}`;
-} %>
-
 <body id="main">
     <div class="container">
-      <section class="section_01">
-          <img class="mobile_back m1560px" id="targetImage" src="/public/img/web/main/main_sec01_1560.png"/>
-          <img class="mobile_back m1300px" id="targetImage" src="/public/img/web/main/main_sec01_1300.png"/>
-          <img class="mobile_back m800px" id="targetImage" src="/public/img/mobile/main/mobile_main_800.png"/>
-          <img class="mobile_back m500px" id="targetImage" src="/public/img/mobile/main/mobile_main01.png"/>
-          <div class="video_text_wrap">
-              <div class="word_content">
-                  <div class="content">
-                      <div class="here_content">
-                          <h1 class="animate_video_txt">
-                            <span id="main_span" style="transition: 0.5s ease-in-out; position: relative; top: 230px;">
-                            <span class="animate_wrapper">
-                            <span style="font-family: 'MICE', sans-serif;" class="word01">천년전통의 우리맛, 우리멋</span>
-                            <span></span>
-                            </span><br>
-                            <span class="animate_wrapper">
-                            <span style="font-family: 'MICE', sans-serif;" class="word02">"안동한우불고기"</span>
-                            <span></span>
-                            </span>
-                            </span>
-                          </h1>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <script>
-              window.onload = function (){
-                  setTimeout(() => document.getElementById('main_span').style.top = '0' , 500);
-              }
 
-              // window.addEventListener('resize', changeImageSrcBasedOnWidth);
-              //
-              // function changeImageSrcBasedOnWidth() {
-              //     const imgElement = document.getElementById('targetImage');
-              //     if (window.innerWidth <= 500 && imgElement.src !== '/public/img/mobile/main/mobile_main01.png') {
-              //         imgElement.src = '/public/img/mobile/main/mobile_main01.png';  // 원하는 새로운 이미지 경로로 변경하세요.
-              //     } else if (window.innerWidth > 500 && imgElement.src !== '/public/img/mobile_main_800.png') {
-              //         imgElement.src = '/public/img/mobile_main_800.png';
-              //     }
-              // }
-          </script>
-      </section>
-      <!--섹션1-->
-      <section class="sec_add_01">
-          <img class="mobile_back"  src="/public/img/mobile/brand/mobile_brand02.png"/>
-        <div class="sec_add_div">
-            <span class="sec_add_span">천년전통의 우리맛, 우리멋 | "안동한우불고기"</span>
-            <span class="sec_add_title">한불 HanBul</span>
-            <span class="sec_add_span mgbt_sec_add">한불은 한국불고기, 한양불고기, 한우불고기의 줄임말로</span>
-            <span class="sec_add_span mgbt_sec_add">천년 전통을 가진 안동지방의 한우불고기 조리습관으로</span>
-            <span class="sec_add_span mgbt_sec_add">주부(소비자)의 불고기 고유의 맛을 되찾고</span>
-            <span class="sec_add_span mgbt40">행복한 식탁을 위하여 만들어진 브랜드입니다.</span>
-            <span class="sec_add_span mgbt_sec_add">대한민국의 대표적인 음식으로 불고기와 김치가 유명합니다.</span>
-            <span class="sec_add_span mgbt_sec_add"> 한불은 안동(경북)한우 1++과 안동(경북)사과, 양파, 마늘,고추 등</span>
-            <span class="sec_add_span mgbt_sec_add"> 100% 국산 농산물로 완성한 프리미엄 불고기브랜드로</span>
-            <span class="sec_add_span mgbt40">주부(소비자)의 만족도가 아주 높습니다.</span>
-            <span class="sec_add_span mgbt_sec_add">안동지방의 양반가문에서 전해져 내려오는 불고기 비법소스와</span>
-            <span class="sec_add_span mgbt_sec_add">안동(경북)지방의 고급 한우1++로 만들어진 대한민국</span>
-            <span class="sec_add_span">국가대표 불고기 브랜드입니다.</span>
-        </div>
-      </section>
+        <section class="section_01">
+            <img src="/public/img/san/san_main_top.png">
+            <img style="display: none;" src="/public/img/nac_main_1.png">
+        </section>
 
-      <section class="section_02">
-          <img class="mobile_back m800px" src="/public/img/mobile/mobile_main03.png"/>
-          <img class="mobile_back m500px" src="/public/img/mobile/mobile_main03.png"/>
-        <div class="main_brand_box">
-          <div class="main_brand_slide">
-                    <!-- Slider main container -->
-                    <div class="swiper first">
-                        <!-- Additional required wrapper -->
-                        <div class="swiper-wrapper">
-                            <!-- Slides -->
-                            <div class="swiper-slide sec02_swiper_top">
-                                <img src="/public/img/web/brand/top_brand_story01.png">
-                            </div>
-                            <div class="swiper-slide sec02_swiper_top">
-                                <img src="/public/img/web/brand/top_brand_story02.png">
-                            </div>
-                            <div class="swiper-slide sec02_swiper_top">
-                                <img src="/public/img/web/brand/top_brand_story03.png">
-                            </div>
-                            <div class="swiper-slide sec02_swiper_top">
-                                <img src="/public/img/web/brand/top_brand_story04.png">
-                            </div>
-                        </div>
-                        <!-- If we need pagination -->
-                        <div class="swiper-pagination"></div>
-                        <style>
-                            .swiper-pagination-bullet-active {
-                                background: white;
-                            }
-                        </style>
-
+        <section class="section_02 main_sec rec_3" id="brand" style="background-color: white;">
+            <div class="main_div">
+                <span class="m_sec2_span_1" id="SLOGAN_SPAN">SLOGAN</span>
+                <span class="m_sec2_span_2" id="SLOGAN_SPAN">우리네 건강한 식품</span>
+                <span class="m_sec2_span_3" id="SLOGAN_SPAN">우리 가족을 위해 까다로운 기준으로 엄선한 건강한 식품을 식탁 위에 올릴 수 있도록 항상 노력합니다.</span>
+                <div class="main_bsec2_mid_div_btm">
+                    <div>
+                        <img class="project_img" src="/public/img/san/SLOGAN_1.png" id="thumbnail"/>
+                        <span class="main_bsec2_span_top" id="title">보다 정직하게</span>
+                        <span class="main_bsec2_span_btm" id="subtitle">거짓없이 정직한 식품을 약속드립니다.</span>
+                    </div>
+                    <div>
+                        <img class="project_img" src="/public/img/san/SLOGAN_2.png" id="thumbnail"/>
+                        <span class="main_bsec2_span_top" id="title">더욱 신선하게</span>
+                        <span class="main_bsec2_span_btm" id="subtitle">신선한 우리 농작물의 푸르름을 그대로 간직합니다.</span>
+                    </div>
+                    <div>
+                        <img class="project_img" src="/public/img/san/SLOGAN_3.png" id="thumbnail"/>
+                        <span class="main_bsec2_span_top" id="title">항상 행복하게</span>
+                        <span class="main_bsec2_span_btm" id="subtitle">매일매일의 행복한 우리 가족 식탁을 위해 노력합니다.</span>
                     </div>
                 </div>
-          <div class="reaction_slide">
-              <div class="reaction_img">
-                  <img src="/public/img/web/brand/top_brand_story01.png">
-                  <div><span style="text-align: right;">01</span></div>
-              </div>
-              <div class="reaction_img">
-                  <div><span style="text-align: left;">02</span></div>
-                  <img src="/public/img/web/brand/top_brand_story02.png">
-              </div>
-              <div class="reaction_img">
-                  <img src="/public/img/web/brand/top_brand_story03.png">
-                  <div><span style="text-align: right;">03</span></div>
-              </div>
-              <div class="reaction_img">
-                  <div><span style="text-align: left;">04</span></div>
-                  <img src="/public/img/web/brand/top_brand_story04.png">
-              </div>
-          </div>
-            <img class="main_brand_intro" src="/public/img/web/main/main_story_owner.png">
-        </div>
-        <div class="mobile_owner_div">
-            <div class="owner_blank_div"></div>
-            <div class="owner_span_div">
-                <img style="z-index: 9999;" src="/public/img/web/main/main_story_owner.png">
             </div>
-        </div>
-        <div class="main_review_box">
-              <div class="main_review_slide">
-                  <!-- Swiper -->
-                  <div class="swiper mySwiper second">
-                      <div class="swiper-wrapper">
-                          <% if(review.length > 0) { %>
-                              <% for(let i = 0; i < Math.min(5, review.length); i++) { %>
-                                  <div class="swiper-slide" style="cursor: pointer;"  data-idx="<%= review[i].idx %>" data-link="/detail?table=review&idx=<%= review[i].idx %>">
-                                  <img class="main_slide_img" src="<%- review[i].thumbnail %>">
-                                          <div class="review_text_box">
-                                              <div class="review_headline" style="font-family: 'MICE', sans-serif;">리뷰</div>
-                                              <div class="review_content" style="font-family: 'MICE', sans-serif;"><%- stripHtmlTags(review[i].memo) %></div>
-                                              <div class="review_date">
-                                                  <div class="date" style="font-family: 'MICE', sans-serif;"><%= formatDate(review[i].regdate) %></div>
-                                              </div>
-                                          </div>
-                                  </div>
-                              <% } %>
-                          <% } %>
-                      </div>
-                  </div>
-              </div>
-        </div>
-
-          <script>
-              function setCardNewsHeight() {
-                  const cardNewsElements = document.querySelectorAll('.main_slide_img');
-                  cardNewsElements.forEach((element) => {
-                      const width = element.clientWidth;
-                      element.style.height = `${width}px`;
-                  });
-              }
-
-              window.addEventListener('load', setCardNewsHeight);
-              window.addEventListener('resize', setCardNewsHeight);
-              document.querySelectorAll('.swiper-slide').forEach(slide => {
-                  slide.addEventListener('click', function() {
-                      const link = slide.getAttribute('data-link');
-                      if (link) {
-                          window.location.href = link;
-                      }
-                  });
-              });
-          </script>
-      </section>
-      <!--섹션2-->
-
-      <section class="section_04">
-          <img class="mobile_back"/>
-          <span class="main_big_span" style="margin-bottom: 100px;">HanBul is Different</span>
-          <div class="brand_box_section04">
-              <div class="main_brand_intro_section04">
-                  <img id="brandImage" src="/public/img/web/main/main_story01.png" width="100%">
-              </div>
-              <div class="brand_compet">
-                  <button id="01" type="button" class="collapsible" onclick="changeImage(this); collapse(this);" data-img="/public/img/web/main/main_story01.png">불고기와 마블링  :  "홍대앞 국밥집 대표님 이야기"</button>
-                  <div class="explan">
-                      <p>내가 30년 요식업에 종사하지만, 불고기에 마블링이 있는것은 처음 봅니다.</p>
-                      <p>누가 한우1++로 불고기를 만듭니까?하고 감탄하였습니다.</p>
-                  </div>
-                  <button id="02" type="button" class="collapsible" onclick="changeImage(this); collapse(this);" data-img="/public/img/web/main/main_story02.png">불고기와 육향  :  "한불의 약속"</button>
-                  <div class="explan">
-                      <p>한불은 안동(경북)한우 1++ 원육이 가지고 있는 육질과 풍미를 그대로 전달하기 위하여</p>
-                      <p>깐깐한 선별작업과 포장방법(분리포장)으로 불고기의 풍미를 그대로 전달드리겠습니다.</p>
-                  </div>
-                  <button id="03" type="button" class="collapsible" onclick="changeImage(this); collapse(this);" data-img="/public/img/web/main/main_story03.png">불고기와 한불  :  "한불의 맛"</button>
-                  <div class="explan">
-                      <p>한국의 맛 | 엄마의 맛 | 담백한 맛 | 고소한 맛</p>
-                      <p>엄마의 마음을 담아 완성한 프리미엄 한우 불고기</p>
-                  </div>
-                  <button id="04" type="button" class="collapsible" onclick="changeImage(this); collapse(this);" data-img="/public/img/web/main/main_story04.png">불고기와 양념소스  :  "한불만의 양념소스 이야기"</button>
-                  <div class="explan_04">
-                      <p>한불의 양념소스는 아이와 부모, 가족을 생각하며 완성하였습니다. 물은 연수로 정수하고, 천일염에 </p>
-                      <p>15배 비싼 소금, 양조간장과 안동사과, 양파 등 엄선된 국산농산물로 완성한 프리미엄 양념소스입니다.</p>
-                  </div>
-              </div>
-
-              <script>
-                  function changeImage(button) {
-                      var imgSrc = button.getAttribute('data-img');
-                      document.getElementById('brandImage').src = imgSrc;
-                  }
-              </script>
-
-              <script src="/public/js/atlantis/main.js"></script>
-              <script src="/public/js/atlantis/collapse.js"></script>
-          </div>
         </section>
-      <!--섹션4-->
 
-        <section class="section_main_btm">
-            <img class="mobile_back" src="/public/img/mobile/mobile_main05.png"/>
-            <div class="main_card_news">
-                <div class="main_news_title">
-                    <span>HanBul News</span>
-                    <div class="news_title_btm_border"></div>
-                </div>
-                <div class="card_news_p">
-                    <% if(news.length > 0) { %>
-                        <div class="card_news news_card_01" id="div_card_news" data-link="/detail?table=news&idx=<%= news[0].idx %>">
-                            <img src="<%= news[0].thumbnail %>">
-                        </div>
-                    <% } else { %>
-                        <div class="card_news news_card_01">
-                            <span>준비중입니다.</span>
-                        </div>
-                    <% } %>
-                    <% if(news.length > 1) { %>
-                            <div class="card_news news_card_02" id="div_card_news" data-link="/detail?table=news&idx=<%= news[1].idx %>">
-                                <img src="<%= news[1].thumbnail %>">
-                            </div>
-                    <% } else { %>
-                        <div class="card_news news_card_02">
-                            <span>준비중입니다.</span>
+        <section class="section_02 main_sec rec_3" id="brand" style="background-color: rgb(242,242,242); padding: 150px 0; margin:0;">
+            <span class="san_shop_slide san_main_shop_left" id="shop_slide_left"> < </span>
+            <div class="main_div">
+                <span class="m_sec2_span_1">SHOP</span>
+                <span class="m_sec2_span_2">우리상품 살펴보기</span>
+                <span class="m_sec2_span_3">우리 가족을 위해 까다로운 기준으로 엄선한 건강한 식품을 식탁 위에 올릴 수 있도록 항상 노력합니다.</span>
+                <div class="main_bsec2_mid_div_btm san_main_shop" id="shop_long_slide">
+                    <% for(let i = 0; i < shop.length && i < 8; i++) { %>
+                        <div class="san_sec3_img_div">
+                            <a class="shop_long_div_a" href="<%= shop[i].link %>">
+                                <img class="shop_img" src="<%= shop[i].thumbnail %>" alt="Shop Image"/>
+                                <span class="main_bsec2_span_top"><%= shop[i].title %></span>
+                                <span class="main_bsec2_span_btm"><%= shop[i].subtitle %></span>
+                            </a>
                         </div>
                     <% } %>
                 </div>
             </div>
+            <span class="san_shop_slide san_main_shop_right" id="shop_slide_right"> > </span>
             <script>
-                function setCardNewsHeight() {
-                    const cardNewsElements = document.querySelectorAll('.card_news');
-                    cardNewsElements.forEach((element) => {
-                        const width = element.clientWidth;
-                        element.style.height = `${width}px`;
-                    });
-                }
+                const left = document.getElementById("shop_slide_left");
+                const right = document.getElementById("shop_slide_right");
+                const slide = document.getElementById("shop_long_slide");
 
-                window.addEventListener('load', setCardNewsHeight);
-                window.addEventListener('resize', setCardNewsHeight);
+                left.addEventListener("click", function (){
+                    slide.style.transform = 'translateX(0%)'
+                })
+                right.addEventListener("click", function (){
+                    slide.style.transform = 'translateX(-50%)'
+                })
             </script>
+        </section>
 
-            <div class="main_card_notice">
-                <% for(let i = 0; i < 3; i++) { %>
-                    <div class="card_notice cn_<%= i+1 %>" id="div_card_notice" data-link="/detail?table=notice&idx=<%= notice[i].idx %>">
-                        <div class="card_notice_top">
-                            <span><%= notice.length > i ? notice[i].title : '준비중입니다.' %></span>
+
+
+        <section class="section_02 main_sec rec_3" id="brand" style="background-color: white;">
+            <div class="main_div">
+                <span class="m_sec2_span_1">CONTENTS</span>
+                <span class="m_sec2_span_2">산들정 소식 살펴보기</span>
+                <span class="m_sec2_span_3">우리네 안전 먹거리와 관련하여 산들정이 전하는 소식통으로 매일 신선하게, 새롭게</span>
+                <div class="main_bsec2_mid_div_btm">
+                    <% for(let i = 0; i < news.length && i < 3; i++) { %>
+                        <div class="san_main_contents_div">
+                            <a href="/detail?table=news&idx=<%= news[i].idx %>">
+                                <img class="project_img" src="<%= news[i].thumbnail %>" id="thumbnail"/>
+                            </a>
+                            <span class="main_bsec2_span_btm" id="subtitle"><%= news[i].title %></span>
                         </div>
-                            <img src="<%= notice.length > i ? notice[i].thumbnail : '' %>"/>
-                    </div>
-                <% } %>
-            </div>
+                    <% } %>
 
-            <script>
-                // 클릭 이벤트를 news에 추가
-                document.querySelectorAll('.card_news').forEach(card => {
-                    card.addEventListener('click', function() {
-                        const link = card.getAttribute('data-link');
-                        if (link) {
-                            window.location.href = link;
-                        }
-                    });
-                });
-
-                // 클릭 이벤트를 notice에 추가
-                document.querySelectorAll('.card_notice').forEach(card => {
-                    card.addEventListener('click', function() {
-                        const link = card.getAttribute('data-link');
-                        if (link) {
-                            window.location.href = link;
-                        }
-                    });
-                });
-
-            </script>
-        </section>
-        <section class="main_real_btm">
-            <img class="real_btm_mobile_back m1250px" id="targetImage1" src="/public/img/mobile/main/mobile_main06_1250.png"/>
-            <img class="real_btm_mobile_back m800px" id="targetImage1" src="/public/img/mobile/main/mobile_main06.png"/>
-            <img class="real_btm_mobile_back m500px" id="targetImage1" src="/public/img/mobile/main/mobile_main06.png"/>
-            <div class="real_btm_story_top"></div>
-            <div class="real_btm_storybtn">
-                <a href="/brand">
-                    <span>한불 브랜드 스토리</span>
-                </a>
-            </div>
-<!--            <script>-->
-
-<!--                function changeImageSrcBasedOnWidthbtm() {-->
-<!--                    const imgElement = document.getElementById('targetImage1');-->
-<!--                    if (window.innerWidth <= 500 && imgElement.src !== '/public/img/mobile/main/mobile_main06.png') {-->
-<!--                        imgElement.src = '/public/img/mobile/main/mobile_main06.png';  // 원하는 새로운 이미지 경로로 변경하세요.-->
-<!--                    } else if (window.innerWidth > 500 && imgElement.src !== '/public/img/mobile_mainbtm_800.png') {-->
-<!--                        imgElement.src = '/public/img/mobile_mainbtm_800.png';-->
-<!--                    }-->
-<!--                }-->
-<!--            </script>-->
-        </section>
-
-
-
-
-
-        <div class="popup-overlay" style="display:<%= popup.status ? 'flex' : 'none' %>">
-            <div class="popup">
-                <img class="popup_main" src="./public/documents/popup/<%= popup.img %>" alt="Popup Image">
-                <div class="popup_button">
-                    <button class="popup-not-show-today">오늘하루 보지않기</button>
-                    <button class="popup-close">닫기</button>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <script>
-            document.querySelector('.popup-not-show-today').addEventListener('click', function() {
-                document.querySelector('.popup-overlay').style.display = 'none';
-                localStorage.setItem('hidePopup', 'true');
-            });
+        <div class="san_main_border"></div>
 
-            document.querySelector('.popup-close').addEventListener('click', function() {
-                document.querySelector('.popup-overlay').style.display = 'none';
-            });
+        <section class="san_main_btm">
+            <div class="san_main_btm_container">
+                <div class="san_main_btm_div1">
+                    <span class="m_sec2_span_1">PARTNER</span>
+                    <span class="m_sec2_span_2">파트너 신청 문의</span>
+                    <span class="m_sec2_span_3">산들정 비지니스 파트너 신청과 관련하여 자세한 사항은 문의 바랍니다.</span>
+                </div>
+                <div class="san_main_btm_div2">
+                        <span class="btm_box_span1">파트너 신청 문의</span><span class="btm_box_span2" id="btm_box_span2">→</span>
+                </div>
+            </div>
+            <script>
+                document.getElementById("btm_box_span2").addEventListener("click", function (){
+                    window.location.href = '/qa';
+                })
+            </script>
+        </section>
 
-            // 페이지 로드 시 localStorage 확인하여 팝업 표시 결정
-            window.addEventListener('load', function() {
-                if (localStorage.getItem('hidePopup')) {
-                    document.querySelector('.popup-overlay').style.display = 'none';
-                }
-            });
-        </script>
-
-
-
+        <section class="section_01">
+            <img src="/public/img/san/san_main_btm.png">
+        </section>
 
     </div>
 </body>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('[data-link]').forEach(item => {
-            item.addEventListener('click', function() {
-                window.location.href = this.dataset.link;
-            });
-        });
-    });
-
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const cardNotices = document.querySelectorAll(".card_notice");
-        const popup = document.querySelector(".popup");
-        const popupTitle = document.querySelector(".popup_title");
-        const popupRegdate = document.querySelector(".popup_regdate");
-        const popupMemo = document.querySelector(".popup_memo");  // popup_memo를 선택
-        const closePopup = document.querySelector(".close_popup");
-
-        cardNotices.forEach(card => {
-            card.addEventListener("click", function() {
-                const idx = this.getAttribute("data-idx");
-                // AJAX 호출을 사용하여 서버에서 idx에 해당하는 데이터 가져오기
-                fetch(`/get-review-details?idx=${idx}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        popupTitle.textContent = data.title;
-                        // popupRegdate.textContent = data.regdate
-                        popupMemo.innerHTML = data.memo;
-                        popup.style.display = "flex";
-                    })
-                    .catch(error => console.error('Error:', error));
-            });
-        });
-
-        closePopup.addEventListener("click", function() {
-            popup.style.display = "none";
-        });
-    });
-  </script>
 <%- include('include/footer.ejs') %>

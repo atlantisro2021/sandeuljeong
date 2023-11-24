@@ -1,0 +1,35 @@
+<%- include('../../common/include/header.ejs') %>
+
+<body id="main">
+<div class="container">
+    <section class="section_01">
+        <img src="/public/img/san/qa_top.png">
+        <img style="display: none;" src="/public/img/nac_main_1.png">
+    </section>
+
+    <form class="qa_form" action="/submit-qa" method="post">
+        <div>
+            <span>1. 회사 (기업/재단/학교 등)명</span>
+            <input type="text" name="company" required>
+        </div>
+        <div>
+            <span>2. 이름 및 직함</span>
+            <input type="text" name="name" required>
+        </div>
+        <div>
+            <span>3. 이메일</span>
+            <input type="text" name="email" required>
+        </div>
+        <div>
+            <span>4. 연락처</span>
+            <input type="text" name="number" required>
+        </div>
+        <div>
+            <span>5. 기타 문의</span>
+            <input type="text" name="memo" required>
+        </div>
+        <button class="qa_form_btn">신청하기</button>
+    </form>
+</div>
+</body>
+<%- include('../../common/include/footer.ejs') %>

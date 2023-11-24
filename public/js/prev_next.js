@@ -37,6 +37,19 @@ function Nedit(){
     window.location.href = '/editnoticepage?idx=' + editIdx;
 }
 
+function Sprev(){
+    const prevIdx = document.querySelector('.edit-button[data-prev]').dataset.prev;
+    window.location.href = '/Shopdetail?idx=' + prevIdx;
+}
+function Snext(){
+    const nextIdx = document.querySelector('.edit-button[data-next]').dataset.next;
+    window.location.href = '/Shopdetail?idx=' + nextIdx;
+}
+function Sedit(){
+    const editIdx = document.querySelector('.edit-button[data-edit]').dataset.edit;
+    window.location.href = '/editShoppage?idx=' + editIdx;
+}
+
 
 
 

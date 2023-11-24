@@ -20,7 +20,7 @@ require('dotenv').config()
 const connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : 'nice2021!',
+    password : '1658',
     database : 'test'
 });
 
@@ -738,21 +738,20 @@ res.json({"result":"OK", data: imgfile});
 app.get('/brand', (req, res) => { //브랜드
     res.render('./common/brand/brand');
 });
-app.get('/contact', (req, res) => { //브랜드
-    res.render('./common/brand/contact');
-});
 
 app.get('/', async (req, res) => {
     try {
         const newsQuery = 'SELECT * FROM news ORDER BY idx DESC';
         const reviewQuery = 'SELECT * FROM review ORDER BY idx DESC';
         const noticeQuery = 'SELECT * FROM notice ORDER BY idx DESC';
+        const shopQuery = 'SELECT * FROM shop ORDER BY idx DESC';
         const popupQuery = 'SELECT * FROM popup LIMIT 1'; // 팝업 데이터를 가져오는 쿼리 추가
 
-        const [newsResult, reviewResult, noticeResult, popupResult] = await Promise.all([
+        const [newsResult, reviewResult, noticeResult, shopResult, popupResult] = await Promise.all([
             queryAsync(newsQuery),
             queryAsync(reviewQuery),
             queryAsync(noticeQuery),
+            queryAsync(shopQuery),
             queryAsync(popupQuery) // 팝업 데이터를 가져오는 쿼리 실행
         ]);
 
@@ -760,6 +759,7 @@ app.get('/', async (req, res) => {
             news: newsResult,
             review: reviewResult,
             notice: noticeResult,
+            shop: shopResult,
             popup: popupResult[0] // 팝업 데이터를 EJS로 전달
         });
     } catch (err) {
@@ -795,26 +795,74 @@ app.get('/main', async (req, res) => {
 });
 
 app.get('/news', (req, res) => {
-    var sql = `select * from news order by idx desc`
-    connection.query(sql, function (err,result,fields){
-        if(err) throw err;
-        res.render('./common/notice/news',{lists:result})
-    })
-})
+    const page = req.query.page ? parseInt(req.query.page) : 1;
+    const limit = 9; // 한 페이지에 표시할 항목 수
+    const offset = (page - 1) * limit;
+
+    // 전체 항목 수 조회
+    connection.query('SELECT COUNT(*) AS count FROM news', (err, data) => {
+        if (err) throw err;
+        const totalItems = data[0].count;
+        const totalPages = Math.ceil(totalItems / limit);
+
+        // 현재 페이지 데이터 조회
+        var sql = `SELECT idx, title, thumbnail FROM news ORDER BY regdate DESC LIMIT ? OFFSET ?`;
+        connection.query(sql, [limit, offset], (err, result) => {
+            if (err) throw err;
+            res.render('./common/notice/news', {
+                list: result,
+                currentPage: page,
+                totalPages: totalPages
+            });
+        });
+    });
+});
+
 app.get('/notice', (req, res) => {
-    var sql = `select * from notice order by idx desc`
-    connection.query(sql, function (err,result,fields){
-        if(err) throw err;
-        res.render('./common/notice/notice',{lists:result})
-    })
-})
-app.get('/review', (req, res) => {
-    var sql = `select * from review order by idx desc`
-    connection.query(sql, function (err,result,fields){
-        if(err) throw err;
-        res.render('./common/review/review',{lists:result})
-    })
-})
+    let page = req.query.page || 1; // 현재 페이지 번호 (기본값 1)
+    let limit = 10; // 페이지당 게시글 수
+    let offset = (page - 1) * limit; // 건너뛸 게시글 수
+
+    var sql = `SELECT * FROM notice ORDER BY idx DESC LIMIT ?, ?`;
+    connection.query(sql, [offset, limit], function (err, result, fields) {
+        if (err) throw err;
+        // 전체 게시글 수를 가져오는 쿼리도 필요할 수 있음
+        var sqlTotal = `SELECT COUNT(*) AS total FROM notice`;
+        connection.query(sqlTotal, function (err, totalResult) {
+            if (err) throw err;
+            res.render('./common/notice/notice', {
+                lists: result,
+                total: totalResult[0].total,
+                currentPage: page,
+                limit: limit
+            });
+        });
+    });
+});
+
+app.get('/shop', (req, res) => {
+    const page = req.query.page ? parseInt(req.query.page) : 1;
+    const limit = 9; // 한 페이지에 표시할 항목 수
+    const offset = (page - 1) * limit;
+
+    // 전체 항목 수 조회
+    connection.query('SELECT COUNT(*) AS count FROM shop', (err, data) => {
+        if (err) throw err;
+        const totalItems = data[0].count;
+        const totalPages = Math.ceil(totalItems / limit);
+
+        // 현재 페이지 데이터 조회
+        var sql = `SELECT idx, title, subtitle, link, thumbnail FROM shop ORDER BY regdate DESC LIMIT ? OFFSET ?`;
+        connection.query(sql, [limit, offset], (err, result) => {
+            if (err) throw err;
+            res.render('./common/shop/shop', {
+                list: result,
+                currentPage: page,
+                totalPages: totalPages
+            });
+        });
+    });
+});
 app.get('/get-review-details', (req, res) => {
     const idx = req.query.idx;
     const sql = `SELECT * FROM review WHERE idx = ?`;
@@ -830,7 +878,159 @@ app.get('/get-review-details', (req, res) => {
         res.json(result[0]);
     });
 });
+
+// QA
+app.get('/qa', (req, res) => {
+        res.render('./common/qa/qa')
+    }
+)
+app.post('/submit-qa', (req, res) => {
+    const company = req.body.company;
+    const name = req.body.name;
+    const email = req.body.email;
+    const number = req.body.number;
+    const memo = req.body.memo;
+
+    var sql = `INSERT INTO qa (company, name, email, number, memo, regdate) VALUES (?, ?, ?, ?, ?, NOW())`;
+    connection.query(sql, [company, name, email, number, memo], function (err, result) {
+        if (err) throw err;
+        res.send("<script> alert('문의가 등록되었습니다. 빠른 기일내에 답변드리겠습니다.'); location.href='/'; </script>");
+    });
+})
+
+app.get('/m-shop', (req, res) => {
+    let currentPage = req.query.page || 1; // 현재 페이지 번호
+    let itemsPerPage = 10; // 페이지당 아이템 수
+    let offset = (currentPage - 1) * itemsPerPage; // offset 계산
+
+    var sql = `SELECT * FROM shop ORDER BY idx DESC LIMIT ${offset}, ${itemsPerPage}`; // SQL 쿼리
+    var countSql = `SELECT COUNT(*) as totalCount FROM shop`; // 전체 데이터의 개수를 가져오는 SQL 쿼리
+
+    connection.query(sql, function (err, result, fields) {
+        if (err) throw err;
+
+        connection.query(countSql, function (countErr, countResult, countFields) {
+            if (countErr) throw countErr;
+
+            let totalCount = countResult[0].totalCount;
+            let totalPages = Math.ceil(totalCount / itemsPerPage);  // 전체 페이지 수 계산
+
+            res.render('./manage/shop/shop', {
+                lists: result,
+                totalCount: totalCount,
+                itemsPerPage: itemsPerPage,
+                currentPage: currentPage,
+                totalPages: totalPages  // 전체 페이지 수를 EJS로 전달
+            });
+        });
+    });
+});
+app.post('/deleteShop', (req, res) => {
+    console.log(req.body.ids);
+    let ids = req.body.ids;
+    if (!ids || ids.length === 0) return res.json({ message: '삭제할 항목이 없습니다.' });
+
+    let placeholders = ids.map(() => '?').join(','); // Prepare placeholders for SQL query
+    let sql = `DELETE FROM shop WHERE idx IN (${placeholders})`;
+
+    connection.query(sql, ids, (err, results) => {
+        if (err) throw err;
+        res.json({ message: '선택한 항목이 삭제되었습니다.' });
+    });
+});
+app.get('/Shopdel', (req, res) => {
+    var idx = req.query.idx
+    var sql = `delete from shop where idx='${idx}'`
+    connection.query(sql, function (err, result){
+        if(err) throw err;
+        res.send("<script> alert ('삭제되었습니다.'); location.href='/m-shop'; </script>");
+    })
+})
+app.post('/writeShop', (req, res) => {
+    const title = req.body.title;
+    const subtitle = req.body.subtitle;
+    const link = req.body.link;
+    const memo = req.body.memo;
+
+    const $ = cheerio.load(memo);  // HTML 파싱
+    let thumbnail = $('img').first().attr('src');  // 첫 번째 이미지의 src 찾기
+
+    // thumbnail이 없으면 빈 문자열로 설정
+    if (!thumbnail) {
+        res.send("<script> alert('최소 1개의 이미지를 등록해주세요'); location.href='/writeNoticepage'; </script>")
+        return;
+    }
+
+    var sql = 'INSERT INTO shop(title, subtitle, link, memo, thumbnail, regdate) VALUES (?, ?, ?, ?, ?, NOW())';
+    connection.query(sql, [title, subtitle, link, memo, thumbnail], function(err, result) {  // thumbnail 변수 사용
+        if (err) throw err;
+        res.send("<script> alert('게시글이 등록되었습니다'); location.href='/m-shop'; </script>");
+    });
+})
+app.get('/writeShoppage', (req, res) => {
+    res.render('./manage/shop/writeShoppage')
+})
+app.get('/Shopdetail', (req, res) => {
+    const idx = req.query.idx;
+
+    const sqlCurrent = `SELECT * FROM shop WHERE idx = ${mysql.escape(idx)}`;
+    const sqlPrev = `SELECT idx FROM shop WHERE idx < ${mysql.escape(idx)} ORDER BY idx DESC LIMIT 1`;
+    const sqlNext = `SELECT idx FROM shop WHERE idx > ${mysql.escape(idx)} ORDER BY idx ASC LIMIT 1`;
+
+    connection.query(sqlCurrent, (err, resultCurrent) => {
+        if (err) throw err;
+
+        connection.query(sqlPrev, (err, resultPrev) => {
+            if (err) throw err;
+
+            connection.query(sqlNext, (err, resultNext) => {
+                if (err) throw err;
+
+                // result를 상세 페이지 템플릿으로 전달
+                res.render('./manage/shop/Shop-detail', {
+                    item: resultCurrent[0],
+                    prev: resultPrev[0] ? resultPrev[0].idx : null,
+                    next: resultNext[0] ? resultNext[0].idx : null
+                });
+            });
+        });
+    });
+});
+app.get('/editShoppage', (req, res) => {
+    const idx = req.query.idx;
+    const sql = `SELECT * FROM shop WHERE idx = ${mysql.escape(idx)}`;
+    connection.query(sql, (err, result) => {
+        if (err) throw err;
+        res.render('./manage/shop/editShoppage', { item: result[0] });
+    });
+});
+app.post('/editShop', (req, res) => {
+    const idx = req.body.idx;
+    const title = req.body.title;
+    const subtitle = req.body.subtitle;
+    const link = req.body.link;
+    const memo = req.body.memo;
+
+    // HTML 파싱
+    const $ = cheerio.load(memo);
+    let thumbnail = $('img').first().attr('src');  // 첫 번째 이미지의 src 찾기
+
+    // thumbnail이 없으면 빈 문자열로 설정
+    if (!thumbnail) {
+        thumbnail = '';  // 이 부분은 필요에 따라 조정하실 수 있습니다.
+    }
+
+    // thumbnail 업데이트 부분 추가
+    const sql = `UPDATE shop SET title = ?, subtitle = ?, link = ?, memo = ?, thumbnail = ? WHERE idx = ?`;
+    connection.query(sql, [title, subtitle, link, memo, thumbnail, idx], (err, result) => {
+        if (err) throw err;
+        res.send("<script> alert('수정되었습니다.'); location.href='/m-shop'; </script>");
+    });
+});
 // Common 메인 라우팅
+
+
+
 
 app.get('/detail', (req, res) => {
     const table = req.query.table;
