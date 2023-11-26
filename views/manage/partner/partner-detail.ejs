@@ -1,0 +1,97 @@
+<%- include('../../manage/include/header.ejs') %>
+
+
+<section class="gallery_section_mainpage">
+    <fieldset>
+
+        <div class="notice_list_top">
+            <p1>공지사항</p1>
+            <p2>Home > 공지사항 > 공지사항</p2>
+        </div>
+
+        <table class="edit-table">
+            <tr>
+                <td class="edit-front-td">문의 일자 : </td>
+                <td><%= item.regdate %></td>
+            </tr>
+            <tr>
+                <td class="edit-front-td">상태 : </td>
+                <td>
+                    <% if(item.status === 0) { %>
+                        <span class="status_no">미 승인</span>
+                    <%} else {%>
+                        <span class="status_yes">승인</span>
+                    <% } %>
+                </td>
+            </tr>
+            <tr>
+                <td class="edit-front-td">회사 명 : </td>
+                <td> <%= item.company %></td>
+            </tr>
+            <tr>
+                <td class="edit-front-td">담당자 : </td>
+                <td> <%= item.name %></td>
+            </tr>
+            <tr>
+                <td class="edit-front-td">Email : </td>
+                <td> <%= item.email %></td>
+            </tr>
+            <tr>
+                <td class="edit-front-td">연락처 :</td>
+                <td><%- item.number %></td>
+            </tr>
+            <tr>
+                <td class="edit-front-td">기타 : </td>
+                <td> <%= item.memo %></td>
+            </tr>
+        </table>
+        <div class="detail_bottomBtn edit-button-div">
+            <% if (prev) { %>
+                <button class="edit-button" data-prev="<%= prev %>" onclick="Qaprev()">이전 요청</button>
+            <% } else { %>
+                <button class="edit-button" onclick="alert('이동할 수 있는 게시글이 없습니다')">이전 요청</button>
+            <% } %>
+
+            <button class="edit-button" onclick="list()">리스트</button>
+                <% if(item.status === 0) { %>
+                    <!-- 승인 버튼 (status가 0일 때) -->
+                    <button class="edit-button" data-edit="<%= item.idx %>" onclick="approveRequest(<%= item.idx %>, '<%= item.company %>', true)">승인</button>
+                <% } else { %>
+                    <!-- 승인 취소 버튼 (status가 1일 때) -->
+                    <button class="edit-button" data-edit="<%= item.idx %>" onclick="approveRequest(<%= item.idx %>, '<%= item.company %>', false)">승인 취소</button>
+                <% } %>
+            <% if (next) { %>
+                <button class="edit-button" data-next="<%= next %>" onclick="Qanext()">다음 요청</button>
+            <% } else { %>
+                <button class="edit-button" onclick="alert('이동할 수 있는 게시글이 없습니다')">다음 요청</button>
+            <% } %>
+        </div>
+        <script>
+            function approveRequest(idx, companyName, isApprove) {
+                let message = isApprove ? `${companyName}의 파트너 요청을 승인하시겠습니까?` : `${companyName}의 파트너 요청 승인을 취소하시겠습니까?`;
+                let actionUrl = isApprove ? `/approvePartner/${idx}` : `/cancelApproval/${idx}`;
+
+                const confirmAction = confirm(message);
+                if (confirmAction) {
+                    fetch(actionUrl, { method: 'POST' })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert(isApprove ? '승인 처리되었습니다.' : '승인 취소 처리되었습니다.');
+                                location.reload();
+                            } else {
+                                alert('오류가 발생했습니다. 다시 시도해주세요.');
+                            }
+                        });
+                }
+            }
+        </script>
+    </fieldset>
+</section>
+
+<script>
+    function list(){
+        window.location.href = '/m-partner';
+    }
+</script>
+<%- include('../../manage/include/footer.ejs') %>

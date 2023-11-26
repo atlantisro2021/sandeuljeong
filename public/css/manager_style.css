@@ -78,7 +78,7 @@ a{
     background: #272b3a;
 }
 .manager_section_2 form fieldset img {
-    height: auto; width: 150px; margin-bottom: 30px;
+    height: auto; width: 300px; margin-bottom: 30px;
 }
 .manager_section_2 #mem_id::placeholder, #mem_pwd::placeholder {
     color: #888888;

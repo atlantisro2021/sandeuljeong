@@ -202,7 +202,7 @@ app.get('/m-partner', (req, res) => {
     let offset = (currentPage - 1) * itemsPerPage; // offset 계산
 
     var sql = `SELECT * FROM qa ORDER BY idx DESC LIMIT ${offset}, ${itemsPerPage}`; // SQL 쿼리
-    var countSql = `SELECT COUNT(*) as totalCount FROM notice`; // 전체 데이터의 개수를 가져오는 SQL 쿼리
+    var countSql = `SELECT COUNT(*) as totalCount FROM qa`; // 전체 데이터의 개수를 가져오는 SQL 쿼리
 
     connection.query(sql, function (err, result, fields) {
         if (err) throw err;
@@ -223,7 +223,165 @@ app.get('/m-partner', (req, res) => {
         });
     });
 });
+app.post('/deletepartner', (req, res) => {
+    console.log(req.body.ids);
+    let ids = req.body.ids;
+    if (!ids || ids.length === 0) return res.json({ message: '삭제할 항목이 없습니다.' });
+
+    let placeholders = ids.map(() => '?').join(','); // Prepare placeholders for SQL query
+    let sql = `DELETE FROM qa WHERE idx IN (${placeholders})`;
+
+    connection.query(sql, ids, (err, results) => {
+        if (err) throw err;
+        res.json({ message: '선택한 항목이 삭제되었습니다.' });
+    });
+});
+app.get('/partnerdel', (req, res) => {
+    var idx = req.query.idx
+    var sql = `delete from qa where idx='${idx}'`
+    connection.query(sql, function (err, result){
+        if(err) throw err;
+        res.send("<script> alert ('삭제되었습니다.'); location.href='/m-partner'; </script>");
+    })
+})
+app.get('/partnerdetail', (req, res) => {
+    const idx = req.query.idx;
+
+    const sqlCurrent = `SELECT * FROM qa WHERE idx = ${mysql.escape(idx)}`;
+    const sqlPrev = `SELECT idx FROM qa WHERE idx < ${mysql.escape(idx)} ORDER BY idx DESC LIMIT 1`;
+    const sqlNext = `SELECT idx FROM qa WHERE idx > ${mysql.escape(idx)} ORDER BY idx ASC LIMIT 1`;
+
+    connection.query(sqlCurrent, (err, resultCurrent) => {
+        if (err) throw err;
+
+        connection.query(sqlPrev, (err, resultPrev) => {
+            if (err) throw err;
+
+            connection.query(sqlNext, (err, resultNext) => {
+                if (err) throw err;
+
+                // result를 상세 페이지 템플릿으로 전달
+                res.render('./manage/partner/partner-detail', {
+                    item: resultCurrent[0],
+                    prev: resultPrev[0] ? resultPrev[0].idx : null,
+                    next: resultNext[0] ? resultNext[0].idx : null
+                });
+            });
+        });
+    });
+});
+app.post('/approvePartner/:idx', (req, res) => {
+    const idx = req.params.idx;
+    const sqlUpdate = `UPDATE qa SET status = 1 WHERE idx = ${mysql.escape(idx)}`;
+
+    connection.query(sqlUpdate, (err, result) => {
+        if (err) {
+            console.error(err);
+            res.json({ success: false });
+        } else {
+            res.json({ success: true });
+        }
+    });
+});
+app.post('/cancelApproval/:idx', (req, res) => {
+    const idx = req.params.idx;
+    const sqlUpdate = `UPDATE qa SET status = 0 WHERE idx = ${mysql.escape(idx)}`;
+
+    connection.query(sqlUpdate, (err, result) => {
+        if (err) {
+            console.error(err);
+            res.json({ success: false });
+        } else {
+            res.json({ success: true });
+        }
+    });
+});
 // 파트너 관리
+
+// 도매 관리
+app.get('/m-dome', (req, res) => {
+    let currentPage = req.query.page || 1;
+    let itemsPerPage = 10;
+    let offset = (currentPage - 1) * itemsPerPage;
+
+    var sql = `
+        SELECT dome.*, qa.company, shop.title 
+        FROM dome 
+        LEFT JOIN qa ON dome.number = qa.number
+        LEFT JOIN shop ON dome.product = shop.idx
+        ORDER BY dome.idx DESC 
+        LIMIT ${offset}, ${itemsPerPage}`;
+
+    var countSql = `SELECT COUNT(*) as totalCount FROM qa`;
+
+    connection.query(sql, function (err, result) {
+        if (err) throw err;
+
+        connection.query(countSql, function (countErr, countResult) {
+            if (countErr) throw countErr;
+
+            let totalCount = countResult[0].totalCount;
+            let totalPages = Math.ceil(totalCount / itemsPerPage);
+
+            res.render('./manage/dome/dome', {
+                lists: result,
+                totalCount: totalCount,
+                itemsPerPage: itemsPerPage,
+                currentPage: currentPage,
+                totalPages: totalPages
+            });
+        });
+    });
+});
+
+app.post('/deletedome', (req, res) => {
+    console.log(req.body.ids);
+    let ids = req.body.ids;
+    if (!ids || ids.length === 0) return res.json({ message: '삭제할 항목이 없습니다.' });
+
+    let placeholders = ids.map(() => '?').join(','); // Prepare placeholders for SQL query
+    let sql = `DELETE FROM dome WHERE idx IN (${placeholders})`;
+
+    connection.query(sql, ids, (err, results) => {
+        if (err) throw err;
+        res.json({ message: '선택한 항목이 삭제되었습니다.' });
+    });
+});
+app.get('/domedel', (req, res) => {
+    var idx = req.query.idx
+    var sql = `delete from dome where idx='${idx}'`
+    connection.query(sql, function (err, result){
+        if(err) throw err;
+        res.send("<script> alert ('삭제되었습니다.'); location.href='/m-dome'; </script>");
+    })
+})
+app.get('/domedetail', (req, res) => {
+    const idx = req.query.idx;
+
+    const sqlCurrent = `SELECT * FROM dome WHERE idx = ${mysql.escape(idx)}`;
+    const sqlPrev = `SELECT idx FROM dome WHERE idx < ${mysql.escape(idx)} ORDER BY idx DESC LIMIT 1`;
+    const sqlNext = `SELECT idx FROM dome WHERE idx > ${mysql.escape(idx)} ORDER BY idx ASC LIMIT 1`;
+
+    connection.query(sqlCurrent, (err, resultCurrent) => {
+        if (err) throw err;
+
+        connection.query(sqlPrev, (err, resultPrev) => {
+            if (err) throw err;
+
+            connection.query(sqlNext, (err, resultNext) => {
+                if (err) throw err;
+
+                // result를 상세 페이지 템플릿으로 전달
+                res.render('./manage/dome/dome-detail', {
+                    item: resultCurrent[0],
+                    prev: resultPrev[0] ? resultPrev[0].idx : null,
+                    next: resultNext[0] ? resultNext[0].idx : null
+                });
+            });
+        });
+    });
+});
+// 도매 관리
 
 //공지사항 Notice
 app.get('/m-notice', (req, res) => {
@@ -891,29 +1049,76 @@ app.get('/shop', (req, res) => {
     });
 });
 
-app.get('/dome', (req, res) => {
-    const page = req.query.page ? parseInt(req.query.page) : 1;
-    const limit = 9; // 한 페이지에 표시할 항목 수
-    const offset = (page - 1) * limit;
+app.get('/dome_shop', (req, res) => {
+    let number = String(req.query.number);
 
-    // 전체 항목 수 조회
-    connection.query('SELECT COUNT(*) AS count FROM shop', (err, data) => {
-        if (err) throw err;
-        const totalItems = data[0].count;
-        const totalPages = Math.ceil(totalItems / limit);
-
-        // 현재 페이지 데이터 조회
-        var sql = `SELECT idx, title, subtitle, link, thumbnail FROM shop ORDER BY regdate DESC LIMIT ? OFFSET ?`;
-        connection.query(sql, [limit, offset], (err, result) => {
+        var sql = `SELECT idx, title, subtitle, link, thumbnail FROM shop ORDER BY regdate DESC`;
+        connection.query(sql, (err, result) => {
             if (err) throw err;
-            res.render('./common/partner/dome', {
+            res.render('./common/partner/dome_shop', {
+                number: number,
                 list: result,
-                currentPage: page,
-                totalPages: totalPages
+            });
+        });
+});
+app.post('/dome_shop', (req, res) => {
+    let number = req.query.number;
+    console.log("Number received:", number);
+    let products = req.body; // This will contain all the form inputs
+
+    let queries = Object.keys(products).filter(key => products[key] > 0).map(key => {
+        let productIdx = key.replace('amount_', '');
+        let amount = products[key];
+
+        return new Promise((resolve, reject) => {
+            let sql = 'INSERT INTO dome (number, product, amount, regdate) VALUES (?, ?, ?, now())';
+            connection.query(sql, [number, productIdx, amount], (err, result) => {
+                if (err) return reject(err);
+                resolve();
             });
         });
     });
+
+    Promise.all(queries)
+        .then(() => {
+            res.send(`<script>alert('구매 문의가 완료되었습니다.'); window.location.href='/';</script>`);
+        })
+        .catch(err => {
+            res.status(500).send('Server Error');
+        });
 });
+
+
+
+
+
+
+app.post('/check-number', (req, res) => {
+    const number = req.body.number;
+    console.log("Received number:", number);
+    // 데이터베이스에서 번호 조회
+    const query = 'SELECT * FROM qa WHERE number = ?';
+    connection.query(query, [number], (err, results) => {
+        if (err) throw err;
+
+        // 번호가 일치하는 데이터가 없는 경우
+        if (results.length === 0) {
+            return res.send("<script> alert('등록되지 않은 전화번호입니다. 파트너 문의를 신청하세요.'); window.history.back(); </script>");
+        }
+
+        const status = results[0].status;
+        if (status === 0) {
+            res.send("<script> alert('승인 대기중인 업체입니다.'); window.history.back(); </script>");
+        } else if (status === 1) {
+            res.send(`<script> alert('환영합니다.'); window.location.href='/dome_shop?number=${number}'; </script>`);
+        }
+    });
+});
+
+
+app.get('/dome', (req, res) => {
+            res.render('./common/partner/dome');
+})
 
 app.get('/get-review-details', (req, res) => {
     const idx = req.query.idx;

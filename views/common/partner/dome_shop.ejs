@@ -1,0 +1,66 @@
+<%- include('../../common/include/header.ejs') %>
+<body id="main">
+<div class="container">
+    <section class="dome_section01">
+        <img class="dome_img1" src="/public/img/san/dome_icon1.png"/>
+        <div class="dome_sec1_middle_border">
+            <div class="middle_left"></div>
+            <div class="middle_right"></div>
+        </div>
+        <span class="dome_span1">OUR SAFE FOOD</span>
+        <span class="dome_span2">HAPPY TABLE</span>
+        <span class="dome_span3">우리네 안전한 먹거리와 행복한 식탁</span>
+        <span class="dome_span4">우리네 안전한 먹거리와 우리 가족의 행복한 식탁을 위하는 것이 산들정이 최우선으로 고려하고 있는 가치입니다.</span>
+        <span class="dome_span5">믿을 수 있는 유통과정과 까다로운 기준을 통과한 농산물은 내 사람들을 위한 선택이며, 그 선택에 보답해드리기 위해 산들정은 매일매일 노력합니다.</span>
+        <img class="dome_img2" src="/public/img/san/dome_icon2.png"/>
+    </section>
+
+    <section class="section_02 main_sec rec_3 news_section02 dome_section04">
+        <span class="shop_section02_span">'산들정' 도매 상점</span>
+        <form class="main_div dome_shop_form" id="productForm" method="post" action="/dome_shop?number=<%= number %>">
+            <div class="mgn_btm_project mgn_btm_border project_div">
+                <% list.forEach(function(shop, index) { %>
+                    <div>
+                        <span class="main_bsec2_span_top">상품 번호: <%= shop.idx%></span>
+                        <a href="<%- shop.link %>">
+                            <img src="<%= shop.thumbnail %>" id="thumbnail" />
+                        </a>
+                        <span class="main_bsec2_span_top" id="title"><%= shop.title %></span>
+                        <span class="main_bsec2_span_btm" id="subtitle"><%= shop.subtitle %></span>
+                        <div class="dome_amount">
+                            <input type="number" name="amount_<%= shop.idx %>" min="0" placeholder="수량을 입력하세요">
+                            <span>개</span>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+            <button type="submit" class="submit_dome">도매 신청</button>
+        </form>
+        <script>
+            document.getElementById('productForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                let hasQuantity = false;
+                let selectedProducts = [];
+
+                // Check if any input has a value greater than 0
+                this.querySelectorAll('input[type=number]').forEach(input => {
+                    if (input.value > 0) {
+                        hasQuantity = true;
+                        selectedProducts.push(`${input.name.replace('amount_', '')} ${input.value}개`);
+                    }
+                });
+
+                if (!hasQuantity) {
+                    alert('최소한 1개의 상품의 개수를 입력해 주세요');
+                    return;
+                }
+
+                if (confirm(`${selectedProducts.join(', ')} 가 맞습니까?`)) {
+                    this.submit();
+                }
+            });
+        </script>
+    </section>
+</div>
+</body>
+<%- include('../../common/include/footer.ejs') %>

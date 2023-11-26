@@ -16,8 +16,8 @@
 <section class="gallery_section_mainpage">
     <fieldset>
         <div class="notice_list_top">
-            <p1>공지사항</p1>
-            <p2>Home &gt; 공지사항 &gt; 공지사항</p2>
+            <p1>도매 신청</p1>
+            <p2>Home &gt; 상품관리 &gt; 도매 신청</p2>
         </div>
 
         <form name="searchform" method="post" action="list.asp" class="search-form">
@@ -40,9 +40,9 @@
                     <td class="checkform-table-smalltd"><input type="checkbox" onclick=""></td>
                     <td class="checkform-table-smalltd">No.</td>
                     <td>회사명</td>
-                    <td>담당자</td>
                     <td>전화번호</td>
-                    <td>상태</td>
+                    <td>상품 명</td>
+                    <td>수량</td>
                     <td class="checkform-table-writer-and-date">작성날짜</td>
                     <td class="checkform-table-writer-and-date">수정</td>
                 </tr>
@@ -55,20 +55,12 @@
                     <tr class="checkform-table-body">
                         <td> <input type="checkbox" value="<%= item.idx %>"> </td>
                         <td> <%= currentCount-- %> </td>
-                        <td> <a href="/partnerdetail?idx=<%= item.idx %>"> <%- item.company %> </a> </td>
-                        <td> <%=item.name%> </td>
-                        <td>
-                            <%= item.number.slice(0, 3) %>-<%= item.number.slice(3, 7) %>-<%= item.number.slice(7) %>
-                        </td>
-                        <td>
-                            <% if(item.status === 0) { %>
-                                <span class="status_no">미 승인</span>
-                            <%} else {%>
-                                <span class="status_yes">승인</span>
-                            <% } %>
-                        </td>
-                        <td> <%=item.regdate%> </td>
-                        <td> <a href="/partnerdel?idx=<%=item.idx%>" onclick="return confirm('정말 삭제할까요?')"> 삭제 </a> </td>
+                        <td> <a href="/domedetail?idx=<%= item.idx %>"> <%= item.company %> </a> </td>
+                        <td> <%= item.number.slice(0, 3) %>-<%= item.number.slice(3, 7) %>-<%= item.number.slice(7) %> </td>
+                        <td> <%= item.title %> </td>
+                        <td> <%= item.amount %> </td>
+                        <td> <%= item.regdate %> </td>
+                        <td> <a href="/domedel?idx=<%=item.idx%>" onclick="return confirm('정말 삭제할까요?')"> 삭제 </a> </td>
                     </tr>
                 <% }) %>
 
@@ -80,7 +72,7 @@
                 <% if(i == currentPage) { %>
                     <strong>[ <%= i %> ]</strong>
                 <% } else { %>
-                    <a href="/partner?page=<%= i %>" style="text-decoration:none;"><span onmouseover="this.style.color='#000'" onmouseout="this.style.color='#666'"><%= i %></span> </a>
+                    <a href="/dome?page=<%= i %>" style="text-decoration:none;"><span onmouseover="this.style.color='#000'" onmouseout="this.style.color='#666'"><%= i %></span> </a>
                 <% } %>
             <% } %>
         </div>
@@ -107,7 +99,7 @@
 
             if(confirm('선택한 항목을 정말로 삭제하시겠습니까?')) {
                 console.log(selectedIds);
-                $.post('/deletepartner', { ids: selectedIds }, function(data) {
+                $.post('/deletedome', { ids: selectedIds }, function(data) {
                     alert(data.message);
                     location.reload();
                 });

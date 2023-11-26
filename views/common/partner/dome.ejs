@@ -1,38 +1,65 @@
 <%- include('../../common/include/header.ejs') %>
-<body id="review">
+<body id="main">
 <div class="container">
-    <section class="section_01 shop_section01">
-        <img src="/public/img/san/shop_top.png">
-        <img style="display: none;" src="/public/img/nac_main_1.png">
+    <section class="dome_section01">
+        <img class="dome_img1" src="/public/img/san/dome_icon1.png"/>
+        <div class="dome_sec1_middle_border">
+            <div class="middle_left"></div>
+            <div class="middle_right"></div>
+        </div>
+        <span class="dome_span1">OUR SAFE FOOD</span>
+        <span class="dome_span2">HAPPY TABLE</span>
+        <span class="dome_span3">우리네 안전한 먹거리와 행복한 식탁</span>
+        <span class="dome_span4">우리네 안전한 먹거리와 우리 가족의 행복한 식탁을 위하는 것이 산들정이 최우선으로 고려하고 있는 가치입니다.</span>
+        <span class="dome_span5">믿을 수 있는 유통과정과 까다로운 기준을 통과한 농산물은 내 사람들을 위한 선택이며, 그 선택에 보답해드리기 위해 산들정은 매일매일 노력합니다.</span>
+        <img class="dome_img2" src="/public/img/san/dome_icon2.png"/>
     </section>
 
-    <section class="section_02 main_sec rec_3 news_section02">
-        <span class="shop_section02_span">'산들정' 취급 상품</span>
-        <form>
-            <div class="main_div">
-                <div class="mgn_btm_project mgn_btm_border project_div">
-                        <% list.forEach(function(shop) { %>
-                            <div>
-                                <a href="<%- shop.link %>">
-                                    <img src="<%= shop.thumbnail %>" id="thumbnail" />
-                                </a>
-                                <span class="main_bsec2_span_top" id="title"><%= shop.title %></span>
-                                <span class="main_bsec2_span_btm" id="subtitle"><%= shop.subtitle %></span>
-                            </div>
-                        <% }); %>
-                </div>
-
-                <div class="sec2_btm_page">
-                    <a class="sec2_btm_span"><</a>
-                    <% for(let i = 1; i <= totalPages; i++) { %>
-                        <a class="sec2_btm_span <%= i === currentPage ? 'sec2_btm_span_v2' : '' %>" id="page_btn_<%= i %>" href="/shop?page=<%= i %>">
-                            <%= i %>
-                        </a>
-                    <% } %>
-                    <a class="sec2_btm_span">></a>
-                </div>
+    <section class="dome_section02">
+        <div class="d_sec2_top_div">
+            <img src="/public/img/san/dome_img1.png">
+            <div class="d_sec2_span_div d_right">
+                <span class="d_sec2_span1">.1</span>
+                <span class="d_sec2_span2">엄선된 품질의 국내산 과일</span>
+                <span class="d_sec2_span3">우리 가족을 위해 까다로운 생산과정을 거쳐 전달되는</span>
+                <span class="d_sec2_span3">특별한 품질로 고르고 고른 국내산 과일</span>
             </div>
-            <button></button>
+        </div>
+        <div class="d_sec2_top_div">
+            <div class="d_sec2_span_div d_left">
+                <span class="d_sec2_span1">2.</span>
+                <span class="d_sec2_span2">강렬한 햇빛을 머금은 과육</span>
+                <span class="d_sec2_span3">본토의 최적화된 기후 아래 영글게 결실을 맺은 과일을</span>
+                <span class="d_sec2_span3">있는 그대로 변함없이 옮겨온 신선함과 맛</span>
+            </div>
+            <img src="/public/img/san/dome_img2.png">
+        </div>
+        <div class="d_sec2_top_div">
+            <img src="/public/img/san/dome_img3.png">
+            <div class="d_sec2_span_div d_right">
+                <span class="d_sec2_span1">.3</span>
+                <span class="d_sec2_span2">건강한 우리 한우의 자부심</span>
+                <span class="d_sec2_span3">건강한 한우를 위해 투명하게 운영되는 정직한 축산</span>
+                <span class="d_sec2_span3">안전한 먹거리와 우리 가족을 생각하는 올바른 선택과 자부심</span>
+            </div>
+        </div>
+        <div class="d_sec2_top_div">
+            <div class="d_sec2_span_div d_left">
+                <span class="d_sec2_span1">4.</span>
+                <span class="d_sec2_span2">똑똑한 가성비의 수입육</span>
+                <span class="d_sec2_span3">부드러운 육질과 담백함이 공존하는 살림의 가성비 끝판왕</span>
+                <span class="d_sec2_span3">고민없이 챙겨두어야 하는 똑똑한 소비, 수입육</span>
+            </div>
+            <img src="/public/img/san/dome_img4.png">
+        </div>
+    </section>
+
+    <section class="dome_section03">
+        <span class="dome_sec3_span1">도매 상점</span>
+        <span class="dome_sec3_span2">신청하신 전화번호를 입력하세요.</span>
+        <form action="/check-number" method="post">
+            <input id="phoneNumber" type="text" name="number" placeholder="전화번호 입력">
+            <button type="submit">확인</button>
         </form>
     </section>
 </div>

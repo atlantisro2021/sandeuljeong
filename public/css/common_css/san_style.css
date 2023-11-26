@@ -127,3 +127,37 @@
 .san_left_right a {text-decoration: none; color: rgba(0,0,0,0.5); font-family: 'Serif',sans-serif; font-size: 1.2rem; padding: 10px 30px; margin: 0 10px; transition: 0.3s ease-in-out; border: 1px solid rgba(0,0,0,0.5);}
 .san_left_right a:hover {border: 1px solid rgba(0,0,0,1); color: black; transform: scale(1.03);}
 
+.dome_section01 {width: 100%; display: flex; flex-direction: column; align-items: center;}
+.dome_sec1_middle_border {width: 100%; display: flex; margin: 70px 0;}
+.middle_left, .middle_right {width: 50%; height: 250px;}
+.middle_left {border-right: 1px solid #3E451E;}
+.dome_span1, .dome_span2 {font-family: 'Shri', sans-serif; font-size: 2.2rem; color: #3E451E;}
+.dome_span3 {font-family: 'Serif', sans-serif; font-size: 2rem; color: #797979; margin: 50px 0;}
+.dome_span4, .dome_span5 {font-family: 'Sans',sans-serif; font-size: 1rem; font-weight: 200; color: #3E451E;}
+.dome_img1 {width: 300px; height: auto; margin-top: 400px;}
+.dome_img2 {width: 130px; height: auto; margin: 100px 0;}
+
+.dome_section02 {display: flex; flex-direction: column; width: 80%;}
+.d_sec2_top_div {width: 100%; display: flex; padding: 50px 0; border-bottom: 1px solid rgba(62,69,30,0.4);}
+.d_sec2_top_div img {width: 50%;}
+.d_sec2_span_div {width: 50%; display: flex; flex-direction: column; color: #3E451E;}
+.d_sec2_span1 {font-family: 'Shri',sans-serif; font-size: 15rem;}
+.d_sec2_span2 {font-family: 'Serif', sans-serif; font-size: 1.5rem; margin-bottom: 30px;}
+.d_sec2_span3 {font-family: 'Serif', sans-serif; font-size: 1rem; font-weight: 200;}
+.d_left {align-items: start;}
+.d_right {align-items: end;}
+
+.dome_section03 {display: flex; flex-direction: column; width: 100%; align-items: center; margin: 50px 0;}
+.dome_sec3_span1 {font-family: 'Serif',sans-serif; font-size: 2rem; color: #3E451E;}
+.dome_sec3_span2 {font-family: 'Sans', sans-serif; font-size: 1.5rem; color: #656565; font-weight: 200; margin: 30px 0;}
+.dome_section03 form {display: flex; }
+.dome_section03 form input {width: 200px; border: 1px solid rgba(62,69,30,0.4); font-family: 'Sans',sans-serif; color: #3E451E; margin-right: 10px;}
+.dome_section03 form button {width: 50px; transition: 0.3s ease-in-out; border: 1px solid rgba(62,69,30,0.4); font-family: 'Sans', sans-serif; color: #3E451E; background-color: white; cursor: pointer;}
+.dome_section03 form button:hover {background-color: rgba(62,69,30,0.2);}
+
+.section_02 .main_div .project_div .dome_amount {display: flex; width: 100%; align-items: center; flex-direction: row; justify-content: start; margin: 10px 0;}
+.dome_amount input {height: 30px; width: 80%; margin-right: 10px; border: 1px solid rgba(62,69,30,0.4); font-family: 'Serif',sans-serif;}
+.dome_amount span {height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Sans',sans-serif; font-size: 1.3rem; color: #3E451E;}
+.dome_shop_form {align-items: center; justify-content: center;}
+.submit_dome {width: 10%; cursor: pointer; margin-top: 100px; height: 50px; transition: 0.3s ease-in-out; background-color: white; font-family: 'Sans',sans-serif; font-size: 1rem; border: 1px solid rgba(62,69,30,1);}
+.submit_dome:hover {transform: scale(1.03); background-color: rgba(62,69,30,0.2);}

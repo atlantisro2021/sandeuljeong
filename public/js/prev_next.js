@@ -50,6 +50,24 @@ function Sedit(){
     window.location.href = '/editShoppage?idx=' + editIdx;
 }
 
+function Qaprev(){
+    const prevIdx = document.querySelector('.edit-button[data-prev]').dataset.prev;
+    window.location.href = '/partnerdetail?idx=' + prevIdx;
+}
+function Qanext(){
+    const nextIdx = document.querySelector('.edit-button[data-next]').dataset.next;
+    window.location.href = '/partneredetail?idx=' + nextIdx;
+}
+
+function Doprev(){
+    const prevIdx = document.querySelector('.edit-button[data-prev]').dataset.prev;
+    window.location.href = '/domedetail?idx=' + prevIdx;
+}
+function Donext(){
+    const nextIdx = document.querySelector('.edit-button[data-next]').dataset.next;
+    window.location.href = '/domeedetail?idx=' + nextIdx;
+}
+
 
 
 
