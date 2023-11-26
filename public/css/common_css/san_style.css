@@ -29,6 +29,7 @@
 .btm_box_span1 {width: 90%; text-align: center; font-family: 'Serif', sans-serif; font-size: 1.7rem; font-weight: 300; text-decoration: underline; text-decoration-thickness: 2px;}
 .btm_box_span2 {height: 100%; cursor: pointer; display: flex; margin-right: 30px; margin-bottom: 30px; align-items: end; font-family: 'Serif', sans-serif; font-size: 1.7rem; font-weight: 400; transition: 0.3s ease-in-out;}
 .btm_box_span2:hover {transform: translateX(10px);}
+.news_span2_a {text-decoration: none; color: white;}
 
 .section_main_btm {display: flex; flex-direction: column; width: 100%; align-items: center;}
 .notice {margin-top: 100px;}
@@ -164,3 +165,8 @@
 .dome_shop_form {align-items: center; justify-content: center;}
 .submit_dome {width: 10%; cursor: pointer; margin-top: 100px; height: 50px; transition: 0.3s ease-in-out; background-color: white; font-family: 'Sans',sans-serif; font-size: 1rem; border: 1px solid rgba(62,69,30,1);}
 .submit_dome:hover {transform: scale(1.03); background-color: rgba(62,69,30,0.2);}
+
+.detail_section02 {width: 100%; display: flex; flex-direction: column; align-items: center; margin: 100px 0;}
+.detail_gallery_type {font-family: 'Shri',sans-serif; font-size: 2rem; color: #3E451E;}
+.detail_regdate {font-family: 'Sans',sans-serif; font-size: 1rem; color: rgba(62,69,30,1); font-weight: 200; margin: 20px 0;}
+.gallery_top_span {font-family: 'Serif',sans-serif; font-size: 1.5rem; color: #3E451E; padding-bottom: 20px; margin-bottom: 30px; border-bottom: 1px solid rgba(62,69,30,0.4);}

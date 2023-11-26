@@ -1,23 +1,16 @@
 <%- include('include/header.ejs') %>
 <body id="detail">
-
-<link async="" rel="stylesheet" href="/public/css/common_css/review.css">
-<link rel="stylesheet" href="/public/css/common_css/main.css">
 <div class="container">
-    <section class="section_01" style="background-image: url('<%= webBack %>');">
-        <img class="mobile_back" src="<%= mobileBack %>"/>
+    <section class="section_01">
+        <img src="/public/img/san/brand_top.png">
+        <img style="display: none;" src="/public/img/nac_main_1.png">
     </section>
     <!--섹션1-->
 
-    <section class="section_main_btm review_1">
+    <section class="detail_section02">
         <span class="detail_gallery_type"><%= boardType %></span>
-        <div class="top_detail">
-            <span class="gallery_top_span">
-                <div id="left"></div>
-                <%= data.title %>  <!-- 동적으로 Title을 생성 -->
-                <span class="detail_regdate"><%= data.regdate %> </span>  <!-- 동적으로 Regdate를 생성 -->
-            </span>
-        </div>
+        <span class="detail_regdate"><%= data.regdate %> </span>
+        <span class="gallery_top_span"><%= data.title %></span>
 
         <div class="detail_memo"> <%- data.memo %> </div>  <!-- 동적으로 Memo를 생성 -->
     </section>
