@@ -863,6 +863,31 @@ app.get('/shop', (req, res) => {
         });
     });
 });
+
+app.get('/dome', (req, res) => {
+    const page = req.query.page ? parseInt(req.query.page) : 1;
+    const limit = 9; // 한 페이지에 표시할 항목 수
+    const offset = (page - 1) * limit;
+
+    // 전체 항목 수 조회
+    connection.query('SELECT COUNT(*) AS count FROM shop', (err, data) => {
+        if (err) throw err;
+        const totalItems = data[0].count;
+        const totalPages = Math.ceil(totalItems / limit);
+
+        // 현재 페이지 데이터 조회
+        var sql = `SELECT idx, title, subtitle, link, thumbnail FROM shop ORDER BY regdate DESC LIMIT ? OFFSET ?`;
+        connection.query(sql, [limit, offset], (err, result) => {
+            if (err) throw err;
+            res.render('./common/partner/dome', {
+                list: result,
+                currentPage: page,
+                totalPages: totalPages
+            });
+        });
+    });
+});
+
 app.get('/get-review-details', (req, res) => {
     const idx = req.query.idx;
     const sql = `SELECT * FROM review WHERE idx = ?`;
@@ -891,7 +916,7 @@ app.post('/submit-qa', (req, res) => {
     const number = req.body.number;
     const memo = req.body.memo;
 
-    var sql = `INSERT INTO qa (company, name, email, number, memo, regdate) VALUES (?, ?, ?, ?, ?, NOW())`;
+    var sql = `INSERT INTO qa (company, name, email, number, memo, regdate, status) VALUES (?, ?, ?, ?, ?, NOW(), 0)`;
     connection.query(sql, [company, name, email, number, memo], function (err, result) {
         if (err) throw err;
         res.send("<script> alert('문의가 등록되었습니다. 빠른 기일내에 답변드리겠습니다.'); location.href='/'; </script>");
