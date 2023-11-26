@@ -12,18 +12,18 @@
                 <span class="m_sec2_span_1" id="SLOGAN_SPAN">SLOGAN</span>
                 <span class="m_sec2_span_2" id="SLOGAN_SPAN">우리네 건강한 식품</span>
                 <span class="m_sec2_span_3" id="SLOGAN_SPAN">우리 가족을 위해 까다로운 기준으로 엄선한 건강한 식품을 식탁 위에 올릴 수 있도록 항상 노력합니다.</span>
-                <div class="main_bsec2_mid_div_btm">
-                    <div>
+                <div class="main_bsec2_mid_div_btm main_sec1">
+                    <div class="san_main_sec1_div">
                         <img class="project_img" src="/public/img/san/SLOGAN_1.png" id="thumbnail"/>
                         <span class="main_bsec2_span_top" id="title">보다 정직하게</span>
                         <span class="main_bsec2_span_btm" id="subtitle">거짓없이 정직한 식품을 약속드립니다.</span>
                     </div>
-                    <div>
+                    <div class="san_main_sec1_div">
                         <img class="project_img" src="/public/img/san/SLOGAN_2.png" id="thumbnail"/>
                         <span class="main_bsec2_span_top" id="title">더욱 신선하게</span>
                         <span class="main_bsec2_span_btm" id="subtitle">신선한 우리 농작물의 푸르름을 그대로 간직합니다.</span>
                     </div>
-                    <div>
+                    <div class="san_main_sec1_div">
                         <img class="project_img" src="/public/img/san/SLOGAN_3.png" id="thumbnail"/>
                         <span class="main_bsec2_span_top" id="title">항상 행복하게</span>
                         <span class="main_bsec2_span_btm" id="subtitle">매일매일의 행복한 우리 가족 식탁을 위해 노력합니다.</span>
@@ -63,6 +63,25 @@
                     slide.style.transform = 'translateX(-50%)'
                 })
             </script>
+        </section>
+
+        <section class="section_02 main_sec rec_3" id="brand" style="background-color: rgb(242,242,242); padding: 150px 0; margin:0;">
+            <div class="main_div">
+                <span class="m_sec2_span_1">SHOP</span>
+                <span class="m_sec2_span_2">우리상품 살펴보기</span>
+                <span class="m_sec2_span_3">우리 가족을 위해 까다로운 기준으로 엄선한 건강한 식품을 식탁 위에 올릴 수 있도록 항상 노력합니다.</span>
+                <div class="main_sec2_gird">
+                    <% for(let i = 0; i < shop.length && i < 4; i++) { %>
+                        <div class="san_sec3_img_div">
+                            <a class="shop_long_div_a" href="<%= shop[i].link %>">
+                                <img class="shop_img" src="<%= shop[i].thumbnail %>" alt="Shop Image"/>
+                                <span class="main_bsec2_span_top"><%= shop[i].title %></span>
+                                <span class="main_bsec2_span_btm"><%= shop[i].subtitle %></span>
+                            </a>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
         </section>
 
 

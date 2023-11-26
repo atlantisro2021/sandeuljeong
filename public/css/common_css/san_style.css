@@ -7,6 +7,9 @@
 .m_sec2_span_3 {font-family: 'Serif', sans-serif; font-size: 1rem; font-weight: 300; margin: 30px 0;}
 .shop_long_div_a {text-decoration: none; text-underline: none;}
 
+@media screen and (max-width: 924px) {
+    .m_sec2_span_1, .m_sec2_span_2, .m_sec2_span_3 {padding: 0 20px;}
+}
 
 .section_02 .main_div .san_main_shop {width: 200%; transition: 1s ease-in-out;}
 .san_shop_slide {padding: 0 30px; margin-top: 15%; margin-bottom: 5%; font-family: 'Serif', sans-serif; font-size: 3rem; font-weight: 100; transition: 0.3s ease-in-out; color: rgba(0,0,0,0.4); cursor: pointer;}
