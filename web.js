@@ -195,8 +195,35 @@ app.post('/uploadPopup', upload.single('popupImage'), (req, res) => {
         }
     });
 });
+// 파트너 관리
+app.get('/m-partner', (req, res) => {
+    let currentPage = req.query.page || 1; // 현재 페이지 번호
+    let itemsPerPage = 10; // 페이지당 아이템 수
+    let offset = (currentPage - 1) * itemsPerPage; // offset 계산
 
+    var sql = `SELECT * FROM qa ORDER BY idx DESC LIMIT ${offset}, ${itemsPerPage}`; // SQL 쿼리
+    var countSql = `SELECT COUNT(*) as totalCount FROM notice`; // 전체 데이터의 개수를 가져오는 SQL 쿼리
 
+    connection.query(sql, function (err, result, fields) {
+        if (err) throw err;
+
+        connection.query(countSql, function (countErr, countResult, countFields) {
+            if (countErr) throw countErr;
+
+            let totalCount = countResult[0].totalCount;
+            let totalPages = Math.ceil(totalCount / itemsPerPage);  // 전체 페이지 수 계산
+
+            res.render('./manage/partner/partner', {
+                lists: result,
+                totalCount: totalCount,
+                itemsPerPage: itemsPerPage,
+                currentPage: currentPage,
+                totalPages: totalPages  // 전체 페이지 수를 EJS로 전달
+            });
+        });
+    });
+});
+// 파트너 관리
 
 //공지사항 Notice
 app.get('/m-notice', (req, res) => {
