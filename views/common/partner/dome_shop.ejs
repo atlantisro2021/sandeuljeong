@@ -47,7 +47,7 @@
                     if (input.value > 0) {
                         hasQuantity = true;
                         const productTitle = input.getAttribute('data-title');
-                        selectedProducts.push(`<br>${productTitle}, ${input.value}개 <br> `);
+                        selectedProducts.push(`${productTitle}, ${input.value}개\n`);
                     }
                 });
 
