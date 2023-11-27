@@ -44,8 +44,8 @@
 .checkform-table-body {height: 50px; border-bottom: 1px solid rgba(0,0,0,0.3); text-align: center;}
 .border-right {border-right: 1px solid rgba(0,0,0,0.3);}
 .border-left {border-left: 1px solid rgba(0,0,0,0.3);}
-.checkform-table-smalltd {width: 5%;}
-.checkform-table-writer-and-date {width: 10%;}
+.checkform-table-smalltd {width: 10%;}
+.checkform-table-writer-and-date {width: 15%;}
 .pagination {width: 100%; display: flex; justify-content: center; align-items: center; margin: 50px 0;}
 .page-item {width: 100%; justify-content: center; display: flex;}
 .page-link {text-align: center; text-decoration: none; font-family: 'Sans',sans-serif; font-size: 1.3rem; font-weight: 200; color: rgba(0,0,0,0.6); transition: 0.3s ease-in-out;
@@ -164,7 +164,7 @@
 .dome_amount input {height: 30px; width: 80%; margin-right: 10px; border: 1px solid rgba(62,69,30,0.4); font-family: 'Serif',sans-serif;}
 .dome_amount span {height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Sans',sans-serif; font-size: 1.3rem; color: #3E451E;}
 .dome_shop_form {align-items: center; justify-content: center;}
-.submit_dome {width: 10%; cursor: pointer; margin-top: 100px; height: 50px; transition: 0.3s ease-in-out; background-color: white; font-family: 'Sans',sans-serif; font-size: 1rem; border: 1px solid rgba(62,69,30,1);}
+.submit_dome {width: 270px; cursor: pointer; margin-top: 100px; height: 50px; transition: 0.3s ease-in-out; background-color: white; font-family: 'Sans',sans-serif; font-size: 1rem; border: 1px solid rgba(62,69,30,1);}
 .submit_dome:hover {transform: scale(1.03); background-color: rgba(62,69,30,0.2);}
 
 .detail_section02 {width: 100%; display: flex; flex-direction: column; align-items: center; margin: 100px 0;}
@@ -177,8 +177,86 @@
 .main_plus a:hover {transform: translateY(-5px) scale(1.01);}
 .shop_span_btm {margin: 10px 0;}
 
+.main_shop_web {}
+#main .main_shop_mobile {display: none;}
+.main_sec2_gird {grid-template-rows: auto; grid-template-columns: 1fr 1fr; display: grid;}
+
+.detail_memo {width: 80%; height: auto; overflow: hidden}
+.detail_memo img {width: 100%!important;}
+
+@media screen and (max-width: 1760px) {
+    .dome_section02 {width: 100%;}
+    .d_img_left {flex-direction: column-reverse;}
+    .d_img_right {flex-direction: column;}
+    .d_sec2_top_div img {width: 100%; height: auto; margin-top: 30px;}
+    .d_sec2_span_div {width: 100%;}
+    .d_sec2_span_div span {width: 100%; text-align: center;}
+}
+
+@media screen and (max-width: 1370px) {
+    .san_main_btm_container {width: 100%; flex-direction: column;}
+    .san_main_btm_container .san_main_btm_div1 {width: 100%;}
+    .san_main_btm_container .san_main_btm_div1 span {text-align: center; width: 100%; padding: 0;}
+    .san_main_btm_container .san_main_btm_div2 {width: 250px; height: 100px;}
+    .san_main_btm_container .san_main_btm_div2 .btm_box_span1 {font-size: 1.3rem;}
+}
+@media screen and (max-width: 1370px) {
+    .b_sec4_span1 {margin-bottom: 50px;}
+    .b_sec4_history {width: 100%; border: none; align-items: center; padding: 0; margin-top: 0; margin-bottom: 100px;}
+    .b_sec4_history .div_history {padding: 0;}
+    #main .brand_section_03 .main_div {width: 100%;}
+    .b_sec4_contact_img {width: 100%;}
+}
+
+@media screen and (max-width: 960px) {
+    #main .main_shop_mobile {display: flex;}
+    #main .main_shop_web {display: none;}
+    .dome_span4, .dome_span5 {text-align: center;}
+    .dome_span4 {margin-bottom: 20px;}
+    .project_div {grid-template-columns: repeat(2, 1fr);}
+    .news_section02 .main_div {width: 100%;}
+    .detail_memo {width: 100%;}
+}
+@media screen and (max-width: 770px) {
+    .main_sec2_gird {display: flex; flex-direction: column;}
+    .main_div .san_sec3_img_div {width: 100%;}
+    .main_div .shop_span1 {text-align: center;}
+    .main_div .shop_span_btm {margin-bottom: 30px;}
+    .main_plus a {margin-right: 10px;}
+    .m_sec2_span_2 {font-size: 1.7rem;}
+    #main .brand_section_03 .main_div .main_bsec2_mid_div_btm {flex-direction: column;}
+    #main .brand_section_03 .main_div .main_bsec2_mid_div_btm div {width: 100%;}
+    #main .brand_section_03 .main_div .main_bsec2_mid_div_btm div .main_bsec2_span_top {width: 100%; text-align: center;}
+    #main .brand_section_03 .main_div .main_bsec2_mid_div_btm div .main_bsec2_span_btm {width: 100%; text-align: center; margin-bottom: 20px;}
+}
 @media screen and (max-width: 740px) {
     .section_02 .main_div .main_contents {flex-direction: column;}
     .main_div .main_contents .san_main_contents_div {width: 100%;}
     .main_contents .main_bsec2_span_btm {text-align: center; margin-bottom: 20px;}
+    .checkform-table-smalltd {width: 20%;}
+    .checkform-table-writer-and-date {width: 25%;}
+    .b_sec2_span_2 {width: 100%; text-align: center; margin-bottom: 20px;}
+    .brand_sec2_icon {width: 270px;}
+}
+
+@media screen and (max-width: 560px) {
+    .dome_span3 {width: 100%; text-align: center; font-size: 1.5rem;}
+}
+
+@media screen and (max-width: 500px) {
+    .news_sec3_span {text-align: center; width: 100%;}
+    .news_section03 .san_main_btm_div2 {width: 250px;}
+    .news_section03 .san_main_btm_div2 .btm_box_span1 {font-size: 1.2rem;}
+    .n_sec2_span_1, .n_sec2_span_2 {text-align: center; width: 100%;}
+    .checkform-table {width: 100%;}
+    .notice_top_span3 {width: 100%; text-align: center;}
+}
+
+@media screen and (max-width: 400px) {
+    .d_sec2_span1 {font-size: 10rem;}
+    .d_sec2_span3 {margin-bottom: 20px;}
+    .dome_img1 {width: 230px;}
+    .dome_span1, .dome_span2 {font-size: 1.7rem;}
+    .project_div {grid-template-columns: repeat(1, 1fr);}
+    .detail_gallery_type {width: 100%; text-align: center;}
 }

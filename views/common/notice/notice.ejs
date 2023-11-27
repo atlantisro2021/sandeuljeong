@@ -39,7 +39,7 @@
                     <tr class="checkform-table-body">
                         <td class="border-right num"> <%= totalCount-- %> </td>
                         <td>
-                            <a class="notice_link" data-link="/detail?table=notice&idx=<%= item.idx %>">
+                            <a class="notice_link" id="notice_title" data-link="/detail?table=notice&idx=<%= item.idx %>">
                                 <%- item.title %>
                             </a>
                         </td>
@@ -48,6 +48,21 @@
                 <% }) %>
             <% } %>
             </tbody>
+            <script>
+                // 페이지 로드가 완료되면 실행
+                document.addEventListener('DOMContentLoaded', function () {
+                    // 모든 'shop_title' 요소를 찾음
+                    const titles = document.querySelectorAll('#notice_title');
+
+                    // 각 타이틀에 대하여 길이 체크 및 수정
+                    titles.forEach(function (title) {
+                        if (title.innerText.length > 20) {
+                            // 텍스트가 20자를 초과하면 20자로 자르고 '...' 추가
+                            title.innerText = title.innerText.substring(0, 20) + '...';
+                        }
+                    });
+                });
+            </script>
         </table>
             <div class="pagination">
                 <% for(let i = 1; i <= Math.ceil(total / limit); i++) { %>

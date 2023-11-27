@@ -25,6 +25,21 @@
                     </div>
                 <% }); %>
             </div>
+            <script>
+                // 페이지 로드가 완료되면 실행
+                document.addEventListener('DOMContentLoaded', function () {
+                    // 모든 'shop_title' 요소를 찾음
+                    const titles = document.querySelectorAll('#title');
+
+                    // 각 타이틀에 대하여 길이 체크 및 수정
+                    titles.forEach(function (title) {
+                        if (title.innerText.length > 30) {
+                            // 텍스트가 20자를 초과하면 20자로 자르고 '...' 추가
+                            title.innerText = title.innerText.substring(0, 30) + '...';
+                        }
+                    });
+                });
+            </script>
             <div class="sec2_btm_page">
                 <a class="sec2_btm_span"><</a>
                 <% for(let i = 1; i <= totalPages; i++) { %>
@@ -36,32 +51,6 @@
             </div>
         </div>
     </section>
-
-<!--    <section class="news_section02">-->
-
-<!--        <div>-->
-<!--            <span> < </span>-->
-<!--            <div class="news_slide_container">-->
-<!--                <div>-->
-<!--                    <div>-->
-<!--                        <div>-->
-<!--                            <div class="news_slide_top_box"></div>-->
-<!--                            <span>생태학에는 ‘가장자리 효과’라는 용어가 있는데, 서로 다른 경계가 맞닿는 지점에서 다양성과 생산성이 가장 높게 나타난다는 이론이다. 다른 차원으로 넘어갈 수 있는 경계인 가장자리에 모여 다양한 사람들이 자기 경험을 나누고, 그 대화가 누군가에게 새로운 관점을 낳고, 더 나아가 스스로의 일상을 달래는 위로와 힘이 되길 바라는 마음으로 <가장자리> 라운드테이블을 시작했다. <가장자리> 라운드테이블은 씨앗에서 파생한 ‘돌봄’이라는 주제 안에서 각자의 기준과 관점에 따라 편안하게 생각을 나누고 보태는 시간으로 꾸려진다. 우리 삶의 모습들을 식물의 생애에 덧대어보면 장황해 보이던 인생도 마치 손바닥 위에 올려둔 듯 또렷해지는 순간이 있기 때문이다.</span>-->
-<!--                            <div class="news_slide_border"></div>-->
-<!--                            <div>-->
-<!--                                <span></span>-->
-<!--                                <span></span>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-
-<!--                </div>-->
-<!--            </div>-->
-<!--            <span> > </span>-->
-<!--        </div>-->
-<!--    </section>-->
-
     <section class="news_section03">
         <img class="news_icon" src="/public/img/san/news_icon.png">
         <div class="san_main_btm_div2">
