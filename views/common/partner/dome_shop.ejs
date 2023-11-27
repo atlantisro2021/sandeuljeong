@@ -27,7 +27,8 @@
                         <span class="main_bsec2_span_top" id="title"><%= shop.title %></span>
                         <span class="main_bsec2_span_btm" id="subtitle"><%= shop.subtitle %></span>
                         <div class="dome_amount">
-                            <input type="number" name="amount_<%= shop.idx %>" min="0" placeholder="수량을 입력하세요">
+                            <input type="number" name="amount_<%= shop.idx %>" data-title="<%= shop.title %>" min="0" placeholder="수량을 입력하세요">
+
                             <span>개</span>
                         </div>
                     </div>
@@ -41,11 +42,12 @@
                 let hasQuantity = false;
                 let selectedProducts = [];
 
-                // Check if any input has a value greater than 0
+                // Check if any input has a value greater than 0 and get its title
                 this.querySelectorAll('input[type=number]').forEach(input => {
                     if (input.value > 0) {
                         hasQuantity = true;
-                        selectedProducts.push(`${input.name.replace('amount_', '')} ${input.value}개`);
+                        const productTitle = input.getAttribute('data-title');
+                        selectedProducts.push(`${productTitle}, ${input.value}개`);
                     }
                 });
 
@@ -54,11 +56,12 @@
                     return;
                 }
 
-                if (confirm(`${selectedProducts.join(', ')} 가 맞습니까?`)) {
+                if (confirm(`선택된 상품: ${selectedProducts.join(', ')} 가 맞습니까?`)) {
                     this.submit();
                 }
             });
-                // 페이지 로드가 완료되면 실행
+
+            // 페이지 로드가 완료되면 실행
                 document.addEventListener('DOMContentLoaded', function () {
                 // 모든 'shop_title' 요소를 찾음
                 const titles = document.querySelectorAll('#title');
