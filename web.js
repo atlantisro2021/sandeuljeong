@@ -305,10 +305,10 @@ app.get('/m-dome', (req, res) => {
     let offset = (currentPage - 1) * itemsPerPage;
 
     var sql = `
-        SELECT dome.*, qa.company, shop.title 
+        SELECT dome.*, qa.company, domeshop.title 
         FROM dome 
         LEFT JOIN qa ON dome.number = qa.number
-        LEFT JOIN shop ON dome.product = shop.idx
+        LEFT JOIN domeshop ON dome.product = domeshop.idx
         ORDER BY dome.idx DESC 
         LIMIT ${offset}, ${itemsPerPage}`;
 
