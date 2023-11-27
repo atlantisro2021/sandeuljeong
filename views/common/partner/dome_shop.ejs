@@ -56,7 +56,7 @@
                     return;
                 }
 
-                if (confirm(`선택된 상품: ${selectedProducts.join(', ')} 가 맞습니까?`)) {
+                if (confirm(`선택된 상품: ${selectedProducts.join('')} 가 맞습니까?`)) {
                     this.submit();
                 }
             });
