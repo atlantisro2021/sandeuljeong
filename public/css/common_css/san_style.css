@@ -26,7 +26,8 @@
 .san_main_btm_div1 {display: flex; flex-direction: column; align-items: start;}
 .san_main_btm_div2 {width: 50%; height: 85%; border: 1px solid rgba(0,0,0,0.2); display: flex; justify-content: center; align-items: center;}
 
-.btm_box_span1 {width: 90%; text-align: center; font-family: 'Serif', sans-serif; font-size: 1.7rem; font-weight: 300; text-decoration: underline; text-decoration-thickness: 2px;}
+.btm_box_span1 {width: 90%; cursor: pointer; transition: 0.3s ease-in-out; text-align: center; font-family: 'Serif', sans-serif; font-size: 1.7rem; font-weight: 300; text-decoration: underline; text-decoration-thickness: 2px;}
+.btm_box_span1:hover {transform: translateY(-5px);}
 .btm_box_span2 {height: 100%; cursor: pointer; display: flex; margin-right: 30px; margin-bottom: 30px; align-items: end; font-family: 'Serif', sans-serif; font-size: 1.7rem; font-weight: 400; transition: 0.3s ease-in-out;}
 .btm_box_span2:hover {transform: translateX(10px);}
 .news_span2_a {text-decoration: none; color: white;}
@@ -57,7 +58,7 @@
 .qa_form {width: 100%; display: flex; flex-direction: column; align-items: center;}
 .qa_form div {width: 80%; display: flex; flex-direction: column; align-items: center; margin: 30px 0;}
 .qa_form div span {font-family: 'Serif',sans-serif; font-size: 1.2rem; font-weight: 200; color: black; margin-bottom: 50px; text-align: center;}
-.qa_form div input {width: 100%; border: none; border-bottom: 1px solid rgba(0,0,0,0.7); height: 30px; font-family: 'Serif',sans-serif; font-size: 1.1rem; font-weight: 200;}
+.qa_form div input {width: 100%; border: none; border-bottom: 1px solid rgba(0,0,0,0.7); height: 30px; font-family: 'Serif',sans-serif; font-size: 1.1rem; font-weight: 200; text-align: center;}
 .qa_form button {display: flex; border-radius: 20px; border: 1px solid rgba(0,0,0,0.7); font-family: 'Serif',sans-serif; font-size: 1.1rem; font-weight: 200; padding: 10px 50px; background-color: white; margin: 50px 0; cursor: pointer; transition: 0.3s ease-in-out;}
 .qa_form button:hover {background-color: rgba(0,0,0,0.05); transform: translateY(-5px);}
 
@@ -123,7 +124,7 @@
 .san_footer_top_div {width: 80%; display: flex; margin: 100px 0;}
 .san_footer_left {width: 50%; display: flex; flex-direction: column; align-items: center; border-right: 1px solid rgba(0,0,0,0.3);}
 .san_footer_right {width: 50%; display: flex; flex-direction: column; align-items: start; justify-content: center;}
-.san_footer_right span {font-family: 'Serif',sans-serif; font-size: 1.2rem; color: rgba(0,0,0,0.5); padding: 0 5px; margin-left: 50px; letter-spacing: 2px;}
+.san_footer_right span {font-family: 'Serif',sans-serif; font-size: 1rem; color: rgba(0,0,0,0.5); padding: 4px 5px; margin-left: 50px; letter-spacing: 2px;}
 .san_left_left {margin: 30px 0;}
 .left_span_01 {font-family: 'Serif',sans-serif; font-size: 2rem; font-weight: 800; color: rgba(0,0,0,0.5);}
 .left_span_02 {font-family: 'Serif', sans-serif; font-size: 1.2rem; color: rgba(0,0,0,0.5); padding: 0 30px;}
@@ -174,7 +175,7 @@
 .main_plus {width: 100%; display: flex; margin-bottom: 10px; justify-content: space-between; align-items: center;}
 .main_plus a {transition: 0.3s ease-in-out; text-decoration: none; color: black; font-family: 'Sans', sans-serif; font-size: 1rem;}
 .main_plus a:hover {transform: translateY(-5px) scale(1.01);}
-.shop_span_btm {margin-top: 10px;}
+.shop_span_btm {margin: 10px 0;}
 
 @media screen and (max-width: 740px) {
     .section_02 .main_div .main_contents {flex-direction: column;}

@@ -4,8 +4,8 @@
 <section class="gallery_section_mainpage">
     <fieldset>
         <div class="notice_list_top">
-            <p1>공지사항</p1>
-            <p2>Home > 공지사항 > 공지사항</p2>
+            <p1>상품수정</p1>
+            <p2>Home > 상품관리 > 상품수정</p2>
         </div>
         <form action="/editShop" method="post">
             <input type="hidden" name="idx" value="<%= item.idx %>"/>
@@ -21,7 +21,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="edit-front-td">부 제목 :</td>
+                    <td class="edit-front-td">가격 :</td>
                     <td>
                         <input type="text" name="subtitle" value="<%= item.subtitle %>" alt="제목" class="edit-title"/>
                     </td>

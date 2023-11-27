@@ -17,7 +17,7 @@ a{
 .manager_section_1 .header-content .manager_top_logo, #head_logo {
     display: inline-block; /* 이미지와 텍스트를 한 줄에 표시합니다. */
     vertical-align: middle; /* 이미지와 텍스트를 수직 중앙 정렬합니다. */
-    margin-left: 10px;
+    margin-left: 20px;
 }
 .manager_section_1 .header-content .manager_top_logo {
     width: auto;
@@ -78,7 +78,7 @@ a{
     background: #272b3a;
 }
 .manager_section_2 form fieldset img {
-    height: auto; width: 300px; margin-bottom: 30px;
+    height: auto; width: 220px; margin: 30px 0;
 }
 .manager_section_2 #mem_id::placeholder, #mem_pwd::placeholder {
     color: #888888;

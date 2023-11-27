@@ -1052,7 +1052,7 @@ app.get('/shop', (req, res) => {
 app.get('/dome_shop', (req, res) => {
     let number = String(req.query.number);
 
-        var sql = `SELECT idx, title, subtitle, link, thumbnail FROM shop ORDER BY regdate DESC`;
+        var sql = `SELECT idx, title, subtitle, link, thumbnail FROM domeshop ORDER BY regdate DESC`;
         connection.query(sql, (err, result) => {
             if (err) throw err;
             res.render('./common/partner/dome_shop', {
@@ -1103,12 +1103,12 @@ app.post('/check-number', (req, res) => {
 
         // 번호가 일치하는 데이터가 없는 경우
         if (results.length === 0) {
-            return res.send("<script> alert('등록되지 않은 전화번호입니다. 파트너 문의를 신청하세요.'); window.history.back(); </script>");
+            return res.send("<script> alert('등록되지 않은 전화번호입니다. 파트너를 신청해주세요.'); window.history.back(); </script>");
         }
 
         const status = results[0].status;
         if (status === 0) {
-            res.send("<script> alert('승인 대기중인 업체입니다.'); window.history.back(); </script>");
+            res.send("<script> alert('승인 대기중입니다.'); window.history.back(); </script>");
         } else if (status === 1) {
             res.send(`<script> alert('환영합니다.'); window.location.href='/dome_shop?number=${number}'; </script>`);
         }
@@ -1151,7 +1151,7 @@ app.post('/submit-qa', (req, res) => {
     var sql = `INSERT INTO qa (company, name, email, number, memo, regdate, status) VALUES (?, ?, ?, ?, ?, NOW(), 0)`;
     connection.query(sql, [company, name, email, number, memo], function (err, result) {
         if (err) throw err;
-        res.send("<script> alert('문의가 등록되었습니다. 빠른 기일내에 답변드리겠습니다.'); location.href='/'; </script>");
+        res.send("<script> alert('파트너 신청이 완료되었습니다. 승인 대기중입니다.'); location.href='/'; </script>");
     });
 })
 
@@ -1286,6 +1286,137 @@ app.post('/editShop', (req, res) => {
 });
 // Common 메인 라우팅
 
+// 도매 샵
+app.get('/m-domeshop', (req, res) => {
+    let currentPage = req.query.page || 1; // 현재 페이지 번호
+    let itemsPerPage = 10; // 페이지당 아이템 수
+    let offset = (currentPage - 1) * itemsPerPage; // offset 계산
+
+    var sql = `SELECT * FROM domeshop ORDER BY idx DESC LIMIT ${offset}, ${itemsPerPage}`; // SQL 쿼리
+    var countSql = `SELECT COUNT(*) as totalCount FROM domeshop`; // 전체 데이터의 개수를 가져오는 SQL 쿼리
+
+    connection.query(sql, function (err, result, fields) {
+        if (err) throw err;
+
+        connection.query(countSql, function (countErr, countResult, countFields) {
+            if (countErr) throw countErr;
+
+            let totalCount = countResult[0].totalCount;
+            let totalPages = Math.ceil(totalCount / itemsPerPage);  // 전체 페이지 수 계산
+
+            res.render('./manage/domeshop/domeshop', {
+                lists: result,
+                totalCount: totalCount,
+                itemsPerPage: itemsPerPage,
+                currentPage: currentPage,
+                totalPages: totalPages  // 전체 페이지 수를 EJS로 전달
+            });
+        });
+    });
+});
+app.post('/deletedomeshop', (req, res) => {
+    console.log(req.body.ids);
+    let ids = req.body.ids;
+    if (!ids || ids.length === 0) return res.json({ message: '삭제할 항목이 없습니다.' });
+
+    let placeholders = ids.map(() => '?').join(','); // Prepare placeholders for SQL query
+    let sql = `DELETE FROM domeshop WHERE idx IN (${placeholders})`;
+
+    connection.query(sql, ids, (err, results) => {
+        if (err) throw err;
+        res.json({ message: '선택한 항목이 삭제되었습니다.' });
+    });
+});
+app.get('/domeshopdel', (req, res) => {
+    var idx = req.query.idx
+    var sql = `delete from domeshop where idx='${idx}'`
+    connection.query(sql, function (err, result){
+        if(err) throw err;
+        res.send("<script> alert ('삭제되었습니다.'); location.href='/m-domeshop'; </script>");
+    })
+})
+app.post('/writedomeshop', (req, res) => {
+    const title = req.body.title;
+    const subtitle = req.body.subtitle;
+    const link = req.body.link;
+    const memo = req.body.memo;
+
+    const $ = cheerio.load(memo);  // HTML 파싱
+    let thumbnail = $('img').first().attr('src');  // 첫 번째 이미지의 src 찾기
+
+    // thumbnail이 없으면 빈 문자열로 설정
+    if (!thumbnail) {
+        res.send("<script> alert('최소 1개의 이미지를 등록해주세요'); location.href='/writeNoticepage'; </script>")
+        return;
+    }
+
+    var sql = 'INSERT INTO domeshop(title, subtitle, link, memo, thumbnail, regdate) VALUES (?, ?, ?, ?, ?, NOW())';
+    connection.query(sql, [title, subtitle, link, memo, thumbnail], function(err, result) {  // thumbnail 변수 사용
+        if (err) throw err;
+        res.send("<script> alert('게시글이 등록되었습니다'); location.href='/m-domeshop'; </script>");
+    });
+})
+app.get('/writedomeshop', (req, res) => {
+    res.render('./manage/domeshop/writedomeshop')
+})
+app.get('/domeshopdetail', (req, res) => {
+    const idx = req.query.idx;
+
+    const sqlCurrent = `SELECT * FROM domeshop WHERE idx = ${mysql.escape(idx)}`;
+    const sqlPrev = `SELECT idx FROM domeshop WHERE idx < ${mysql.escape(idx)} ORDER BY idx DESC LIMIT 1`;
+    const sqlNext = `SELECT idx FROM domeshop WHERE idx > ${mysql.escape(idx)} ORDER BY idx ASC LIMIT 1`;
+
+    connection.query(sqlCurrent, (err, resultCurrent) => {
+        if (err) throw err;
+
+        connection.query(sqlPrev, (err, resultPrev) => {
+            if (err) throw err;
+
+            connection.query(sqlNext, (err, resultNext) => {
+                if (err) throw err;
+
+                // result를 상세 페이지 템플릿으로 전달
+                res.render('./manage/domeshop/domeshopdetail', {
+                    item: resultCurrent[0],
+                    prev: resultPrev[0] ? resultPrev[0].idx : null,
+                    next: resultNext[0] ? resultNext[0].idx : null
+                });
+            });
+        });
+    });
+});
+app.get('/editdomeshop', (req, res) => {
+    const idx = req.query.idx;
+    const sql = `SELECT * FROM domeshop WHERE idx = ${mysql.escape(idx)}`;
+    connection.query(sql, (err, result) => {
+        if (err) throw err;
+        res.render('./manage/domeshop/editdomeshop', { item: result[0] });
+    });
+});
+app.post('/editdomeshop', (req, res) => {
+    const idx = req.body.idx;
+    const title = req.body.title;
+    const subtitle = req.body.subtitle;
+    const link = req.body.link;
+    const memo = req.body.memo;
+
+    // HTML 파싱
+    const $ = cheerio.load(memo);
+    let thumbnail = $('img').first().attr('src');  // 첫 번째 이미지의 src 찾기
+
+    // thumbnail이 없으면 빈 문자열로 설정
+    if (!thumbnail) {
+        thumbnail = '';  // 이 부분은 필요에 따라 조정하실 수 있습니다.
+    }
+
+    // thumbnail 업데이트 부분 추가
+    const sql = `UPDATE domeshop SET title = ?, subtitle = ?, link = ?, memo = ?, thumbnail = ? WHERE idx = ?`;
+    connection.query(sql, [title, subtitle, link, memo, thumbnail, idx], (err, result) => {
+        if (err) throw err;
+        res.send("<script> alert('수정되었습니다.'); location.href='/m-domeshop'; </script>");
+    });
+});
+// 도매 샵
 
 
 

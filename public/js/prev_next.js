@@ -68,7 +68,18 @@ function Donext(){
     window.location.href = '/domeedetail?idx=' + nextIdx;
 }
 
-
+function DSprev(){
+    const prevIdx = document.querySelector('.edit-button[data-prev]').dataset.prev;
+    window.location.href = '/domeshopdetail?idx=' + prevIdx;
+}
+function DSnext(){
+    const nextIdx = document.querySelector('.edit-button[data-next]').dataset.next;
+    window.location.href = '/domeshopdetail?idx=' + nextIdx;
+}
+function DSedit(){
+    const editIdx = document.querySelector('.edit-button[data-edit]').dataset.edit;
+    window.location.href = '/editdomeshop?idx=' + editIdx;
+}
 
 
 

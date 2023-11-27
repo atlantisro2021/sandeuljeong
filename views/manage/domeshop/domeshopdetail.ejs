@@ -1,0 +1,61 @@
+<%- include('../../manage/include/header.ejs') %>
+
+
+<section class="gallery_section_mainpage">
+    <fieldset>
+
+        <div class="notice_list_top">
+            <p1>도매상품</p1>
+            <p2>Home > 상품관리 > 도매상품</p2>
+        </div>
+
+        <table class="edit-table">
+            <tr>
+                <td class="edit-front-td">등록일 : </td>
+                <td><%= item.regdate %></td>
+            </tr>
+            <tr>
+                <td class="edit-front-td">제목 : </td>
+                <td> <%= item.title %></td>
+            </tr>
+            <tr>
+                <td class="edit-front-td">가격 : </td>
+                <td> <%= item.subtitle %></td>
+            </tr>
+            <tr>
+                <td class="edit-front-td">스토어 : </td>
+                <td> <%= item.link %></td>
+            </tr>
+            <tr>
+                <td class="edit-front-td">이미지 :</td>
+                <td><%- item.memo %></td>
+            </tr>
+        </table>
+        <div class="detail_bottomBtn edit-button-div">
+            <% if (prev) { %>
+                <button class="edit-button" data-prev="<%= prev %>" onclick="DSprev()">이전 글</button>
+            <% } else { %>
+                <button class="edit-button" onclick="alert('이동할 수 있는 게시글이 없습니다')">이전 글</button>
+            <% } %>
+
+            <button class="edit-button" onclick="list()">리스트</button>
+            <button class="edit-button" data-edit="<%= item.idx %>" onclick="DSedit()">수정</button>
+
+            <% if (next) { %>
+                <button class="edit-button" data-next="<%= next %>" onclick="DSnext()">다음 글</button>
+            <% } else { %>
+                <button class="edit-button" onclick="alert('이동할 수 있는 게시글이 없습니다')">다음 글</button>
+            <% } %>
+        </div>
+
+    </fieldset>
+</section>
+
+<script>
+    function list(){
+        window.location.href = '/m-domeshop';
+    }
+</script>
+
+<!-- 여기에 다른 정보들을 표시할 수 있습니다. -->
+<%- include('../../manage/include/footer.ejs') %>
