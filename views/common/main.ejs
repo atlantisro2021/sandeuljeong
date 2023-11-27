@@ -47,8 +47,8 @@
                         <div class="san_sec3_img_div">
                             <a class="shop_long_div_a" href="<%= shop[i].link %>">
                                 <img class="shop_img" src="<%= shop[i].thumbnail %>" alt="Shop Image"/>
-                                <span class="main_bsec2_span_top"><%= shop[i].title %></span>
-                                <span class="main_bsec2_span_btm"><%= shop[i].subtitle %></span>
+                                <span class="main_bsec2_span_top" id="shop_title"><%= shop[i].title %></span>
+                                <span class="main_bsec2_span_btm shop_span_btm"><%= shop[i].subtitle %></span>
                             </a>
                         </div>
                     <% } %>
@@ -66,7 +66,21 @@
                 right.addEventListener("click", function (){
                     slide.style.transform = 'translateX(-50%)'
                 })
+                // 페이지 로드가 완료되면 실행
+                document.addEventListener('DOMContentLoaded', function () {
+                    // 모든 'shop_title' 요소를 찾음
+                    const titles = document.querySelectorAll('#shop_title');
+
+                    // 각 타이틀에 대하여 길이 체크 및 수정
+                    titles.forEach(function (title) {
+                        if (title.innerText.length > 20) {
+                            // 텍스트가 20자를 초과하면 20자로 자르고 '...' 추가
+                            title.innerText = title.innerText.substring(0, 20) + '...';
+                        }
+                    });
+                });
             </script>
+
         </section>
 
         <section class="section_02 main_sec rec_3" id="brand" style="display: none; background-color: rgb(242,242,242); padding: 150px 0; margin:0;">
@@ -79,13 +93,29 @@
                         <div class="san_sec3_img_div">
                             <a class="shop_long_div_a" href="<%= shop[i].link %>">
                                 <img class="shop_img" src="<%= shop[i].thumbnail %>" alt="Shop Image"/>
-                                <span class="main_bsec2_span_top"><%= shop[i].title %></span>
-                                <span class="main_bsec2_span_btm"><%= shop[i].subtitle %></span>
+                                <span class="main_bsec2_span_top" id="shop_title"><%= shop[i].title %></span>
+                                <span class="main_bsec2_span_btm shop_span_btm"><%= shop[i].subtitle %></span>
                             </a>
                         </div>
                     <% } %>
                 </div>
             </div>
+            <script>
+                // 페이지 로드가 완료되면 실행
+                document.addEventListener('DOMContentLoaded', function () {
+                    // 모든 'shop_title' 요소를 찾음
+                    const titles = document.querySelectorAll('#shop_title');
+
+                    // 각 타이틀에 대하여 길이 체크 및 수정
+                    titles.forEach(function (title) {
+                        if (title.innerText.length > 20) {
+                            // 텍스트가 20자를 초과하면 20자로 자르고 '...' 추가
+                            title.innerText = title.innerText.substring(0, 20) + '...';
+                        }
+                    });
+                });
+            </script>
+
         </section>
 
 
@@ -96,7 +126,7 @@
                 <span class="m_sec2_span_2">산들정 소식 살펴보기</span>
                 <div class="main_plus">
                     <span class="m_sec2_span_3">우리네 안전 먹거리와 관련하여 산들정이 전하는 소식통으로 매일 신선하게, 새롭게</span>
-                    <a href="/shop">+ 더보기</a>
+                    <a href="/news">+ 더보기</a>
                 </div>
                 <div class="main_bsec2_mid_div_btm main_contents">
                     <% for(let i = 0; i < news.length && i < 3; i++) { %>
