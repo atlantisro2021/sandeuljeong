@@ -48,16 +48,16 @@
                 </tr>
 
                 <%
-                let currentCount = totalCount - ((currentPage - 1) * itemsPerPage);
+                let startCount = (currentPage - 1) * itemsPerPage + 1;
                 %>
 
-                <% lists.forEach(function(item){ %>
+                <% lists.forEach(function(item, index){ %>
                     <tr class="checkform-table-body">
                         <td> <input type="checkbox" value="<%= item.idx %>"> </td>
-                        <td> <%= currentCount-- %> </td>
+                        <td> <%= startCount + index %> </td> <!-- 수정된 No. 번호 계산 -->
                         <td> <a href="/domedetail?idx=<%= item.idx %>"> <%= item.company %> </a> </td>
                         <td> <%= item.number.slice(0, 3) %>-<%= item.number.slice(3, 7) %>-<%= item.number.slice(7) %> </td>
-                        <td> <%= item.title %> </td>
+                        <td> <%= item.title %> </td> <!-- 상품명 표시 -->
                         <td> <%= item.amount %> </td>
                         <td> <%= item.regdate %> </td>
                         <td> <a href="/domedel?idx=<%=item.idx%>" onclick="return confirm('정말 삭제할까요?')"> 삭제 </a> </td>
