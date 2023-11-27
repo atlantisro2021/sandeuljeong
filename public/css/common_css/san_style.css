@@ -206,11 +206,12 @@
     .b_sec4_history .div_history {padding: 0;}
     #main .brand_section_03 .main_div {width: 100%;}
     .b_sec4_contact_img {width: 100%;}
+    #main .main_shop_mobile {display: flex;}
+    #main .main_shop_web {display: none;}
 }
 
 @media screen and (max-width: 960px) {
-    #main .main_shop_mobile {display: flex;}
-    #main .main_shop_web {display: none;}
+
     .dome_span4, .dome_span5 {text-align: center;}
     .dome_span4 {margin-bottom: 20px;}
     .project_div {grid-template-columns: repeat(2, 1fr);}
