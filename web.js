@@ -25,8 +25,8 @@ const connection = mysql.createConnection({
 });
 
 const sslOptions = {
-    key: fs.readFileSync(__dirname + "/public/ssl/private.pem"),
-    cert: fs.readFileSync(__dirname + "/public/ssl/public.pem"),
+    key: fs.readFileSync(__dirname + "/public/ssl/ssl.key"),
+    cert: fs.readFileSync(__dirname + "/public/ssl/ssl.crt"),
     passphrase: "nice2021!"
 };
 
