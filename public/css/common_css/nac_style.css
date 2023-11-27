@@ -155,6 +155,7 @@ body {
 .main_bsec2_mid_div_btm div .img_right {padding: 0;}
 .mgn_btm_border div {width: 100%; display: flex; flex-direction: column; align-items: center;}
 .mgn_btm_border div img {width: 100%; transition: 0.5s ease-in-out; overflow: hidden;}
+.mgn_btm_border div img:hover {transform: scale(1.1);}
 .mgn_btm_border div .img_right {padding: 0;}
 .main_bsec2_span_top {width: 100%; text-align: left; color: black; font-family: 'Serif', sans-serif; font-size: 1.4rem; font-weight: 200;}
 .main_bsec2_span_btm {width: 100%; text-align: left; color: black; font-family: 'Sans', sans-serif; font-size: 1rem; font-weight: 300; margin: 0;}

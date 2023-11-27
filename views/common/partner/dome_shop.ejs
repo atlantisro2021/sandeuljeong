@@ -21,7 +21,9 @@
             <div class="mgn_btm_project mgn_btm_border project_div">
                 <% list.forEach(function(shop, index) { %>
                     <div>
-                        <img src="<%= shop.thumbnail %>" id="thumbnail" />
+                        <a>
+                            <img src="<%= shop.thumbnail %>" id="thumbnail" />
+                        </a>
                         <span class="main_bsec2_span_top" id="title"><%= shop.title %></span>
                         <span class="main_bsec2_span_btm" id="subtitle"><%= shop.subtitle %></span>
                         <div class="dome_amount">
