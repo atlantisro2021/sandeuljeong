@@ -37,7 +37,11 @@
             <div class="main_div">
                 <span class="m_sec2_span_1">SHOP</span>
                 <span class="m_sec2_span_2">우리상품 살펴보기</span>
-                <span class="m_sec2_span_3">우리 가족을 위해 까다로운 기준으로 엄선한 건강한 식품을 식탁 위에 올릴 수 있도록 항상 노력합니다.</span>
+                <div class="main_plus">
+                    <span class="m_sec2_span_3">우리 가족을 위해 까다로운 기준으로 엄선한 건강한 식품을 식탁 위에 올릴 수 있도록 항상 노력합니다.</span>
+                    <a href="/shop">+ 더보기</a>
+                </div>
+
                 <div class="main_bsec2_mid_div_btm san_main_shop" id="shop_long_slide">
                     <% for(let i = 0; i < shop.length && i < 8; i++) { %>
                         <div class="san_sec3_img_div">
@@ -90,8 +94,11 @@
             <div class="main_div">
                 <span class="m_sec2_span_1">CONTENTS</span>
                 <span class="m_sec2_span_2">산들정 소식 살펴보기</span>
-                <span class="m_sec2_span_3">우리네 안전 먹거리와 관련하여 산들정이 전하는 소식통으로 매일 신선하게, 새롭게</span>
-                <div class="main_bsec2_mid_div_btm">
+                <div class="main_plus">
+                    <span class="m_sec2_span_3">우리네 안전 먹거리와 관련하여 산들정이 전하는 소식통으로 매일 신선하게, 새롭게</span>
+                    <a href="/shop">+ 더보기</a>
+                </div>
+                <div class="main_bsec2_mid_div_btm main_contents">
                     <% for(let i = 0; i < news.length && i < 3; i++) { %>
                         <div class="san_main_contents_div">
                             <a href="/detail?table=news&idx=<%= news[i].idx %>">

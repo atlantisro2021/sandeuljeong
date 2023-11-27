@@ -170,3 +170,10 @@
 .detail_gallery_type {font-family: 'Shri',sans-serif; font-size: 2rem; color: #3E451E;}
 .detail_regdate {font-family: 'Sans',sans-serif; font-size: 1rem; color: rgba(62,69,30,1); font-weight: 200; margin: 20px 0;}
 .gallery_top_span {font-family: 'Serif',sans-serif; font-size: 1.5rem; color: #3E451E; padding-bottom: 20px; margin-bottom: 30px; border-bottom: 1px solid rgba(62,69,30,0.4);}
+
+
+@media screen and (max-width: 740px) {
+    .section_02 .main_div .main_contents {flex-direction: column;}
+    .main_div .main_contents .san_main_contents_div {width: 100%;}
+    .main_contents .main_bsec2_span_btm {text-align: center; margin-bottom: 20px;}
+}
