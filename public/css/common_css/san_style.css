@@ -183,12 +183,15 @@
 .detail_memo img {width: 100%!important;}
 
 @media screen and (max-width: 1760px) {
-    .dome_section02 {width: 100%;}
+    .dome_section02, .dome_section03 {width: 95%;}
+    .dome_img2 {margin-top: 70px; margin-bottom: 0;}
     .d_img_left {flex-direction: column-reverse;}
     .d_img_right {flex-direction: column;}
     .d_sec2_top_div img {width: 100%; height: auto; margin-top: 30px;}
     .d_sec2_span_div {width: 100%;}
     .d_sec2_span_div span {width: 100%; text-align: center;}
+    .d_sec2_top_div {padding-top: 0; padding-bottom: 50px;}
+    .dome_sec3_span2 {width: 100%; text-align: center;}
 }
 
 @media screen and (max-width: 1370px) {
@@ -196,7 +199,7 @@
     .san_main_btm_container .san_main_btm_div1 {width: 100%; align-items: center; justify-content: center;}
     .san_main_btm_container .san_main_btm_div1 span {text-align: center; width: 95%; padding: 0;}
     .san_main_btm_container .san_main_btm_div2 {width: 250px; height: 100px;}
-    .san_main_btm_container .san_main_btm_div2 .btm_box_span1 {font-size: 1.3rem;}
+    .san_main_btm_container .san_main_btm_div2 .btm_box_span1 {font-size: 1.3rem; text-decoration: none;}
 }
 @media screen and (max-width: 1370px) {
     .b_sec4_span1 {margin-bottom: 50px;}
@@ -209,12 +212,15 @@
 }
 
 @media screen and (max-width: 960px) {
-
     .dome_span4, .dome_span5 {text-align: center;}
     .dome_span4 {margin-bottom: 20px;}
     .project_div {grid-template-columns: repeat(2, 1fr);}
     .news_section02 .main_div {width: 100%;}
     .detail_memo {width: 100%;}
+    #header .right_div {margin-right: -10px;}
+    .shop_section01 {margin-bottom: 50px;}
+    .news_section02 {width: 95%;}
+    .sec2_btm_page {margin-bottom: 0;}
 }
 @media screen and (max-width: 924px) {
     .m_sec2_span_1, .m_sec2_span_2, .m_sec2_span_3 {padding: 0 20px;}
