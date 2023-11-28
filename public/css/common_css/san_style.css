@@ -180,7 +180,6 @@
 .main_sec2_gird {grid-template-columns: repeat(2, 1fr); grid-column-gap: 0.7rem; grid-row-gap: 5rem; display: grid; width: 100%; justify-content: space-between;}
 
 .detail_memo {width: 80%; height: auto; overflow: hidden}
-.detail_memo img {width: 100%!important;}
 
 @media screen and (max-width: 1760px) {
     .dome_section01, .dome_section02, .dome_section03 {width: 95%;}
@@ -242,7 +241,7 @@
     .san_main_btm_1 .main_contents {width: 95%;}
     .submit_dome {margin-top: 20px;}
     #detail {display: flex; flex-direction: column; align-items: center; justify-content: center;}
-    #detail .container {align-items: center; justify-content: center;}
+    #detail .container {display: flex; flex-direction: column; align-items: center; justify-content: center;}
     #detail .container .detail_section02 {width: 90%;}
 }
 @media screen and (max-width: 740px) {
@@ -261,6 +260,7 @@
     .brand_section_02 {margin: 50px 0;}
     .brand_section_03 .sec3_span1 {font-size: 1.5rem;}
     .brand_section_03 .sec3_span2 {font-size: 1.1rem;}
+    .main_bsec2_span_top {font-size: 1.2rem;}
 }
 
 @media screen and (max-width: 560px) {
@@ -283,4 +283,5 @@
     .dome_img1 {width: 230px;}
     .dome_span1, .dome_span2 {font-size: 1.7rem;}
     .detail_gallery_type {width: 100%; text-align: center;}
+    #header .side_menu {width: 100%;}
 }
