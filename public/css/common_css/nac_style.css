@@ -1,10 +1,4 @@
-body::-webkit-scrollbar {
-    width: 0;
-    background: transparent; /* optional: just make scrollbar invisible */
-}
-
 body {
-    scrollbar-width: none; /* for Firefox */
     overflow-y: scroll; /* optional: prevent content shifting when page height changes */
     margin: 0;
     padding: 0;
