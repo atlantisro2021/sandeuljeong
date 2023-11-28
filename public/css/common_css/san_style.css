@@ -183,7 +183,7 @@
 .detail_memo img {width: 100%!important;}
 
 @media screen and (max-width: 1760px) {
-    .dome_section02, .dome_section03 {width: 95%;}
+    .dome_section01, .dome_section02, .dome_section03 {width: 95%;}
     .dome_img2 {margin-top: 70px; margin-bottom: 0;}
     .d_img_left {flex-direction: column-reverse;}
     .d_img_right {flex-direction: column;}
@@ -240,6 +240,7 @@
     .san_main_btm_1 .main_div {align-items: center; justify-content: center;}
     .san_main_btm_1 .m_sec2_span_3 {text-align: center;}
     .san_main_btm_1 .main_contents {width: 95%;}
+    .submit_dome {margin-top: 20px;}
 }
 @media screen and (max-width: 740px) {
     .section_02 .main_div .main_contents {flex-direction: column;}
