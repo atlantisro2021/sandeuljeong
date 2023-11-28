@@ -126,8 +126,8 @@
 .san_left_left {margin: 30px 0;}
 .left_span_01 {font-family: 'Serif',sans-serif; font-size: 2rem; font-weight: 800; color: rgba(0,0,0,0.5);}
 .left_span_02 {font-family: 'Serif', sans-serif; font-size: 1.2rem; color: rgba(0,0,0,0.5); padding: 0 30px;}
-.san_left_right {display: flex; align-items: center; margin-bottom: 10px; justify-content: space-around; width: 100%;}
-.san_left_right a {width: 110px; text-align: center; text-decoration: none; color: rgba(0,0,0,0.5); font-family: 'Serif',sans-serif; font-size: 1rem; padding: 10px 10px; margin: 0 5px; transition: 0.3s ease-in-out; border: 1px solid rgba(0,0,0,0.5);}
+.san_left_right {display: flex; align-items: center; margin-bottom: 10px; margin-right: 30px; justify-content: space-around; width: 100%;}
+.san_left_right a {width: 200px; text-align: center; text-decoration: none; color: rgba(0,0,0,0.5); font-family: 'Serif',sans-serif; font-size: 1rem; padding: 10px 10px; margin: 0 5px; transition: 0.3s ease-in-out; border: 1px solid rgba(0,0,0,0.5);}
 .san_left_right a:hover {border: 1px solid rgba(0,0,0,1); color: black; transform: scale(1.03);}
 
 .dome_section01 {width: 100%; display: flex; flex-direction: column; align-items: center;}
@@ -180,7 +180,7 @@
 .main_sec2_gird {grid-template-columns: repeat(2, 1fr); grid-column-gap: 0.7rem; grid-row-gap: 5rem; display: grid; width: 100%; justify-content: space-between;}
 
 .detail_memo {width: 80%; height: auto; overflow: hidden}
-.main_mobile_top {width: 1005; height: auto; display: none;}
+.main_mobile_top {width: 100%; height: auto; display: none;}
 
 @media screen and (max-width: 1760px) {
     .dome_section01, .dome_section02, .dome_section03 {width: 95%;}
@@ -200,8 +200,7 @@
     .san_main_btm_container .san_main_btm_div1 span {text-align: center; width: 95%; padding: 0;}
     .san_main_btm_container .san_main_btm_div2 {width: 250px; height: 100px;}
     .san_main_btm_container .san_main_btm_div2 .btm_box_span1 {font-size: 1.3rem; text-decoration: none;}
-}
-@media screen and (max-width: 1370px) {
+
     .b_sec4_span1 {margin-bottom: 50px;}
     .brand_section_04 {justify-content: center;}
     .b_sec4_history {width: 100%; border: none; align-items: center; padding: 0; margin-top: 0; margin-bottom: 100px; justify-content: center;}
