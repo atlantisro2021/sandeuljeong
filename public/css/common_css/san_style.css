@@ -193,8 +193,8 @@
 
 @media screen and (max-width: 1370px) {
     .san_main_btm_container {width: 100%; flex-direction: column;}
-    .san_main_btm_container .san_main_btm_div1 {width: 100%;}
-    .san_main_btm_container .san_main_btm_div1 span {text-align: center; width: 100%; padding: 0;}
+    .san_main_btm_container .san_main_btm_div1 {width: 100%; align-items: center; justify-content: center;}
+    .san_main_btm_container .san_main_btm_div1 span {text-align: center; width: 95%; padding: 0;}
     .san_main_btm_container .san_main_btm_div2 {width: 250px; height: 100px;}
     .san_main_btm_container .san_main_btm_div2 .btm_box_span1 {font-size: 1.3rem;}
 }
@@ -229,6 +229,9 @@
     #main .brand_section_03 .main_div .main_bsec2_mid_div_btm div {width: 100%;}
     #main .brand_section_03 .main_div .main_bsec2_mid_div_btm div .main_bsec2_span_top {width: 100%; text-align: center;}
     #main .brand_section_03 .main_div .main_bsec2_mid_div_btm div .main_bsec2_span_btm {width: 100%; text-align: center; margin-bottom: 20px;}
+    .san_main_btm_1 .main_div {align-items: center; justify-content: center;}
+    .san_main_btm_1 .m_sec2_span_3 {text-align: center;}
+    .san_main_btm_1 .main_contents {width: 95%;}
 }
 @media screen and (max-width: 740px) {
     .section_02 .main_div .main_contents {flex-direction: column;}
