@@ -221,6 +221,8 @@
     .shop_section01 {margin-bottom: 50px;}
     .news_section02 {width: 95%;}
     .sec2_btm_page {margin-bottom: 0;}
+    #news .sec2_btm_page {margin-bottom: 50px;}
+    .news_border {margin-top: 50px; margin-bottom: 0;}
 }
 @media screen and (max-width: 924px) {
     .m_sec2_span_1, .m_sec2_span_2, .m_sec2_span_3 {padding: 0 20px;}
@@ -253,6 +255,7 @@
 
 @media screen and (max-width: 560px) {
     .dome_span3 {width: 100%; text-align: center; font-size: 1.5rem;}
+    .div_history {width: 100%; text-align: center; justify-content: center; align-items: center;}
 }
 
 @media screen and (max-width: 500px) {
