@@ -241,9 +241,9 @@
     .san_main_btm_1 .m_sec2_span_3 {text-align: center;}
     .san_main_btm_1 .main_contents {width: 95%;}
     .submit_dome {margin-top: 20px;}
-    #detail {display: flex; flex-direction: column-reverse; align-items: center; justify-content: center;}
+    #detail {display: flex; flex-direction: column; align-items: center; justify-content: center;}
     #detail .container {align-items: center; justify-content: center;}
-    #detail .container .detail_section02 {width: 95%;}
+    #detail .container .detail_section02 {width: 90%;}
 }
 @media screen and (max-width: 740px) {
     .section_02 .main_div .main_contents {flex-direction: column;}
