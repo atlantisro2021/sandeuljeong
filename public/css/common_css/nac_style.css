@@ -147,7 +147,7 @@ body {
 @media screen and (max-width: 924px) {
     #main .main_div {width: 100%;}
     #main .main_sec1 {flex-direction: column; align-items: center;}
-    .main_bsec2_mid_div_btm .san_main_sec1_div {width: 100%; margin-bottom: 10px;}
+    .main_bsec2_mid_div_btm .san_main_sec1_div {width: 100%; margin-bottom: 20px;}
     .main_bsec2_span_top, .main_bsec2_span_btm {text-align: center!important;}
 }
 
@@ -160,7 +160,7 @@ body {
 .mgn_btm_border div .img_right {padding: 0;}
 .main_bsec2_span_top {width: 100%; text-align: left; color: black; font-family: 'Serif', sans-serif; font-size: 1.4rem; font-weight: 200;}
 .main_bsec2_span_btm {width: 100%; text-align: left; color: black; font-family: 'Sans', sans-serif; font-size: 1rem; font-weight: 300; margin: 0;}
-#main .container .section_02 {margin: 140px 0;}
+#main .container .section_02 {margin: 70px 0;}
 
 
 #main .section_03 {background-color: rgb(244,244,244);}

@@ -177,7 +177,7 @@
 
 .main_shop_web {}
 #main .main_shop_mobile {display: none;}
-.main_sec2_gird {grid-template-rows: auto; grid-template-columns: 1fr 1fr; display: grid;}
+.main_sec2_gird {grid-template-columns: repeat(2, 1fr); grid-column-gap: 0.7rem; grid-row-gap: 5rem; display: grid; width: 100%; justify-content: space-between;}
 
 .detail_memo {width: 80%; height: auto; overflow: hidden}
 .detail_memo img {width: 100%!important;}
@@ -220,7 +220,6 @@
     .m_sec2_span_1, .m_sec2_span_2, .m_sec2_span_3 {padding: 0 20px;}
 }
 @media screen and (max-width: 770px) {
-    .main_sec2_gird {display: flex; flex-direction: column;}
     .main_div .san_sec3_img_div {width: 100%;}
     .main_div .shop_span1 {text-align: center;}
     .main_div .shop_span_btm {margin-bottom: 30px;}
