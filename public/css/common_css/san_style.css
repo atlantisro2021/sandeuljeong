@@ -180,6 +180,7 @@
 .main_sec2_gird {grid-template-columns: repeat(2, 1fr); grid-column-gap: 0.7rem; grid-row-gap: 5rem; display: grid; width: 100%; justify-content: space-between;}
 
 .detail_memo {width: 80%; height: auto; overflow: hidden}
+.main_mobile_top {width: 1005; height: auto; display: none;}
 
 @media screen and (max-width: 1760px) {
     .dome_section01, .dome_section02, .dome_section03 {width: 95%;}
@@ -262,6 +263,11 @@
     .brand_section_03 .sec3_span1 {font-size: 1.5rem;}
     .brand_section_03 .sec3_span2 {font-size: 1.1rem;}
     .main_bsec2_span_top {font-size: 1.2rem;}
+}
+
+@media screen and (max-width: 720px) {
+    .main_mobile_top {display: flex;}
+    .main_web_top {display: none;}
 }
 
 @media screen and (max-width: 560px) {
