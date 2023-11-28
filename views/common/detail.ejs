@@ -32,18 +32,14 @@
                     // 그렇지 않은 경우, 원래 너비를 유지합니다.
                 });
 
-                var regdateWidth = $(".detail_regdate").width();
-                $("#left").css("width", regdateWidth + "px");
-
-                // 새로 추가하는 코드
                 $('.detail_memo img').each(function() {
-                    var memoWidth = $('.detail_memo').width();
-                    var imgWidth = $(this).width();
+                    var imgWidth = $(this).width(); // 이미지의 원래 너비
+                    var memoWidth = $('.detail_memo').width(); // detail_memo의 너비
 
+                    // 이미지의 너비가 detail_memo보다 큰 경우에만 width: 100%를 적용합니다.
                     if (imgWidth > memoWidth) {
                         $(this).css('width', '100%');
                     }
-                    // 이미지가 detail_memo div보다 작거나 같은 경우에는 원본 너비를 유지합니다.
                 });
             });
         </script>

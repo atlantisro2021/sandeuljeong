@@ -215,7 +215,6 @@
     .dome_span4 {margin-bottom: 20px;}
     .project_div {grid-template-columns: repeat(2, 1fr);}
     .news_section02 .main_div {width: 100%;}
-    .detail_memo {width: 100%;}
     #header .right_div {margin-right: -10px;}
     .shop_section01 {margin-bottom: 50px;}
     .news_section02 {width: 95%;}
@@ -284,4 +283,5 @@
     .dome_span1, .dome_span2 {font-size: 1.7rem;}
     .detail_gallery_type {width: 100%; text-align: center;}
     #header .side_menu {width: 100%;}
+    .detail_memo img {width: 100% !important;}
 }
