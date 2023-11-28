@@ -251,6 +251,12 @@
     .brand_sec2_icon {width: 270px;}
     #main .container .san_main_btm_1 {margin-top: 70px; margin-bottom: 0;}
     .san_main_btm {margin-top: 0;}
+    .brand_section_03 {margin: 0;}
+    .b_sec4_border {margin-bottom: 0; margin-top: 50px;}
+    .brand_section_02, .brand_section_03, .brand_section_04 {width: 95%;}
+    .brand_section_02 {margin: 50px 0;}
+    .brand_section_03 .sec3_span1 {font-size: 1.5rem;}
+    .brand_section_03 .sec3_span2 {font-size: 1.1rem;}
 }
 
 @media screen and (max-width: 560px) {
