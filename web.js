@@ -1461,3 +1461,10 @@ http.createServer((req, res) => {
 }).listen(80, () => {
     console.log('HTTP server listening on port 80');
 });
+
+app.get("/robots.txt", (req, res) => {
+    res.type("text/plain");
+    res.send(
+        "User-agent: *\nDisallow: /admin/\nDisallow: /store/orders/\nDisallow: /store/orders/kr/\nDisallow: /store/orders/jp/\n"
+    );
+});
