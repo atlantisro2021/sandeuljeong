@@ -169,6 +169,7 @@
 .detail_gallery_type {font-family: 'Shri',sans-serif; font-size: 2rem; color: #3E451E;}
 .detail_regdate {font-family: 'Sans',sans-serif; font-size: 1rem; color: rgba(62,69,30,1); font-weight: 200; margin: 20px 0;}
 .gallery_top_span {font-family: 'Serif',sans-serif; font-size: 1.5rem; color: #3E451E; padding-bottom: 20px; margin-bottom: 30px; border-bottom: 1px solid rgba(62,69,30,0.4);}
+.detail_memo {width: 80%; height: auto; overflow: hidden}
 
 .main_plus {width: 100%; display: flex; margin-bottom: 10px; justify-content: space-between; align-items: center;}
 .main_plus a {transition: 0.3s ease-in-out; text-decoration: none; color: black; font-family: 'Sans', sans-serif; font-size: 1rem;}
@@ -179,7 +180,7 @@
 #main .main_shop_mobile {display: none;}
 .main_sec2_gird {grid-template-columns: repeat(2, 1fr); grid-column-gap: 0.7rem; grid-row-gap: 5rem; display: grid; width: 100%; justify-content: space-between;}
 
-.detail_memo {width: 80%; height: auto; overflow: hidden}
+
 .main_mobile_top {width: 100%; height: auto; display: none;}
 
 @media screen and (max-width: 1760px) {
