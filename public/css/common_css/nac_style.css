@@ -348,3 +348,4 @@ header#header div.right_div input[id="menu-icon"]:checked+label span:nth-child(3
 /*프로젝트*/
 
 .mgn_btm_project div a {width: 100%; display: inline-block; overflow: hidden;}
+.main_bsec2_span_regdate {width: 100%; text-align: left; color: black; font-family: 'Serif', sans-serif; font-size: 1.1rem; margin: 10px 0; font-weight: 200;}
